@@ -1,0 +1,1621 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Kamila Fazilatunisa_120410230109_TS\Logfile/PostTestLab8TS.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}11 Nov 2025, 20:20:35
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. webuse txhprice
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. des
+
+{txt}Contains data from {res}https://www.stata-press.com/data/r17/txhprice.dta
+{txt} Observations:{res}           168                  
+{txt}    Variables:{res}             5                  1 May 2020 07:49
+                                              (_dta has notes)
+{txt}{hline}
+Variable      Storage   Display    Value
+    name         type    format    label      Variable label
+{hline}
+{p 0 48}{res}{bind:austin         }{txt}{bind: double  }{bind:{txt}%12.0g    }{space 1}{bind:         }{stata "notes list austin":*} {res}ln of house prices in austin{p_end}
+{p 0 48}{bind:t              }{txt}{bind: float   }{bind:{txt}%tm       }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:dallas         }{txt}{bind: double  }{bind:{txt}%12.0g    }{space 1}{bind:         }{stata "notes list dallas":*} {res}ln of house prices in dallas{p_end}
+{p 0 48}{bind:houston        }{txt}{bind: double  }{bind:{txt}%12.0g    }{space 1}{bind:         }{stata "notes list houston":*} {res}ln of house prices in houston{p_end}
+{p 0 48}{bind:sa             }{txt}{bind: double  }{bind:{txt}%12.0g    }{space 1}{bind:         }{stata "notes list sa":*} {res}ln of house prices in san antonio{p_end}
+                                            {txt}* indicated variables have notes
+{hline}
+Sorted by: 
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. br
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. br
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. tsset t, monthly
+{res}
+{p 0 15 2}{txt:Time variable: }{res:t}{txt:, }{res:{bind:1990m1}}{txt: to }{res:{bind:2003m12}}{p_end}
+{txt}{col 9}Delta: {res}1 month
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. //Kamila Fazilatunisa_120410230109_Posttestlab8TS
+. 
+. *1. Masukan txhprice.dta yang berasal dari web stata! (2%) 
+. cd "C:\Kamila Fazilatunisa_120410230109_TS"
+{res}C:\Kamila Fazilatunisa_120410230109_TS
+{txt}
+{com}. global data "C:\Kamila Fazilatunisa_120410230109_TS\Data"
+{txt}
+{com}. global log "C:\Kamila Fazilatunisa_120410230109_TS\Logfile"
+{txt}
+{com}. global output "C:\Kamila Fazilatunisa_120410230109_TS\Output"
+{txt}
+{com}. 
+. log using "$log/PostTestLab8TS"
+{err}log file already open
+{txt}{search r(604), local:r(604);}
+
+end of do-file
+
+{search r(604), local:r(604);}
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. dfuller austin
+
+{txt}Dickey–Fuller test for unit root{col 43}Number of obs  = {res}{ralign 3:167}
+{txt}Variable: {res}austin{txt}{col 43}Number of lags = {res}{ralign 3:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}     -1.326       -3.488       -2.886       -2.576
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.6170{txt}.
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. dfuller dallas //
+
+{txt}Dickey–Fuller test for unit root{col 43}Number of obs  = {res}{ralign 3:167}
+{txt}Variable: {res}dallas{txt}{col 43}Number of lags = {res}{ralign 3:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}     -1.159       -3.488       -2.886       -2.576
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.6910{txt}.
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. dfuller houston
+
+{txt}Dickey–Fuller test for unit root{col 43}Number of obs  = {res}{ralign 3:167}
+{txt}Variable: {res}houston{txt}{col 43}Number of lags = {res}{ralign 3:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}     -1.511       -3.488       -2.886       -2.576
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.5280{txt}.
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. dfuller sa
+
+{txt}Dickey–Fuller test for unit root{col 43}Number of obs  = {res}{ralign 3:167}
+{txt}Variable: {res}sa{txt}{col 43}Number of lags = {res}{ralign 3:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}     -2.335       -3.488       -2.886       -2.576
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.1608{txt}.
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. dfuller d.austin
+
+{txt}Dickey–Fuller test for unit root{col 43}Number of obs  = {res}{ralign 3:166}
+{txt}Variable: {res}D.austin{txt}{col 43}Number of lags = {res}{ralign 3:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}    -18.321       -3.488       -2.886       -2.576
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.0000{txt}.
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. dfuller d.dallas 
+
+{txt}Dickey–Fuller test for unit root{col 43}Number of obs  = {res}{ralign 3:166}
+{txt}Variable: {res}D.dallas{txt}{col 43}Number of lags = {res}{ralign 3:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}    -17.932       -3.488       -2.886       -2.576
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.0000{txt}.
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. dfuller d.houston // sudah stasioner
+
+{txt}Dickey–Fuller test for unit root{col 43}Number of obs  = {res}{ralign 3:166}
+{txt}Variable: {res}D.houston{txt}{col 43}Number of lags = {res}{ralign 3:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}    -22.496       -3.488       -2.886       -2.576
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.0000{txt}.
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. dfuller d.sa
+
+{txt}Dickey–Fuller test for unit root{col 43}Number of obs  = {res}{ralign 3:166}
+{txt}Variable: {res}D.sa{txt}{col 43}Number of lags = {res}{ralign 3:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}    -17.041       -3.488       -2.886       -2.576
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.0000{txt}.
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. varsoc d.austion d.dallas d.houston d.sa
+{err}variable {bf}austion{sf} not found
+{txt}{search r(111), local:r(111);}
+
+end of do-file
+
+{search r(111), local:r(111);}
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. varsoc d.austin d.dallas d.houston d.sa
+
+{txt}Lag-order selection criteria
+
+{col 4}Sample: {res}1990m6 {txt}thru{res} 2003m12 {txt}{col 60}Number of obs = {res}163
+{col 3}{text}{c TLC}{hline 5}{c TT}{hline 9}{hline 8}{hline 1}{hline 5}{hline 6}{hline 8}{hline 1}{hline 9}{hline 1}{hline 9}{hline 1}{hline 9}{hline 1}{hline 1}{c TRC}
+{col 3}{text}{c |} Lag{col 9}{c |}    LL  {col 19}   LR  {col 28}  df{col 33}   p {col 39}   FPE {col 48}    AIC {col 58}   HQIC {col 68}   SBIC {col 79}{c |}
+{res}{col 3}{text}{c LT}{hline 5}{c +}{hline 9}{hline 8}{hline 1}{hline 5}{hline 6}{hline 8}{hline 1}{hline 9}{hline 1}{hline 9}{hline 1}{hline 9}{hline 1}{hline 1}{c RT}
+{col 3}{text}{c |}   0{col 9}{c |}{result}{space 1} 1023.77{col 19}{col 28}{col 33}{col 39} 4.3e-11{col 48}{space 1}-12.5125{col 58}{space 1}-12.4817{col 68}{space 1}-12.4366{col 79}{text}{c |}
+{res}{col 3}{text}{c |}   1{col 9}{c |}{result}{space 1} 1094.95{col 19}{space 1} 142.36{col 28}  16{col 33} 0.000{col 39} 2.2e-11{col 48}{space 1}-13.1895{col 58}{space 1}-13.0354{col 68}{space 1}-12.8099{col 77}{txt}*{res}{col 79}{text}{c |}
+{res}{col 3}{text}{c |}   2{col 9}{c |}{result}{space 1} 1121.61{col 19}{space 1} 53.329{col 28}  16{col 33} 0.000{col 39} 1.9e-11{col 48}{space 1}-13.3204{col 58}{space 1} -13.043{col 67}{txt}*{res}{col 68}{space 1}-12.6371{col 79}{text}{c |}
+{res}{col 3}{text}{c |}   3{col 9}{c |}{result}{space 1} 1147.34{col 19}{space 1} 51.454{col 28}  16{col 33} 0.000{col 39} 1.7e-11{col 48}{space 1}-13.4397{col 58}{space 1} -13.039{col 68}{space 1}-12.4528{col 79}{text}{c |}
+{res}{col 3}{text}{c |}   4{col 9}{c |}{result}{space 1} 1169.67{col 19}{space 1} 44.656{col 27}{txt}*{res}{col 28}  16{col 33} 0.000{col 39} 1.6e-11{col 47}{txt}*{res}{col 48}{space 1}-13.5174{col 57}{txt}*{res}{col 58}{space 1}-12.9934{col 68}{space 1}-12.2267{col 79}{text}{c |}
+{res}{col 3}{text}{c BLC}{hline 5}{c BT}{hline 9}{hline 8}{hline 1}{hline 5}{hline 6}{hline 8}{hline 1}{hline 9}{hline 1}{hline 9}{hline 1}{hline 9}{hline 1}{hline 1}{c BRC}
+{res}{txt}{space 3}* optimal lag
+{space 3}Endogenous: {res}D.austin D.dallas D.houston D.sa
+{txt}{space 3} Exogenous: {res}_cons
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. var d.austin d.dallas d.houston d.sa, lags(1/4)
+{res}
+{txt}Vector autoregression
+
+{col 1}Sample: {res}1990m6 {txt}thru{res} 2003m12 {txt}{col 49}Number of obs{col 67}= {res}       163
+{txt}Log likelihood =  {res} 1169.667{txt}{col 38}{col 49}AIC{col 67}=  {res}-13.51739
+{txt}FPE{col 16}=  {res} 1.59e-11{txt}{col 49}HQIC{col 67}=  {res} -12.9934
+{txt}Det(Sigma_ml){col 16}=  {res} 6.87e-12{txt}{col 49}SBIC{col 67}=  {res}-12.22674
+
+{col 1}{text}Equation        {col 18}  Parms{col 26}     RMSE {col 37}   R-sq  {col 47}   chi2   {col 58} P>chi2
+{res}{col 1}{text}{hline 17}{hline 8}{hline 11}{hline 10}{hline 11}{hline 7}
+{col 1}{text}D_austin        {col 18}{result}    17{col 26}{space 2} .040423{col 37}{space 1} 0.3384{col 47} 83.35657{col 58} 0.0000
+{col 1}{text}D_dallas        {col 18}{result}    17{col 26}{space 2} .038827{col 37}{space 1} 0.2162{col 47} 44.95963{col 58} 0.0001
+{col 1}{text}D_houston       {col 18}{result}    17{col 26}{space 2} .045141{col 37}{space 1} 0.4310{col 47} 123.4556{col 58} 0.0000
+{col 1}{text}D_sa            {col 18}{result}    17{col 26}{space 2} .052161{col 37}{space 1} 0.3560{col 47} 90.10814{col 58} 0.0000
+{col 1}{text}{hline 17}{hline 8}{hline 11}{hline 10}{hline 11}{hline 7}
+{res}
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}D_austin     {txt}{c |}
+{space 6}austin {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2}-.5025149{col 26}{space 2}  .073673{col 37}{space 1}   -6.82{col 46}{space 3}0.000{col 54}{space 4}-.6469113{col 67}{space 3}-.3581186
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2}-.4758803{col 26}{space 2} .0759489{col 37}{space 1}   -6.27{col 46}{space 3}0.000{col 54}{space 4}-.6247374{col 67}{space 3}-.3270232
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2}-.2887627{col 26}{space 2} .0762016{col 37}{space 1}   -3.79{col 46}{space 3}0.000{col 54}{space 4}-.4381151{col 67}{space 3}-.1394103
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2} -.271806{col 26}{space 2} .0654757{col 37}{space 1}   -4.15{col 46}{space 3}0.000{col 54}{space 4}-.4001361{col 67}{space 3} -.143476
+{txt}{space 12} {c |}
+{space 6}dallas {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2} .2180335{col 26}{space 2} .0861181{col 37}{space 1}    2.53{col 46}{space 3}0.011{col 54}{space 4} .0492452{col 67}{space 3} .3868218
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2} .1604064{col 26}{space 2} .0956599{col 37}{space 1}    1.68{col 46}{space 3}0.094{col 54}{space 4}-.0270836{col 67}{space 3} .3478964
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2} .2400772{col 26}{space 2} .0955611{col 37}{space 1}    2.51{col 46}{space 3}0.012{col 54}{space 4} .0527809{col 67}{space 3} .4273736
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2} .1138827{col 26}{space 2} .0918667{col 37}{space 1}    1.24{col 46}{space 3}0.215{col 54}{space 4}-.0661727{col 67}{space 3} .2939382
+{txt}{space 12} {c |}
+{space 5}houston {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2} .0759669{col 26}{space 2} .0729647{col 37}{space 1}    1.04{col 46}{space 3}0.298{col 54}{space 4}-.0670412{col 67}{space 3}  .218975
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2} .0343471{col 26}{space 2} .0832345{col 37}{space 1}    0.41{col 46}{space 3}0.680{col 54}{space 4}-.1287896{col 67}{space 3} .1974837
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2} .0669879{col 26}{space 2} .0827363{col 37}{space 1}    0.81{col 46}{space 3}0.418{col 54}{space 4}-.0951722{col 67}{space 3} .2291479
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2}-.0627716{col 26}{space 2} .0685753{col 37}{space 1}   -0.92{col 46}{space 3}0.360{col 54}{space 4}-.1971767{col 67}{space 3} .0716335
+{txt}{space 12} {c |}
+{space 10}sa {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2}-.1566029{col 26}{space 2} .0616982{col 37}{space 1}   -2.54{col 46}{space 3}0.011{col 54}{space 4}-.2775291{col 67}{space 3}-.0356766
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2} -.069286{col 26}{space 2} .0686926{col 37}{space 1}   -1.01{col 46}{space 3}0.313{col 54}{space 4}-.2039211{col 67}{space 3}  .065349
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2}-.0603643{col 26}{space 2} .0684937{col 37}{space 1}   -0.88{col 46}{space 3}0.378{col 54}{space 4}-.1946095{col 67}{space 3} .0738808
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2} .0040981{col 26}{space 2} .0613888{col 37}{space 1}    0.07{col 46}{space 3}0.947{col 54}{space 4}-.1162218{col 67}{space 3}  .124418
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0117633{col 26}{space 2} .0032407{col 37}{space 1}    3.63{col 46}{space 3}0.000{col 54}{space 4} .0054117{col 67}{space 3} .0181149
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}D_dallas     {txt}{c |}
+{space 6}austin {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2} .0606562{col 26}{space 2}  .070764{col 37}{space 1}    0.86{col 46}{space 3}0.391{col 54}{space 4}-.0780387{col 67}{space 3} .1993511
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2}-.0134128{col 26}{space 2} .0729501{col 37}{space 1}   -0.18{col 46}{space 3}0.854{col 54}{space 4}-.1563923{col 67}{space 3} .1295667
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2}-.1373197{col 26}{space 2} .0731928{col 37}{space 1}   -1.88{col 46}{space 3}0.061{col 54}{space 4}-.2807749{col 67}{space 3} .0061356
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2} -.144897{col 26}{space 2} .0628904{col 37}{space 1}   -2.30{col 46}{space 3}0.021{col 54}{space 4}  -.26816{col 67}{space 3}-.0216341
+{txt}{space 12} {c |}
+{space 6}dallas {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2}-.3844907{col 26}{space 2} .0827177{col 37}{space 1}   -4.65{col 46}{space 3}0.000{col 54}{space 4}-.5466144{col 67}{space 3} -.222367
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2}-.1249378{col 26}{space 2} .0918828{col 37}{space 1}   -1.36{col 46}{space 3}0.174{col 54}{space 4}-.3050248{col 67}{space 3} .0551492
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2}-.0924676{col 26}{space 2} .0917879{col 37}{space 1}   -1.01{col 46}{space 3}0.314{col 54}{space 4}-.2723685{col 67}{space 3} .0874334
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2} .0690966{col 26}{space 2} .0882394{col 37}{space 1}    0.78{col 46}{space 3}0.434{col 54}{space 4}-.1038494{col 67}{space 3} .2420425
+{txt}{space 12} {c |}
+{space 5}houston {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2} .0551796{col 26}{space 2} .0700837{col 37}{space 1}    0.79{col 46}{space 3}0.431{col 54}{space 4}-.0821818{col 67}{space 3} .1925411
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2} .1155436{col 26}{space 2}  .079948{col 37}{space 1}    1.45{col 46}{space 3}0.148{col 54}{space 4}-.0411516{col 67}{space 3} .2722389
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2} .1142321{col 26}{space 2} .0794694{col 37}{space 1}    1.44{col 46}{space 3}0.151{col 54}{space 4}-.0415252{col 67}{space 3} .2699893
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2}  .046669{col 26}{space 2} .0658676{col 37}{space 1}    0.71{col 46}{space 3}0.479{col 54}{space 4}-.0824292{col 67}{space 3} .1757671
+{txt}{space 12} {c |}
+{space 10}sa {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2}-.0528748{col 26}{space 2} .0592621{col 37}{space 1}   -0.89{col 46}{space 3}0.372{col 54}{space 4}-.1690263{col 67}{space 3} .0632767
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2}-.0285762{col 26}{space 2} .0659803{col 37}{space 1}   -0.43{col 46}{space 3}0.665{col 54}{space 4}-.1578952{col 67}{space 3} .1007428
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2}-.1549456{col 26}{space 2} .0657892{col 37}{space 1}   -2.36{col 46}{space 3}0.019{col 54}{space 4}-.2838901{col 67}{space 3}-.0260011
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2}-.1193388{col 26}{space 2} .0589649{col 37}{space 1}   -2.02{col 46}{space 3}0.043{col 54}{space 4}-.2349079{col 67}{space 3}-.0037697
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0055603{col 26}{space 2} .0031127{col 37}{space 1}    1.79{col 46}{space 3}0.074{col 54}{space 4}-.0005405{col 67}{space 3} .0116611
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}D_houston    {txt}{c |}
+{space 6}austin {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2} .0532213{col 26}{space 2} .0822713{col 37}{space 1}    0.65{col 46}{space 3}0.518{col 54}{space 4}-.1080274{col 67}{space 3}   .21447
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2}-.0155209{col 26}{space 2} .0848128{col 37}{space 1}   -0.18{col 46}{space 3}0.855{col 54}{space 4}-.1817509{col 67}{space 3} .1507092
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2} .0085806{col 26}{space 2}  .085095{col 37}{space 1}    0.10{col 46}{space 3}0.920{col 54}{space 4}-.1582026{col 67}{space 3} .1753638
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2}-.0154891{col 26}{space 2} .0731173{col 37}{space 1}   -0.21{col 46}{space 3}0.832{col 54}{space 4}-.1587964{col 67}{space 3} .1278182
+{txt}{space 12} {c |}
+{space 6}dallas {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2} .2196116{col 26}{space 2} .0961688{col 37}{space 1}    2.28{col 46}{space 3}0.022{col 54}{space 4} .0311243{col 67}{space 3}  .408099
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2} .2368868{col 26}{space 2} .1068243{col 37}{space 1}    2.22{col 46}{space 3}0.027{col 54}{space 4}  .027515{col 67}{space 3} .4462586
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2} .4295135{col 26}{space 2} .1067139{col 37}{space 1}    4.02{col 46}{space 3}0.000{col 54}{space 4} .2203581{col 67}{space 3}  .638669
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2} .0481158{col 26}{space 2} .1025884{col 37}{space 1}    0.47{col 46}{space 3}0.639{col 54}{space 4}-.1529537{col 67}{space 3} .2491853
+{txt}{space 12} {c |}
+{space 5}houston {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2}-.6431921{col 26}{space 2} .0814803{col 37}{space 1}   -7.89{col 46}{space 3}0.000{col 54}{space 4}-.8028905{col 67}{space 3}-.4834937
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2}-.1973141{col 26}{space 2} .0929487{col 37}{space 1}   -2.12{col 46}{space 3}0.034{col 54}{space 4}-.3794903{col 67}{space 3} -.015138
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2} -.242443{col 26}{space 2} .0923923{col 37}{space 1}   -2.62{col 46}{space 3}0.009{col 54}{space 4}-.4235286{col 67}{space 3}-.0613574
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2}-.1542861{col 26}{space 2} .0765786{col 37}{space 1}   -2.01{col 46}{space 3}0.044{col 54}{space 4}-.3043774{col 67}{space 3}-.0041947
+{txt}{space 12} {c |}
+{space 10}sa {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2} .1348816{col 26}{space 2} .0688989{col 37}{space 1}    1.96{col 46}{space 3}0.050{col 54}{space 4}-.0001578{col 67}{space 3} .2699211
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2}-.0574214{col 26}{space 2} .0767097{col 37}{space 1}   -0.75{col 46}{space 3}0.454{col 54}{space 4}-.2077696{col 67}{space 3} .0929268
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2}-.1575978{col 26}{space 2} .0764875{col 37}{space 1}   -2.06{col 46}{space 3}0.039{col 54}{space 4}-.3075106{col 67}{space 3}-.0076851
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2}-.1049591{col 26}{space 2} .0685534{col 37}{space 1}   -1.53{col 46}{space 3}0.126{col 54}{space 4}-.2393214{col 67}{space 3} .0294032
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0067183{col 26}{space 2} .0036189{col 37}{space 1}    1.86{col 46}{space 3}0.063{col 54}{space 4}-.0003746{col 67}{space 3} .0138112
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}D_sa         {txt}{c |}
+{space 6}austin {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2} .1462885{col 26}{space 2} .0950648{col 37}{space 1}    1.54{col 46}{space 3}0.124{col 54}{space 4}-.0400352{col 67}{space 3} .3326122
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2} .2386098{col 26}{space 2} .0980016{col 37}{space 1}    2.43{col 46}{space 3}0.015{col 54}{space 4} .0465301{col 67}{space 3} .4306894
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2}-.0255367{col 26}{space 2} .0983277{col 37}{space 1}   -0.26{col 46}{space 3}0.795{col 54}{space 4}-.2182555{col 67}{space 3} .1671821
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2} .0667729{col 26}{space 2} .0844874{col 37}{space 1}    0.79{col 46}{space 3}0.429{col 54}{space 4}-.0988195{col 67}{space 3} .2323652
+{txt}{space 12} {c |}
+{space 6}dallas {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2}  .234894{col 26}{space 2} .1111235{col 37}{space 1}    2.11{col 46}{space 3}0.035{col 54}{space 4} .0170958{col 67}{space 3} .4526921
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2} .1565629{col 26}{space 2}  .123436{col 37}{space 1}    1.27{col 46}{space 3}0.205{col 54}{space 4}-.0853672{col 67}{space 3} .3984931
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2} .1773291{col 26}{space 2} .1233085{col 37}{space 1}    1.44{col 46}{space 3}0.150{col 54}{space 4}-.0643511{col 67}{space 3} .4190093
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2}  .083718{col 26}{space 2} .1185414{col 37}{space 1}    0.71{col 46}{space 3}0.480{col 54}{space 4}-.1486188{col 67}{space 3} .3160548
+{txt}{space 12} {c |}
+{space 5}houston {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2} .1292059{col 26}{space 2} .0941509{col 37}{space 1}    1.37{col 46}{space 3}0.170{col 54}{space 4}-.0553265{col 67}{space 3} .3137382
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2} .2016881{col 26}{space 2} .1074027{col 37}{space 1}    1.88{col 46}{space 3}0.060{col 54}{space 4}-.0088174{col 67}{space 3} .4121936
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2} .0604341{col 26}{space 2} .1067598{col 37}{space 1}    0.57{col 46}{space 3}0.571{col 54}{space 4}-.1488113{col 67}{space 3} .2696794
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2}-.0148633{col 26}{space 2}  .088487{col 37}{space 1}   -0.17{col 46}{space 3}0.867{col 54}{space 4}-.1882946{col 67}{space 3} .1585681
+{txt}{space 12} {c |}
+{space 10}sa {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2}-.5976022{col 26}{space 2} .0796131{col 37}{space 1}   -7.51{col 46}{space 3}0.000{col 54}{space 4} -.753641{col 67}{space 3}-.4415634
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2}-.5493778{col 26}{space 2} .0886384{col 37}{space 1}   -6.20{col 46}{space 3}0.000{col 54}{space 4}-.7231059{col 67}{space 3}-.3756497
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2}-.4050557{col 26}{space 2} .0883817{col 37}{space 1}   -4.58{col 46}{space 3}0.000{col 54}{space 4}-.5782807{col 67}{space 3}-.2318307
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2}-.2631087{col 26}{space 2} .0792139{col 37}{space 1}   -3.32{col 46}{space 3}0.001{col 54}{space 4} -.418365{col 67}{space 3}-.1078524
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0025645{col 26}{space 2} .0041817{col 37}{space 1}    0.61{col 46}{space 3}0.540{col 54}{space 4}-.0056313{col 67}{space 3} .0107604
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. vargranger
+
+{txt}{col 4}Granger causality Wald tests
+{res}{col 3}{text}{c TLC}{hline 19}{hline 19}{c TT}{hline 9}{hline 6}{hline 12}{c TRC}
+{col 3}{text}{c |}          Equation{col 23}          Excluded{col 42}{c |}   chi2 {col 52}   df{col 58}Prob > chi2{col 70}{c |}
+{res}{col 3}{text}{c LT}{hline 19}{hline 19}{c +}{hline 9}{hline 6}{hline 12}{c RT}
+{col 3}{text}{c |}          D_austin{col 23}          D.dallas{col 42}{c |}{result}{space 1} 10.624{col 52}    4{col 58}{space 2} 0.031{col 70}{text}{c |}
+{res}{col 3}{text}{c |}          D_austin{col 23}         D.houston{col 42}{c |}{result}{space 1} 5.8174{col 52}    4{col 58}{space 2} 0.213{col 70}{text}{c |}
+{res}{col 3}{text}{c |}          D_austin{col 23}              D.sa{col 42}{c |}{result}{space 1}   6.87{col 52}    4{col 58}{space 2} 0.143{col 70}{text}{c |}
+{res}{col 3}{text}{c |}          D_austin{col 23}               ALL{col 42}{c |}{result}{space 1} 23.561{col 52}   12{col 58}{space 2} 0.023{col 70}{text}{c |}
+{res}{col 3}{text}{c LT}{hline 19}{hline 19}{c +}{hline 9}{hline 6}{hline 12}{c RT}
+{col 3}{text}{c |}          D_dallas{col 23}          D.austin{col 42}{c |}{result}{space 1} 9.8429{col 52}    4{col 58}{space 2} 0.043{col 70}{text}{c |}
+{res}{col 3}{text}{c |}          D_dallas{col 23}         D.houston{col 42}{c |}{result}{space 1} 2.6867{col 52}    4{col 58}{space 2} 0.612{col 70}{text}{c |}
+{res}{col 3}{text}{c |}          D_dallas{col 23}              D.sa{col 42}{c |}{result}{space 1}  7.884{col 52}    4{col 58}{space 2} 0.096{col 70}{text}{c |}
+{res}{col 3}{text}{c |}          D_dallas{col 23}               ALL{col 42}{c |}{result}{space 1} 17.533{col 52}   12{col 58}{space 2} 0.131{col 70}{text}{c |}
+{res}{col 3}{text}{c LT}{hline 19}{hline 19}{c +}{hline 9}{hline 6}{hline 12}{c RT}
+{col 3}{text}{c |}         D_houston{col 23}          D.austin{col 42}{c |}{result}{space 1} .86338{col 52}    4{col 58}{space 2} 0.930{col 70}{text}{c |}
+{res}{col 3}{text}{c |}         D_houston{col 23}          D.dallas{col 42}{c |}{result}{space 1} 21.867{col 52}    4{col 58}{space 2} 0.000{col 70}{text}{c |}
+{res}{col 3}{text}{c |}         D_houston{col 23}              D.sa{col 42}{c |}{result}{space 1} 13.738{col 52}    4{col 58}{space 2} 0.008{col 70}{text}{c |}
+{res}{col 3}{text}{c |}         D_houston{col 23}               ALL{col 42}{c |}{result}{space 1} 40.841{col 52}   12{col 58}{space 2} 0.000{col 70}{text}{c |}
+{res}{col 3}{text}{c LT}{hline 19}{hline 19}{c +}{hline 9}{hline 6}{hline 12}{c RT}
+{col 3}{text}{c |}              D_sa{col 23}          D.austin{col 42}{c |}{result}{space 1} 10.793{col 52}    4{col 58}{space 2} 0.029{col 70}{text}{c |}
+{res}{col 3}{text}{c |}              D_sa{col 23}          D.dallas{col 42}{c |}{result}{space 1} 5.5665{col 52}    4{col 58}{space 2} 0.234{col 70}{text}{c |}
+{res}{col 3}{text}{c |}              D_sa{col 23}         D.houston{col 42}{c |}{result}{space 1} 4.0629{col 52}    4{col 58}{space 2} 0.398{col 70}{text}{c |}
+{res}{col 3}{text}{c |}              D_sa{col 23}               ALL{col 42}{c |}{result}{space 1} 28.951{col 52}   12{col 58}{space 2} 0.004{col 70}{text}{c |}
+{res}{col 3}{text}{c BLC}{hline 19}{hline 19}{c BT}{hline 9}{hline 6}{hline 12}{c BRC}
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. varstable, graph
+{res}
+{txt}{col 4}Eigenvalue stability condition
+{col 3}{text}{c TLC}{hline 26}{c TT}{hline 13}{c TRC}
+{col 3}{text}{c |}        Eigenvalue       {col 30}{c |}   Modulus  {col 44}{c |}
+{res}{col 3}{text}{c LT}{hline 26}{c +}{hline 13}{c RT}
+{col 3}{text}{c |}{result}{space 1}  .1505004{col 16}+  .7506367{it:i}{col 30}{text}{c |}{result}{space 2} .765575{col 44}{text}{c |}
+{res}{col 3}{text}{c |}{result}{space 1}  .1505004{col 16}-  .7506367{it:i}{col 30}{text}{c |}{result}{space 2} .765575{col 44}{text}{c |}
+{res}{col 3}{text}{c |}{result}{space 1}  .2859441{col 16}+  .6919745{it:i}{col 30}{text}{c |}{result}{space 2} .748727{col 44}{text}{c |}
+{res}{col 3}{text}{c |}{result}{space 1}  .2859441{col 16}-  .6919745{it:i}{col 30}{text}{c |}{result}{space 2} .748727{col 44}{text}{c |}
+{res}{col 3}{text}{c |}{result}{space 1} -.4848807{col 16}+   .533882{it:i}{col 30}{text}{c |}{result}{space 2} .721207{col 44}{text}{c |}
+{res}{col 3}{text}{c |}{result}{space 1} -.4848807{col 16}-   .533882{it:i}{col 30}{text}{c |}{result}{space 2} .721207{col 44}{text}{c |}
+{res}{col 3}{text}{c |}{result}{space 1} -.5806195{col 16}+  .4214213{it:i}{col 30}{text}{c |}{result}{space 2} .717436{col 44}{text}{c |}
+{res}{col 3}{text}{c |}{result}{space 1} -.5806195{col 16}-  .4214213{it:i}{col 30}{text}{c |}{result}{space 2} .717436{col 44}{text}{c |}
+{res}{col 3}{text}{c |}{result}{space 1}  -.686522{col 16}+  .1228103{it:i}{col 30}{text}{c |}{result}{space 2}  .69742{col 44}{text}{c |}
+{res}{col 3}{text}{c |}{result}{space 1}  -.686522{col 16}-  .1228103{it:i}{col 30}{text}{c |}{result}{space 2}  .69742{col 44}{text}{c |}
+{res}{col 3}{text}{c |}{result}{space 1}   .367248{col 16}+  .5448648{it:i}{col 30}{text}{c |}{result}{space 2} .657076{col 44}{text}{c |}
+{res}{col 3}{text}{c |}{result}{space 1}   .367248{col 16}-  .5448648{it:i}{col 30}{text}{c |}{result}{space 2} .657076{col 44}{text}{c |}
+{res}{col 3}{text}{c |}{result}{space 1} .08618838{col 16}+  .3977031{it:i}{col 30}{text}{c |}{result}{space 2} .406935{col 44}{text}{c |}
+{res}{col 3}{text}{c |}{result}{space 1} .08618838{col 16}-  .3977031{it:i}{col 30}{text}{c |}{result}{space 2} .406935{col 44}{text}{c |}
+{res}{col 3}{text}{c |}{result}{space 1} -.2017587{col 16}+  .3261279{it:i}{col 30}{text}{c |}{result}{space 2} .383492{col 44}{text}{c |}
+{res}{col 3}{text}{c |}{result}{space 1} -.2017587{col 16}-  .3261279{it:i}{col 30}{text}{c |}{result}{space 2} .383492{col 44}{text}{c |}
+{res}{col 3}{text}{c BLC}{hline 26}{c BT}{hline 13}{c BRC}
+{res}{txt}{col 4}All the eigenvalues lie inside the unit circle.
+{col 4}VAR satisfies stability condition.
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. vecrank austin dallas houston sa
+{res}
+{txt}Johansen tests for cointegration
+Trend: Constant{col 43}Number of obs  = {res}{ralign 3:166}
+{txt}Sample: {res}1990m3 {txt}thru{res} 2003m12{txt}{col 43}Number of lags = {res}{ralign 3:2}
+{txt}{hline 62}
+{col 55}Critical
+Maximum{col 44}    Trace{col 58}value
+   rank{col 10}Params{col 27}LL{col 31}Eigenvalue{col 44}statistic{col 55}      5%
+{col 5}{res}  0{col 14}20  {col 19} 1090.4971{col 33}       .{col 44} 115.8785{col 56}  47.21
+{col 5}  1{col 14}27  {col 19} 1116.8353{col 33} 0.27191{col 44}  63.2021{col 56}  29.68
+{col 5}  2{col 14}32  {col 19} 1141.4993{col 33} 0.25707{col 44}  13.8741{help vecrankstar##|_new:*}{col 56}  15.41
+{col 5}  3{col 14}35  {col 19} 1148.3163{col 33} 0.07885{col 44}   0.2400{col 56}   3.76
+{col 5}  4{col 14}36  {col 19} 1148.4363{col 33} 0.00144
+{txt}{hline 62}
+* selected rank
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. var d.austin d.dallas d.houston d.sa, lags(1/4)
+{res}
+{txt}Vector autoregression
+
+{col 1}Sample: {res}1990m6 {txt}thru{res} 2003m12 {txt}{col 49}Number of obs{col 67}= {res}       163
+{txt}Log likelihood =  {res} 1169.667{txt}{col 38}{col 49}AIC{col 67}=  {res}-13.51739
+{txt}FPE{col 16}=  {res} 1.59e-11{txt}{col 49}HQIC{col 67}=  {res} -12.9934
+{txt}Det(Sigma_ml){col 16}=  {res} 6.87e-12{txt}{col 49}SBIC{col 67}=  {res}-12.22674
+
+{col 1}{text}Equation        {col 18}  Parms{col 26}     RMSE {col 37}   R-sq  {col 47}   chi2   {col 58} P>chi2
+{res}{col 1}{text}{hline 17}{hline 8}{hline 11}{hline 10}{hline 11}{hline 7}
+{col 1}{text}D_austin        {col 18}{result}    17{col 26}{space 2} .040423{col 37}{space 1} 0.3384{col 47} 83.35657{col 58} 0.0000
+{col 1}{text}D_dallas        {col 18}{result}    17{col 26}{space 2} .038827{col 37}{space 1} 0.2162{col 47} 44.95963{col 58} 0.0001
+{col 1}{text}D_houston       {col 18}{result}    17{col 26}{space 2} .045141{col 37}{space 1} 0.4310{col 47} 123.4556{col 58} 0.0000
+{col 1}{text}D_sa            {col 18}{result}    17{col 26}{space 2} .052161{col 37}{space 1} 0.3560{col 47} 90.10814{col 58} 0.0000
+{col 1}{text}{hline 17}{hline 8}{hline 11}{hline 10}{hline 11}{hline 7}
+{res}
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}D_austin     {txt}{c |}
+{space 6}austin {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2}-.5025149{col 26}{space 2}  .073673{col 37}{space 1}   -6.82{col 46}{space 3}0.000{col 54}{space 4}-.6469113{col 67}{space 3}-.3581186
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2}-.4758803{col 26}{space 2} .0759489{col 37}{space 1}   -6.27{col 46}{space 3}0.000{col 54}{space 4}-.6247374{col 67}{space 3}-.3270232
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2}-.2887627{col 26}{space 2} .0762016{col 37}{space 1}   -3.79{col 46}{space 3}0.000{col 54}{space 4}-.4381151{col 67}{space 3}-.1394103
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2} -.271806{col 26}{space 2} .0654757{col 37}{space 1}   -4.15{col 46}{space 3}0.000{col 54}{space 4}-.4001361{col 67}{space 3} -.143476
+{txt}{space 12} {c |}
+{space 6}dallas {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2} .2180335{col 26}{space 2} .0861181{col 37}{space 1}    2.53{col 46}{space 3}0.011{col 54}{space 4} .0492452{col 67}{space 3} .3868218
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2} .1604064{col 26}{space 2} .0956599{col 37}{space 1}    1.68{col 46}{space 3}0.094{col 54}{space 4}-.0270836{col 67}{space 3} .3478964
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2} .2400772{col 26}{space 2} .0955611{col 37}{space 1}    2.51{col 46}{space 3}0.012{col 54}{space 4} .0527809{col 67}{space 3} .4273736
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2} .1138827{col 26}{space 2} .0918667{col 37}{space 1}    1.24{col 46}{space 3}0.215{col 54}{space 4}-.0661727{col 67}{space 3} .2939382
+{txt}{space 12} {c |}
+{space 5}houston {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2} .0759669{col 26}{space 2} .0729647{col 37}{space 1}    1.04{col 46}{space 3}0.298{col 54}{space 4}-.0670412{col 67}{space 3}  .218975
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2} .0343471{col 26}{space 2} .0832345{col 37}{space 1}    0.41{col 46}{space 3}0.680{col 54}{space 4}-.1287896{col 67}{space 3} .1974837
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2} .0669879{col 26}{space 2} .0827363{col 37}{space 1}    0.81{col 46}{space 3}0.418{col 54}{space 4}-.0951722{col 67}{space 3} .2291479
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2}-.0627716{col 26}{space 2} .0685753{col 37}{space 1}   -0.92{col 46}{space 3}0.360{col 54}{space 4}-.1971767{col 67}{space 3} .0716335
+{txt}{space 12} {c |}
+{space 10}sa {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2}-.1566029{col 26}{space 2} .0616982{col 37}{space 1}   -2.54{col 46}{space 3}0.011{col 54}{space 4}-.2775291{col 67}{space 3}-.0356766
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2} -.069286{col 26}{space 2} .0686926{col 37}{space 1}   -1.01{col 46}{space 3}0.313{col 54}{space 4}-.2039211{col 67}{space 3}  .065349
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2}-.0603643{col 26}{space 2} .0684937{col 37}{space 1}   -0.88{col 46}{space 3}0.378{col 54}{space 4}-.1946095{col 67}{space 3} .0738808
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2} .0040981{col 26}{space 2} .0613888{col 37}{space 1}    0.07{col 46}{space 3}0.947{col 54}{space 4}-.1162218{col 67}{space 3}  .124418
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0117633{col 26}{space 2} .0032407{col 37}{space 1}    3.63{col 46}{space 3}0.000{col 54}{space 4} .0054117{col 67}{space 3} .0181149
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}D_dallas     {txt}{c |}
+{space 6}austin {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2} .0606562{col 26}{space 2}  .070764{col 37}{space 1}    0.86{col 46}{space 3}0.391{col 54}{space 4}-.0780387{col 67}{space 3} .1993511
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2}-.0134128{col 26}{space 2} .0729501{col 37}{space 1}   -0.18{col 46}{space 3}0.854{col 54}{space 4}-.1563923{col 67}{space 3} .1295667
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2}-.1373197{col 26}{space 2} .0731928{col 37}{space 1}   -1.88{col 46}{space 3}0.061{col 54}{space 4}-.2807749{col 67}{space 3} .0061356
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2} -.144897{col 26}{space 2} .0628904{col 37}{space 1}   -2.30{col 46}{space 3}0.021{col 54}{space 4}  -.26816{col 67}{space 3}-.0216341
+{txt}{space 12} {c |}
+{space 6}dallas {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2}-.3844907{col 26}{space 2} .0827177{col 37}{space 1}   -4.65{col 46}{space 3}0.000{col 54}{space 4}-.5466144{col 67}{space 3} -.222367
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2}-.1249378{col 26}{space 2} .0918828{col 37}{space 1}   -1.36{col 46}{space 3}0.174{col 54}{space 4}-.3050248{col 67}{space 3} .0551492
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2}-.0924676{col 26}{space 2} .0917879{col 37}{space 1}   -1.01{col 46}{space 3}0.314{col 54}{space 4}-.2723685{col 67}{space 3} .0874334
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2} .0690966{col 26}{space 2} .0882394{col 37}{space 1}    0.78{col 46}{space 3}0.434{col 54}{space 4}-.1038494{col 67}{space 3} .2420425
+{txt}{space 12} {c |}
+{space 5}houston {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2} .0551796{col 26}{space 2} .0700837{col 37}{space 1}    0.79{col 46}{space 3}0.431{col 54}{space 4}-.0821818{col 67}{space 3} .1925411
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2} .1155436{col 26}{space 2}  .079948{col 37}{space 1}    1.45{col 46}{space 3}0.148{col 54}{space 4}-.0411516{col 67}{space 3} .2722389
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2} .1142321{col 26}{space 2} .0794694{col 37}{space 1}    1.44{col 46}{space 3}0.151{col 54}{space 4}-.0415252{col 67}{space 3} .2699893
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2}  .046669{col 26}{space 2} .0658676{col 37}{space 1}    0.71{col 46}{space 3}0.479{col 54}{space 4}-.0824292{col 67}{space 3} .1757671
+{txt}{space 12} {c |}
+{space 10}sa {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2}-.0528748{col 26}{space 2} .0592621{col 37}{space 1}   -0.89{col 46}{space 3}0.372{col 54}{space 4}-.1690263{col 67}{space 3} .0632767
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2}-.0285762{col 26}{space 2} .0659803{col 37}{space 1}   -0.43{col 46}{space 3}0.665{col 54}{space 4}-.1578952{col 67}{space 3} .1007428
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2}-.1549456{col 26}{space 2} .0657892{col 37}{space 1}   -2.36{col 46}{space 3}0.019{col 54}{space 4}-.2838901{col 67}{space 3}-.0260011
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2}-.1193388{col 26}{space 2} .0589649{col 37}{space 1}   -2.02{col 46}{space 3}0.043{col 54}{space 4}-.2349079{col 67}{space 3}-.0037697
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0055603{col 26}{space 2} .0031127{col 37}{space 1}    1.79{col 46}{space 3}0.074{col 54}{space 4}-.0005405{col 67}{space 3} .0116611
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}D_houston    {txt}{c |}
+{space 6}austin {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2} .0532213{col 26}{space 2} .0822713{col 37}{space 1}    0.65{col 46}{space 3}0.518{col 54}{space 4}-.1080274{col 67}{space 3}   .21447
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2}-.0155209{col 26}{space 2} .0848128{col 37}{space 1}   -0.18{col 46}{space 3}0.855{col 54}{space 4}-.1817509{col 67}{space 3} .1507092
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2} .0085806{col 26}{space 2}  .085095{col 37}{space 1}    0.10{col 46}{space 3}0.920{col 54}{space 4}-.1582026{col 67}{space 3} .1753638
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2}-.0154891{col 26}{space 2} .0731173{col 37}{space 1}   -0.21{col 46}{space 3}0.832{col 54}{space 4}-.1587964{col 67}{space 3} .1278182
+{txt}{space 12} {c |}
+{space 6}dallas {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2} .2196116{col 26}{space 2} .0961688{col 37}{space 1}    2.28{col 46}{space 3}0.022{col 54}{space 4} .0311243{col 67}{space 3}  .408099
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2} .2368868{col 26}{space 2} .1068243{col 37}{space 1}    2.22{col 46}{space 3}0.027{col 54}{space 4}  .027515{col 67}{space 3} .4462586
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2} .4295135{col 26}{space 2} .1067139{col 37}{space 1}    4.02{col 46}{space 3}0.000{col 54}{space 4} .2203581{col 67}{space 3}  .638669
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2} .0481158{col 26}{space 2} .1025884{col 37}{space 1}    0.47{col 46}{space 3}0.639{col 54}{space 4}-.1529537{col 67}{space 3} .2491853
+{txt}{space 12} {c |}
+{space 5}houston {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2}-.6431921{col 26}{space 2} .0814803{col 37}{space 1}   -7.89{col 46}{space 3}0.000{col 54}{space 4}-.8028905{col 67}{space 3}-.4834937
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2}-.1973141{col 26}{space 2} .0929487{col 37}{space 1}   -2.12{col 46}{space 3}0.034{col 54}{space 4}-.3794903{col 67}{space 3} -.015138
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2} -.242443{col 26}{space 2} .0923923{col 37}{space 1}   -2.62{col 46}{space 3}0.009{col 54}{space 4}-.4235286{col 67}{space 3}-.0613574
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2}-.1542861{col 26}{space 2} .0765786{col 37}{space 1}   -2.01{col 46}{space 3}0.044{col 54}{space 4}-.3043774{col 67}{space 3}-.0041947
+{txt}{space 12} {c |}
+{space 10}sa {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2} .1348816{col 26}{space 2} .0688989{col 37}{space 1}    1.96{col 46}{space 3}0.050{col 54}{space 4}-.0001578{col 67}{space 3} .2699211
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2}-.0574214{col 26}{space 2} .0767097{col 37}{space 1}   -0.75{col 46}{space 3}0.454{col 54}{space 4}-.2077696{col 67}{space 3} .0929268
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2}-.1575978{col 26}{space 2} .0764875{col 37}{space 1}   -2.06{col 46}{space 3}0.039{col 54}{space 4}-.3075106{col 67}{space 3}-.0076851
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2}-.1049591{col 26}{space 2} .0685534{col 37}{space 1}   -1.53{col 46}{space 3}0.126{col 54}{space 4}-.2393214{col 67}{space 3} .0294032
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0067183{col 26}{space 2} .0036189{col 37}{space 1}    1.86{col 46}{space 3}0.063{col 54}{space 4}-.0003746{col 67}{space 3} .0138112
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}D_sa         {txt}{c |}
+{space 6}austin {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2} .1462885{col 26}{space 2} .0950648{col 37}{space 1}    1.54{col 46}{space 3}0.124{col 54}{space 4}-.0400352{col 67}{space 3} .3326122
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2} .2386098{col 26}{space 2} .0980016{col 37}{space 1}    2.43{col 46}{space 3}0.015{col 54}{space 4} .0465301{col 67}{space 3} .4306894
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2}-.0255367{col 26}{space 2} .0983277{col 37}{space 1}   -0.26{col 46}{space 3}0.795{col 54}{space 4}-.2182555{col 67}{space 3} .1671821
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2} .0667729{col 26}{space 2} .0844874{col 37}{space 1}    0.79{col 46}{space 3}0.429{col 54}{space 4}-.0988195{col 67}{space 3} .2323652
+{txt}{space 12} {c |}
+{space 6}dallas {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2}  .234894{col 26}{space 2} .1111235{col 37}{space 1}    2.11{col 46}{space 3}0.035{col 54}{space 4} .0170958{col 67}{space 3} .4526921
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2} .1565629{col 26}{space 2}  .123436{col 37}{space 1}    1.27{col 46}{space 3}0.205{col 54}{space 4}-.0853672{col 67}{space 3} .3984931
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2} .1773291{col 26}{space 2} .1233085{col 37}{space 1}    1.44{col 46}{space 3}0.150{col 54}{space 4}-.0643511{col 67}{space 3} .4190093
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2}  .083718{col 26}{space 2} .1185414{col 37}{space 1}    0.71{col 46}{space 3}0.480{col 54}{space 4}-.1486188{col 67}{space 3} .3160548
+{txt}{space 12} {c |}
+{space 5}houston {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2} .1292059{col 26}{space 2} .0941509{col 37}{space 1}    1.37{col 46}{space 3}0.170{col 54}{space 4}-.0553265{col 67}{space 3} .3137382
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2} .2016881{col 26}{space 2} .1074027{col 37}{space 1}    1.88{col 46}{space 3}0.060{col 54}{space 4}-.0088174{col 67}{space 3} .4121936
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2} .0604341{col 26}{space 2} .1067598{col 37}{space 1}    0.57{col 46}{space 3}0.571{col 54}{space 4}-.1488113{col 67}{space 3} .2696794
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2}-.0148633{col 26}{space 2}  .088487{col 37}{space 1}   -0.17{col 46}{space 3}0.867{col 54}{space 4}-.1882946{col 67}{space 3} .1585681
+{txt}{space 12} {c |}
+{space 10}sa {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2}-.5976022{col 26}{space 2} .0796131{col 37}{space 1}   -7.51{col 46}{space 3}0.000{col 54}{space 4} -.753641{col 67}{space 3}-.4415634
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2}-.5493778{col 26}{space 2} .0886384{col 37}{space 1}   -6.20{col 46}{space 3}0.000{col 54}{space 4}-.7231059{col 67}{space 3}-.3756497
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2}-.4050557{col 26}{space 2} .0883817{col 37}{space 1}   -4.58{col 46}{space 3}0.000{col 54}{space 4}-.5782807{col 67}{space 3}-.2318307
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2}-.2631087{col 26}{space 2} .0792139{col 37}{space 1}   -3.32{col 46}{space 3}0.001{col 54}{space 4} -.418365{col 67}{space 3}-.1078524
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0025645{col 26}{space 2} .0041817{col 37}{space 1}    0.61{col 46}{space 3}0.540{col 54}{space 4}-.0056313{col 67}{space 3} .0107604
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. fcast compute fc_, step(5)
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. fcast graph fc_D_austin
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. fcast graph fc_D_dallas
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. irf create PostTestTS8, step(5) set (txhprice)
+{txt}(file {bf:txhprice.irf} created)
+(file {bf:txhprice.irf} now active)
+(file {bf:txhprice.irf} updated)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. irf graph irf
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. irf ograph (PostTestTS8 d.ausin d.houston irf)
+{err}impulse D.ausin not found in results from PostTestTS8
+{txt}{search r(198), local:r(198);}
+
+end of do-file
+
+{search r(198), local:r(198);}
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. irf ograph (PostTestTS8 d.austin d.houston irf)
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. irf table irf
+
+{txt}Results from {res:PostTestTS8}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(1){col 29}(1){col 41}(1){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       1{col 24}       1{col 36}       1
+{txt} {col 2}      1{col 10}{c |}{res}{col 12}-.502515{col 24}-.646911{col 36}-.358119
+{txt} {col 2}      2{col 10}{c |}{res}{col 12}   -.229{col 24}-.377116{col 36}-.080885
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .032398{col 24}-.116517{col 36} .181313
+{txt} {col 2}      4{col 10}{c |}{res}{col 12}-.020819{col 24}-.168623{col 36} .126985
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .151577{col 24} .013121{col 36} .290033
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(2){col 29}(2){col 41}(2){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .060656{col 24}-.078039{col 36} .199351
+{txt} {col 2}      2{col 10}{c |}{res}{col 12}-.072013{col 24} -.20331{col 36} .059283
+{txt} {col 2}      3{col 10}{c |}{res}{col 12}-.130012{col 24}-.256404{col 36} -.00362
+{txt} {col 2}      4{col 10}{c |}{res}{col 12}-.023568{col 24}-.151842{col 36} .104705
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .104618{col 24}-.004436{col 36} .213672
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(3){col 29}(3){col 41}(3){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .053221{col 24}-.108027{col 36}  .21447
+{txt} {col 2}      2{col 10}{c |}{res}{col 12}-.043444{col 24}-.212305{col 36} .125416
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .025114{col 24}-.142096{col 36} .192324
+{txt} {col 2}      4{col 10}{c |}{res}{col 12}-.126543{col 24}-.295886{col 36} .042801
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .016506{col 24}-.142644{col 36} .175656
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(4){col 29}(4){col 41}(4){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .146288{col 24}-.040035{col 36} .332612
+{txt} {col 2}      2{col 10}{c |}{res}{col 12}   .0988{col 24}-.093117{col 36} .290716
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} -.32065{col 24}-.511187{col 36}-.130114
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .074433{col 24}-.120006{col 36} .268872
+{txt} {col 2}      5{col 10}{c |}{res}{col 12}-.018138{col 24}-.196778{col 36} .160501
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(5){col 29}(5){col 41}(5){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .218033{col 24} .049245{col 36} .386822
+{txt} {col 2}      2{col 10}{c |}{res}{col 12}-.053092{col 24}-.242324{col 36} .136139
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .106711{col 24}-.084845{col 36} .298266
+{txt} {col 2}      4{col 10}{c |}{res}{col 12}-.066783{col 24}-.255785{col 36} .122219
+{txt} {col 2}      5{col 10}{c |}{res}{col 12}-.102674{col 24}-.273272{col 36} .067923
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(6){col 29}(6){col 41}(6){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       1{col 24}       1{col 36}       1
+{txt} {col 2}      1{col 10}{c |}{res}{col 12}-.384491{col 24}-.546614{col 36}-.222367
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .035819{col 24}-.133455{col 36} .205092
+{txt} {col 2}      3{col 10}{c |}{res}{col 12}-.041946{col 24}-.210887{col 36} .126996
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .097215{col 24}-.067526{col 36} .261957
+{txt} {col 2}      5{col 10}{c |}{res}{col 12}-.090803{col 24}-.233294{col 36} .051689
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(7){col 29}(7){col 41}(7){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .219612{col 24} .031124{col 36} .408099
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .054483{col 24}-.160875{col 36}  .26984
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .246357{col 24}  .02323{col 36} .469485
+{txt} {col 2}      4{col 10}{c |}{res}{col 12}-.354515{col 24}-.573515{col 36}-.135514
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .092177{col 24}-.116279{col 36} .300633
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(8){col 29}(8){col 41}(8){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .234894{col 24} .017096{col 36} .452692
+{txt} {col 2}      2{col 10}{c |}{res}{col 12}-.013854{col 24}-.259001{col 36} .231294
+{txt} {col 2}      3{col 10}{c |}{res}{col 12}  .10037{col 24}-.145483{col 36} .346222
+{txt} {col 2}      4{col 10}{c |}{res}{col 12}-.082758{col 24}-.329322{col 36} .163806
+{txt} {col 2}      5{col 10}{c |}{res}{col 12}-.035927{col 24}-.259535{col 36} .187681
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(9){col 29}(9){col 41}(9){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .075967{col 24}-.067041{col 36} .218975
+{txt} {col 2}      2{col 10}{c |}{res}{col 12}-.060892{col 24}-.218435{col 36} .096651
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .060327{col 24}-.098847{col 36} .219502
+{txt} {col 2}      4{col 10}{c |}{res}{col 12}-.108805{col 24}-.257086{col 36} .039477
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .102398{col 24}-.038538{col 36} .243335
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(10){col 29}(10){col 41}(10){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12}  .05518{col 24}-.082182{col 36} .192541
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .056613{col 24}-.083637{col 36} .196862
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .013183{col 24} -.12636{col 36} .152725
+{txt} {col 2}      4{col 10}{c |}{res}{col 12}-.050887{col 24}-.178033{col 36} .076258
+{txt} {col 2}      5{col 10}{c |}{res}{col 12}-.037769{col 24}-.153829{col 36} .078292
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(11){col 29}(11){col 41}(11){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       1{col 24}       1{col 36}       1
+{txt} {col 2}      1{col 10}{c |}{res}{col 12}-.643192{col 24} -.80289{col 36}-.483494
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .249971{col 24} .070441{col 36}   .4295
+{txt} {col 2}      3{col 10}{c |}{res}{col 12}-.253819{col 24}-.438379{col 36}-.069259
+{txt} {col 2}      4{col 10}{c |}{res}{col 12}  .12064{col 24}-.051862{col 36} .293141
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} -.00114{col 24}-.172099{col 36} .169819
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(12){col 29}(12){col 41}(12){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .129206{col 24}-.055326{col 36} .313738
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .065445{col 24}-.138721{col 36}  .26961
+{txt} {col 2}      3{col 10}{c |}{res}{col 12}-.115929{col 24}-.319895{col 36} .088036
+{txt} {col 2}      4{col 10}{c |}{res}{col 12}-.041022{col 24}-.235592{col 36} .153548
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .026636{col 24}-.156815{col 36} .210087
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(13){col 29}(13){col 41}(13){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12}-.156603{col 24}-.277529{col 36}-.035677
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .101714{col 24}-.036612{col 36}  .24004
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .019566{col 24}-.120057{col 36}  .15919
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .002839{col 24}-.134843{col 36}  .14052
+{txt} {col 2}      5{col 10}{c |}{res}{col 12}-.033491{col 24}-.163593{col 36} .096612
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(14){col 29}(14){col 41}(14){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12}-.052875{col 24}-.169026{col 36} .063277
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .021296{col 24}-.102129{col 36}  .14472
+{txt} {col 2}      3{col 10}{c |}{res}{col 12}-.117988{col 24}-.237371{col 36} .001396
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .033178{col 24}-.085972{col 36} .152328
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .081632{col 24}-.023672{col 36} .186936
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(15){col 29}(15){col 41}(15){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .134882{col 24}-.000158{col 36} .269921
+{txt} {col 2}      2{col 10}{c |}{res}{col 12}-.244728{col 24}-.402311{col 36}-.087145
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} -.02084{col 24}-.179855{col 36} .138176
+{txt} {col 2}      4{col 10}{c |}{res}{col 12}-.012661{col 24}  -.1714{col 36} .146078
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .139588{col 24}-.012301{col 36} .291478
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(16){col 29}(16){col 41}(16){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       1{col 24}       1{col 36}       1
+{txt} {col 2}      1{col 10}{c |}{res}{col 12}-.597602{col 24}-.753641{col 36}-.441563
+{txt} {col 2}      2{col 10}{c |}{res}{col 12}-.210151{col 24}-.389421{col 36}-.030881
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .018661{col 24}-.159996{col 36} .197317
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .036729{col 24}-.142973{col 36} .216431
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .168223{col 24}-.000257{col 36} .336703
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{p 0 4 4}95%  lower and upper bounds reported.{p_end}
+{p 0 4 4}(1) irfname = {res:PostTestTS8}, impulse = {res:D.austin}, and response = {res:D.austin}.{p_end}
+{p 0 4 4}(2) irfname = {res:PostTestTS8}, impulse = {res:D.austin}, and response = {res:D.dallas}.{p_end}
+{p 0 4 4}(3) irfname = {res:PostTestTS8}, impulse = {res:D.austin}, and response = {res:D.houston}.{p_end}
+{p 0 4 4}(4) irfname = {res:PostTestTS8}, impulse = {res:D.austin}, and response = {res:D.sa}.{p_end}
+{p 0 4 4}(5) irfname = {res:PostTestTS8}, impulse = {res:D.dallas}, and response = {res:D.austin}.{p_end}
+{p 0 4 4}(6) irfname = {res:PostTestTS8}, impulse = {res:D.dallas}, and response = {res:D.dallas}.{p_end}
+{p 0 4 4}(7) irfname = {res:PostTestTS8}, impulse = {res:D.dallas}, and response = {res:D.houston}.{p_end}
+{p 0 4 4}(8) irfname = {res:PostTestTS8}, impulse = {res:D.dallas}, and response = {res:D.sa}.{p_end}
+{p 0 4 4}(9) irfname = {res:PostTestTS8}, impulse = {res:D.houston}, and response = {res:D.austin}.{p_end}
+{p 0 4 4}(10) irfname = {res:PostTestTS8}, impulse = {res:D.houston}, and response = {res:D.dallas}.{p_end}
+{p 0 4 4}(11) irfname = {res:PostTestTS8}, impulse = {res:D.houston}, and response = {res:D.houston}.{p_end}
+{p 0 4 4}(12) irfname = {res:PostTestTS8}, impulse = {res:D.houston}, and response = {res:D.sa}.{p_end}
+{p 0 4 4}(13) irfname = {res:PostTestTS8}, impulse = {res:D.sa}, and response = {res:D.austin}.{p_end}
+{p 0 4 4}(14) irfname = {res:PostTestTS8}, impulse = {res:D.sa}, and response = {res:D.dallas}.{p_end}
+{p 0 4 4}(15) irfname = {res:PostTestTS8}, impulse = {res:D.sa}, and response = {res:D.houston}.{p_end}
+{p 0 4 4}(16) irfname = {res:PostTestTS8}, impulse = {res:D.sa}, and response = {res:D.sa}.{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. irf table, irf(PostTestTS8) impuls(d.austn) response(d.houston)
+{err}D.austn is not a valid impulse
+{txt}{search r(498), local:r(498);}
+
+end of do-file
+
+{search r(498), local:r(498);}
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. irf table irf, irf(PostTestTS8) impuls(d.austn) response(d.houston)
+{err}D.austn is not a valid impulse
+{txt}{search r(498), local:r(498);}
+
+end of do-file
+
+{search r(498), local:r(498);}
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. irf table irf, irf(PostTestTS8) impuls(d.austin) response(d.houston)
+
+{txt}Results from {res:PostTestTS8}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(1){col 29}(1){col 41}(1){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .053221{col 24}-.108027{col 36}  .21447
+{txt} {col 2}      2{col 10}{c |}{res}{col 12}-.043444{col 24}-.212305{col 36} .125416
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .025114{col 24}-.142096{col 36} .192324
+{txt} {col 2}      4{col 10}{c |}{res}{col 12}-.126543{col 24}-.295886{col 36} .042801
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .016506{col 24}-.142644{col 36} .175656
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{p 0 4 4}95%  lower and upper bounds reported.{p_end}
+{p 0 4 4}(1) irfname = {res:PostTestTS8}, impulse = {res:D.austin}, and response = {res:D.houston}.{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. irf table irf
+
+{txt}Results from {res:PostTestTS8}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(1){col 29}(1){col 41}(1){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       1{col 24}       1{col 36}       1
+{txt} {col 2}      1{col 10}{c |}{res}{col 12}-.502515{col 24}-.646911{col 36}-.358119
+{txt} {col 2}      2{col 10}{c |}{res}{col 12}   -.229{col 24}-.377116{col 36}-.080885
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .032398{col 24}-.116517{col 36} .181313
+{txt} {col 2}      4{col 10}{c |}{res}{col 12}-.020819{col 24}-.168623{col 36} .126985
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .151577{col 24} .013121{col 36} .290033
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(2){col 29}(2){col 41}(2){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .060656{col 24}-.078039{col 36} .199351
+{txt} {col 2}      2{col 10}{c |}{res}{col 12}-.072013{col 24} -.20331{col 36} .059283
+{txt} {col 2}      3{col 10}{c |}{res}{col 12}-.130012{col 24}-.256404{col 36} -.00362
+{txt} {col 2}      4{col 10}{c |}{res}{col 12}-.023568{col 24}-.151842{col 36} .104705
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .104618{col 24}-.004436{col 36} .213672
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(3){col 29}(3){col 41}(3){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .053221{col 24}-.108027{col 36}  .21447
+{txt} {col 2}      2{col 10}{c |}{res}{col 12}-.043444{col 24}-.212305{col 36} .125416
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .025114{col 24}-.142096{col 36} .192324
+{txt} {col 2}      4{col 10}{c |}{res}{col 12}-.126543{col 24}-.295886{col 36} .042801
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .016506{col 24}-.142644{col 36} .175656
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(4){col 29}(4){col 41}(4){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .146288{col 24}-.040035{col 36} .332612
+{txt} {col 2}      2{col 10}{c |}{res}{col 12}   .0988{col 24}-.093117{col 36} .290716
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} -.32065{col 24}-.511187{col 36}-.130114
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .074433{col 24}-.120006{col 36} .268872
+{txt} {col 2}      5{col 10}{c |}{res}{col 12}-.018138{col 24}-.196778{col 36} .160501
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(5){col 29}(5){col 41}(5){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .218033{col 24} .049245{col 36} .386822
+{txt} {col 2}      2{col 10}{c |}{res}{col 12}-.053092{col 24}-.242324{col 36} .136139
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .106711{col 24}-.084845{col 36} .298266
+{txt} {col 2}      4{col 10}{c |}{res}{col 12}-.066783{col 24}-.255785{col 36} .122219
+{txt} {col 2}      5{col 10}{c |}{res}{col 12}-.102674{col 24}-.273272{col 36} .067923
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(6){col 29}(6){col 41}(6){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       1{col 24}       1{col 36}       1
+{txt} {col 2}      1{col 10}{c |}{res}{col 12}-.384491{col 24}-.546614{col 36}-.222367
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .035819{col 24}-.133455{col 36} .205092
+{txt} {col 2}      3{col 10}{c |}{res}{col 12}-.041946{col 24}-.210887{col 36} .126996
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .097215{col 24}-.067526{col 36} .261957
+{txt} {col 2}      5{col 10}{c |}{res}{col 12}-.090803{col 24}-.233294{col 36} .051689
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(7){col 29}(7){col 41}(7){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .219612{col 24} .031124{col 36} .408099
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .054483{col 24}-.160875{col 36}  .26984
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .246357{col 24}  .02323{col 36} .469485
+{txt} {col 2}      4{col 10}{c |}{res}{col 12}-.354515{col 24}-.573515{col 36}-.135514
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .092177{col 24}-.116279{col 36} .300633
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(8){col 29}(8){col 41}(8){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .234894{col 24} .017096{col 36} .452692
+{txt} {col 2}      2{col 10}{c |}{res}{col 12}-.013854{col 24}-.259001{col 36} .231294
+{txt} {col 2}      3{col 10}{c |}{res}{col 12}  .10037{col 24}-.145483{col 36} .346222
+{txt} {col 2}      4{col 10}{c |}{res}{col 12}-.082758{col 24}-.329322{col 36} .163806
+{txt} {col 2}      5{col 10}{c |}{res}{col 12}-.035927{col 24}-.259535{col 36} .187681
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(9){col 29}(9){col 41}(9){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .075967{col 24}-.067041{col 36} .218975
+{txt} {col 2}      2{col 10}{c |}{res}{col 12}-.060892{col 24}-.218435{col 36} .096651
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .060327{col 24}-.098847{col 36} .219502
+{txt} {col 2}      4{col 10}{c |}{res}{col 12}-.108805{col 24}-.257086{col 36} .039477
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .102398{col 24}-.038538{col 36} .243335
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(10){col 29}(10){col 41}(10){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12}  .05518{col 24}-.082182{col 36} .192541
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .056613{col 24}-.083637{col 36} .196862
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .013183{col 24} -.12636{col 36} .152725
+{txt} {col 2}      4{col 10}{c |}{res}{col 12}-.050887{col 24}-.178033{col 36} .076258
+{txt} {col 2}      5{col 10}{c |}{res}{col 12}-.037769{col 24}-.153829{col 36} .078292
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(11){col 29}(11){col 41}(11){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       1{col 24}       1{col 36}       1
+{txt} {col 2}      1{col 10}{c |}{res}{col 12}-.643192{col 24} -.80289{col 36}-.483494
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .249971{col 24} .070441{col 36}   .4295
+{txt} {col 2}      3{col 10}{c |}{res}{col 12}-.253819{col 24}-.438379{col 36}-.069259
+{txt} {col 2}      4{col 10}{c |}{res}{col 12}  .12064{col 24}-.051862{col 36} .293141
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} -.00114{col 24}-.172099{col 36} .169819
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(12){col 29}(12){col 41}(12){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .129206{col 24}-.055326{col 36} .313738
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .065445{col 24}-.138721{col 36}  .26961
+{txt} {col 2}      3{col 10}{c |}{res}{col 12}-.115929{col 24}-.319895{col 36} .088036
+{txt} {col 2}      4{col 10}{c |}{res}{col 12}-.041022{col 24}-.235592{col 36} .153548
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .026636{col 24}-.156815{col 36} .210087
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(13){col 29}(13){col 41}(13){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12}-.156603{col 24}-.277529{col 36}-.035677
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .101714{col 24}-.036612{col 36}  .24004
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .019566{col 24}-.120057{col 36}  .15919
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .002839{col 24}-.134843{col 36}  .14052
+{txt} {col 2}      5{col 10}{c |}{res}{col 12}-.033491{col 24}-.163593{col 36} .096612
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(14){col 29}(14){col 41}(14){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12}-.052875{col 24}-.169026{col 36} .063277
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .021296{col 24}-.102129{col 36}  .14472
+{txt} {col 2}      3{col 10}{c |}{res}{col 12}-.117988{col 24}-.237371{col 36} .001396
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .033178{col 24}-.085972{col 36} .152328
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .081632{col 24}-.023672{col 36} .186936
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(15){col 29}(15){col 41}(15){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .134882{col 24}-.000158{col 36} .269921
+{txt} {col 2}      2{col 10}{c |}{res}{col 12}-.244728{col 24}-.402311{col 36}-.087145
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} -.02084{col 24}-.179855{col 36} .138176
+{txt} {col 2}      4{col 10}{c |}{res}{col 12}-.012661{col 24}  -.1714{col 36} .146078
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .139588{col 24}-.012301{col 36} .291478
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(16){col 29}(16){col 41}(16){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       1{col 24}       1{col 36}       1
+{txt} {col 2}      1{col 10}{c |}{res}{col 12}-.597602{col 24}-.753641{col 36}-.441563
+{txt} {col 2}      2{col 10}{c |}{res}{col 12}-.210151{col 24}-.389421{col 36}-.030881
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .018661{col 24}-.159996{col 36} .197317
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .036729{col 24}-.142973{col 36} .216431
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .168223{col 24}-.000257{col 36} .336703
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{p 0 4 4}95%  lower and upper bounds reported.{p_end}
+{p 0 4 4}(1) irfname = {res:PostTestTS8}, impulse = {res:D.austin}, and response = {res:D.austin}.{p_end}
+{p 0 4 4}(2) irfname = {res:PostTestTS8}, impulse = {res:D.austin}, and response = {res:D.dallas}.{p_end}
+{p 0 4 4}(3) irfname = {res:PostTestTS8}, impulse = {res:D.austin}, and response = {res:D.houston}.{p_end}
+{p 0 4 4}(4) irfname = {res:PostTestTS8}, impulse = {res:D.austin}, and response = {res:D.sa}.{p_end}
+{p 0 4 4}(5) irfname = {res:PostTestTS8}, impulse = {res:D.dallas}, and response = {res:D.austin}.{p_end}
+{p 0 4 4}(6) irfname = {res:PostTestTS8}, impulse = {res:D.dallas}, and response = {res:D.dallas}.{p_end}
+{p 0 4 4}(7) irfname = {res:PostTestTS8}, impulse = {res:D.dallas}, and response = {res:D.houston}.{p_end}
+{p 0 4 4}(8) irfname = {res:PostTestTS8}, impulse = {res:D.dallas}, and response = {res:D.sa}.{p_end}
+{p 0 4 4}(9) irfname = {res:PostTestTS8}, impulse = {res:D.houston}, and response = {res:D.austin}.{p_end}
+{p 0 4 4}(10) irfname = {res:PostTestTS8}, impulse = {res:D.houston}, and response = {res:D.dallas}.{p_end}
+{p 0 4 4}(11) irfname = {res:PostTestTS8}, impulse = {res:D.houston}, and response = {res:D.houston}.{p_end}
+{p 0 4 4}(12) irfname = {res:PostTestTS8}, impulse = {res:D.houston}, and response = {res:D.sa}.{p_end}
+{p 0 4 4}(13) irfname = {res:PostTestTS8}, impulse = {res:D.sa}, and response = {res:D.austin}.{p_end}
+{p 0 4 4}(14) irfname = {res:PostTestTS8}, impulse = {res:D.sa}, and response = {res:D.dallas}.{p_end}
+{p 0 4 4}(15) irfname = {res:PostTestTS8}, impulse = {res:D.sa}, and response = {res:D.houston}.{p_end}
+{p 0 4 4}(16) irfname = {res:PostTestTS8}, impulse = {res:D.sa}, and response = {res:D.sa}.{p_end}
+
+{com}. irf table irf, irf(PostTestTS8) impuls(d.austin) response(d.houston)
+
+{txt}Results from {res:PostTestTS8}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(1){col 29}(1){col 41}(1){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .053221{col 24}-.108027{col 36}  .21447
+{txt} {col 2}      2{col 10}{c |}{res}{col 12}-.043444{col 24}-.212305{col 36} .125416
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .025114{col 24}-.142096{col 36} .192324
+{txt} {col 2}      4{col 10}{c |}{res}{col 12}-.126543{col 24}-.295886{col 36} .042801
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .016506{col 24}-.142644{col 36} .175656
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{p 0 4 4}95%  lower and upper bounds reported.{p_end}
+{p 0 4 4}(1) irfname = {res:PostTestTS8}, impulse = {res:D.austin}, and response = {res:D.houston}.{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. irf table fevd
+
+{txt}Results from {res:PostTestTS8}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(1){col 29}(1){col 41}(1){col 46}
+{col 4} Step{col 10}{c |}{col 16}fevd{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12}       1{col 24}       1{col 36}       1
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .945978{col 24} .886005{col 36} 1.00595
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .935125{col 24} .860157{col 36} 1.01009
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .920475{col 24} .840816{col 36} 1.00013
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .905473{col 24} .819056{col 36} .991891
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(2){col 29}(2){col 41}(2){col 46}
+{col 4} Step{col 10}{c |}{col 16}fevd{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .007965{col 24}-.019218{col 36} .035149
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .007551{col 24}-.014342{col 36} .029444
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .010902{col 24}-.015726{col 36} .037529
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .029699{col 24}-.009966{col 36} .069364
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .029616{col 24}-.008581{col 36} .067814
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(3){col 29}(3){col 41}(3){col 46}
+{col 4} Step{col 10}{c |}{col 16}fevd{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .007317{col 24}-.018754{col 36} .033389
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .005811{col 24}-.011213{col 36} .022834
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .006498{col 24}-.011259{col 36} .024256
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .006383{col 24} -.01132{col 36} .024086
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .016459{col 24}-.016895{col 36} .049813
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(4){col 29}(4){col 41}(4){col 46}
+{col 4} Step{col 10}{c |}{col 16}fevd{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .009605{col 24}-.020197{col 36} .039406
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .012056{col 24}-.009953{col 36} .034065
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .014261{col 24}-.005098{col 36} .033619
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .056268{col 24}-.003265{col 36}   .1158
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .057843{col 24}-.003969{col 36} .119655
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(5){col 29}(5){col 41}(5){col 46}
+{col 4} Step{col 10}{c |}{col 16}fevd{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      2{col 10}{c |}{res}{col 12}  .02417{col 24} -.01636{col 36} .064701
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .023855{col 24}-.019396{col 36} .067106
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .035687{col 24}-.015293{col 36} .086667
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .042432{col 24}-.016026{col 36}  .10089
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(6){col 29}(6){col 41}(6){col 46}
+{col 4} Step{col 10}{c |}{col 16}fevd{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .992035{col 24} .964851{col 36} 1.01922
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .986271{col 24} .955388{col 36} 1.01715
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .978687{col 24} .940979{col 36}  1.0164
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .941952{col 24} .879944{col 36} 1.00396
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .938865{col 24} .873161{col 36} 1.00457
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(7){col 29}(7){col 41}(7){col 46}
+{col 4} Step{col 10}{c |}{col 16}fevd{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .108585{col 24} .018722{col 36} .198447
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .079879{col 24} .013348{col 36}  .14641
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .075218{col 24} .010883{col 36} .139552
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .080992{col 24} .019619{col 36} .142364
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .119447{col 24} .034317{col 36} .204577
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(8){col 29}(8){col 41}(8){col 46}
+{col 4} Step{col 10}{c |}{col 16}fevd{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .082636{col 24} .002055{col 36} .163216
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .063421{col 24} .004765{col 36} .122077
+{txt} {col 2}      3{col 10}{c |}{res}{col 12}  .06325{col 24} .002606{col 36} .123895
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .061578{col 24}  .00233{col 36} .120827
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .063894{col 24} .003232{col 36} .124556
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(9){col 29}(9){col 41}(9){col 46}
+{col 4} Step{col 10}{c |}{col 16}fevd{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      2{col 10}{c |}{res}{col 12}  .00222{col 24}-.010197{col 36} .014636
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .003716{col 24}-.016106{col 36} .023538
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .006787{col 24}-.018813{col 36} .032387
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .015676{col 24}-.021018{col 36}  .05237
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(10){col 29}(10){col 41}(10){col 46}
+{col 4} Step{col 10}{c |}{col 16}fevd{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      2{col 10}{c |}{res}{col 12}  .00228{col 24}-.010937{col 36} .015497
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .005932{col 24}-.010749{col 36} .022612
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .005702{col 24}-.010782{col 36} .022187
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .007669{col 24}-.012838{col 36} .028175
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(11){col 29}(11){col 41}(11){col 46}
+{col 4} Step{col 10}{c |}{col 16}fevd{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .884098{col 24} .791686{col 36}  .97651
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .898443{col 24}   .8244{col 36} .972485
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .855466{col 24} .757247{col 36} .953686
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .852458{col 24} .759086{col 36} .945829
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .807514{col 24} .698885{col 36} .916143
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(12){col 29}(12){col 41}(12){col 46}
+{col 4} Step{col 10}{c |}{col 16}fevd{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .016159{col 24}-.020426{col 36} .052745
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .012817{col 24}-.012034{col 36} .037667
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .012897{col 24}-.010026{col 36} .035819
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .018095{col 24}-.013521{col 36} .049712
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .018554{col 24} -.01242{col 36} .049527
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(13){col 29}(13){col 41}(13){col 46}
+{col 4} Step{col 10}{c |}{col 16}fevd{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .027633{col 24}-.014712{col 36} .069977
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .037303{col 24}-.022611{col 36} .097218
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .037051{col 24}-.022074{col 36} .096177
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .036418{col 24}-.021607{col 36} .094444
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(14){col 29}(14){col 41}(14){col 46}
+{col 4} Step{col 10}{c |}{col 16}fevd{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .003898{col 24} -.01322{col 36} .021016
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .004479{col 24}  -.0165{col 36} .025458
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .022646{col 24}-.021664{col 36} .066957
+{txt} {col 2}      5{col 10}{c |}{res}{col 12}  .02385{col 24}-.024914{col 36} .072614
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(15){col 29}(15){col 41}(15){col 46}
+{col 4} Step{col 10}{c |}{col 16}fevd{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .015868{col 24}-.015778{col 36} .047514
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .062818{col 24}-.015729{col 36} .141364
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .060168{col 24}-.012996{col 36} .133331
+{txt} {col 2}      5{col 10}{c |}{res}{col 12}  .05658{col 24}-.012837{col 36} .125997
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(16){col 29}(16){col 41}(16){col 46}
+{col 4} Step{col 10}{c |}{col 16}fevd{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12}   .8916{col 24} .801471{col 36}  .98173
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .911706{col 24} .845477{col 36} .977935
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .909592{col 24}  .84292{col 36} .976265
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .864059{col 24} .777605{col 36} .950513
+{txt} {col 2}      5{col 10}{c |}{res}{col 12}  .85971{col 24} .771984{col 36} .947436
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{p 0 4 4}95%  lower and upper bounds reported.{p_end}
+{p 0 4 4}(1) irfname = {res:PostTestTS8}, impulse = {res:D.austin}, and response = {res:D.austin}.{p_end}
+{p 0 4 4}(2) irfname = {res:PostTestTS8}, impulse = {res:D.austin}, and response = {res:D.dallas}.{p_end}
+{p 0 4 4}(3) irfname = {res:PostTestTS8}, impulse = {res:D.austin}, and response = {res:D.houston}.{p_end}
+{p 0 4 4}(4) irfname = {res:PostTestTS8}, impulse = {res:D.austin}, and response = {res:D.sa}.{p_end}
+{p 0 4 4}(5) irfname = {res:PostTestTS8}, impulse = {res:D.dallas}, and response = {res:D.austin}.{p_end}
+{p 0 4 4}(6) irfname = {res:PostTestTS8}, impulse = {res:D.dallas}, and response = {res:D.dallas}.{p_end}
+{p 0 4 4}(7) irfname = {res:PostTestTS8}, impulse = {res:D.dallas}, and response = {res:D.houston}.{p_end}
+{p 0 4 4}(8) irfname = {res:PostTestTS8}, impulse = {res:D.dallas}, and response = {res:D.sa}.{p_end}
+{p 0 4 4}(9) irfname = {res:PostTestTS8}, impulse = {res:D.houston}, and response = {res:D.austin}.{p_end}
+{p 0 4 4}(10) irfname = {res:PostTestTS8}, impulse = {res:D.houston}, and response = {res:D.dallas}.{p_end}
+{p 0 4 4}(11) irfname = {res:PostTestTS8}, impulse = {res:D.houston}, and response = {res:D.houston}.{p_end}
+{p 0 4 4}(12) irfname = {res:PostTestTS8}, impulse = {res:D.houston}, and response = {res:D.sa}.{p_end}
+{p 0 4 4}(13) irfname = {res:PostTestTS8}, impulse = {res:D.sa}, and response = {res:D.austin}.{p_end}
+{p 0 4 4}(14) irfname = {res:PostTestTS8}, impulse = {res:D.sa}, and response = {res:D.dallas}.{p_end}
+{p 0 4 4}(15) irfname = {res:PostTestTS8}, impulse = {res:D.sa}, and response = {res:D.houston}.{p_end}
+{p 0 4 4}(16) irfname = {res:PostTestTS8}, impulse = {res:D.sa}, and response = {res:D.sa}.{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. irf table fevd, irf(PostTestTS8) impuls(d.austin) response(d.houston)
+
+{txt}Results from {res:PostTestTS8}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(1){col 29}(1){col 41}(1){col 46}
+{col 4} Step{col 10}{c |}{col 16}fevd{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .007317{col 24}-.018754{col 36} .033389
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .005811{col 24}-.011213{col 36} .022834
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .006498{col 24}-.011259{col 36} .024256
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .006383{col 24} -.01132{col 36} .024086
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .016459{col 24}-.016895{col 36} .049813
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{p 0 4 4}95%  lower and upper bounds reported.{p_end}
+{p 0 4 4}(1) irfname = {res:PostTestTS8}, impulse = {res:D.austin}, and response = {res:D.houston}.{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. var d.austin d.dallas d.houston d.sa, lags(1/4) 
+{res}
+{txt}Vector autoregression
+
+{col 1}Sample: {res}1990m6 {txt}thru{res} 2003m12 {txt}{col 49}Number of obs{col 67}= {res}       163
+{txt}Log likelihood =  {res} 1169.667{txt}{col 38}{col 49}AIC{col 67}=  {res}-13.51739
+{txt}FPE{col 16}=  {res} 1.59e-11{txt}{col 49}HQIC{col 67}=  {res} -12.9934
+{txt}Det(Sigma_ml){col 16}=  {res} 6.87e-12{txt}{col 49}SBIC{col 67}=  {res}-12.22674
+
+{col 1}{text}Equation        {col 18}  Parms{col 26}     RMSE {col 37}   R-sq  {col 47}   chi2   {col 58} P>chi2
+{res}{col 1}{text}{hline 17}{hline 8}{hline 11}{hline 10}{hline 11}{hline 7}
+{col 1}{text}D_austin        {col 18}{result}    17{col 26}{space 2} .040423{col 37}{space 1} 0.3384{col 47} 83.35657{col 58} 0.0000
+{col 1}{text}D_dallas        {col 18}{result}    17{col 26}{space 2} .038827{col 37}{space 1} 0.2162{col 47} 44.95963{col 58} 0.0001
+{col 1}{text}D_houston       {col 18}{result}    17{col 26}{space 2} .045141{col 37}{space 1} 0.4310{col 47} 123.4556{col 58} 0.0000
+{col 1}{text}D_sa            {col 18}{result}    17{col 26}{space 2} .052161{col 37}{space 1} 0.3560{col 47} 90.10814{col 58} 0.0000
+{col 1}{text}{hline 17}{hline 8}{hline 11}{hline 10}{hline 11}{hline 7}
+{res}
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}D_austin     {txt}{c |}
+{space 6}austin {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2}-.5025149{col 26}{space 2}  .073673{col 37}{space 1}   -6.82{col 46}{space 3}0.000{col 54}{space 4}-.6469113{col 67}{space 3}-.3581186
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2}-.4758803{col 26}{space 2} .0759489{col 37}{space 1}   -6.27{col 46}{space 3}0.000{col 54}{space 4}-.6247374{col 67}{space 3}-.3270232
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2}-.2887627{col 26}{space 2} .0762016{col 37}{space 1}   -3.79{col 46}{space 3}0.000{col 54}{space 4}-.4381151{col 67}{space 3}-.1394103
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2} -.271806{col 26}{space 2} .0654757{col 37}{space 1}   -4.15{col 46}{space 3}0.000{col 54}{space 4}-.4001361{col 67}{space 3} -.143476
+{txt}{space 12} {c |}
+{space 6}dallas {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2} .2180335{col 26}{space 2} .0861181{col 37}{space 1}    2.53{col 46}{space 3}0.011{col 54}{space 4} .0492452{col 67}{space 3} .3868218
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2} .1604064{col 26}{space 2} .0956599{col 37}{space 1}    1.68{col 46}{space 3}0.094{col 54}{space 4}-.0270836{col 67}{space 3} .3478964
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2} .2400772{col 26}{space 2} .0955611{col 37}{space 1}    2.51{col 46}{space 3}0.012{col 54}{space 4} .0527809{col 67}{space 3} .4273736
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2} .1138827{col 26}{space 2} .0918667{col 37}{space 1}    1.24{col 46}{space 3}0.215{col 54}{space 4}-.0661727{col 67}{space 3} .2939382
+{txt}{space 12} {c |}
+{space 5}houston {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2} .0759669{col 26}{space 2} .0729647{col 37}{space 1}    1.04{col 46}{space 3}0.298{col 54}{space 4}-.0670412{col 67}{space 3}  .218975
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2} .0343471{col 26}{space 2} .0832345{col 37}{space 1}    0.41{col 46}{space 3}0.680{col 54}{space 4}-.1287896{col 67}{space 3} .1974837
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2} .0669879{col 26}{space 2} .0827363{col 37}{space 1}    0.81{col 46}{space 3}0.418{col 54}{space 4}-.0951722{col 67}{space 3} .2291479
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2}-.0627716{col 26}{space 2} .0685753{col 37}{space 1}   -0.92{col 46}{space 3}0.360{col 54}{space 4}-.1971767{col 67}{space 3} .0716335
+{txt}{space 12} {c |}
+{space 10}sa {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2}-.1566029{col 26}{space 2} .0616982{col 37}{space 1}   -2.54{col 46}{space 3}0.011{col 54}{space 4}-.2775291{col 67}{space 3}-.0356766
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2} -.069286{col 26}{space 2} .0686926{col 37}{space 1}   -1.01{col 46}{space 3}0.313{col 54}{space 4}-.2039211{col 67}{space 3}  .065349
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2}-.0603643{col 26}{space 2} .0684937{col 37}{space 1}   -0.88{col 46}{space 3}0.378{col 54}{space 4}-.1946095{col 67}{space 3} .0738808
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2} .0040981{col 26}{space 2} .0613888{col 37}{space 1}    0.07{col 46}{space 3}0.947{col 54}{space 4}-.1162218{col 67}{space 3}  .124418
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0117633{col 26}{space 2} .0032407{col 37}{space 1}    3.63{col 46}{space 3}0.000{col 54}{space 4} .0054117{col 67}{space 3} .0181149
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}D_dallas     {txt}{c |}
+{space 6}austin {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2} .0606562{col 26}{space 2}  .070764{col 37}{space 1}    0.86{col 46}{space 3}0.391{col 54}{space 4}-.0780387{col 67}{space 3} .1993511
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2}-.0134128{col 26}{space 2} .0729501{col 37}{space 1}   -0.18{col 46}{space 3}0.854{col 54}{space 4}-.1563923{col 67}{space 3} .1295667
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2}-.1373197{col 26}{space 2} .0731928{col 37}{space 1}   -1.88{col 46}{space 3}0.061{col 54}{space 4}-.2807749{col 67}{space 3} .0061356
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2} -.144897{col 26}{space 2} .0628904{col 37}{space 1}   -2.30{col 46}{space 3}0.021{col 54}{space 4}  -.26816{col 67}{space 3}-.0216341
+{txt}{space 12} {c |}
+{space 6}dallas {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2}-.3844907{col 26}{space 2} .0827177{col 37}{space 1}   -4.65{col 46}{space 3}0.000{col 54}{space 4}-.5466144{col 67}{space 3} -.222367
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2}-.1249378{col 26}{space 2} .0918828{col 37}{space 1}   -1.36{col 46}{space 3}0.174{col 54}{space 4}-.3050248{col 67}{space 3} .0551492
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2}-.0924676{col 26}{space 2} .0917879{col 37}{space 1}   -1.01{col 46}{space 3}0.314{col 54}{space 4}-.2723685{col 67}{space 3} .0874334
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2} .0690966{col 26}{space 2} .0882394{col 37}{space 1}    0.78{col 46}{space 3}0.434{col 54}{space 4}-.1038494{col 67}{space 3} .2420425
+{txt}{space 12} {c |}
+{space 5}houston {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2} .0551796{col 26}{space 2} .0700837{col 37}{space 1}    0.79{col 46}{space 3}0.431{col 54}{space 4}-.0821818{col 67}{space 3} .1925411
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2} .1155436{col 26}{space 2}  .079948{col 37}{space 1}    1.45{col 46}{space 3}0.148{col 54}{space 4}-.0411516{col 67}{space 3} .2722389
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2} .1142321{col 26}{space 2} .0794694{col 37}{space 1}    1.44{col 46}{space 3}0.151{col 54}{space 4}-.0415252{col 67}{space 3} .2699893
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2}  .046669{col 26}{space 2} .0658676{col 37}{space 1}    0.71{col 46}{space 3}0.479{col 54}{space 4}-.0824292{col 67}{space 3} .1757671
+{txt}{space 12} {c |}
+{space 10}sa {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2}-.0528748{col 26}{space 2} .0592621{col 37}{space 1}   -0.89{col 46}{space 3}0.372{col 54}{space 4}-.1690263{col 67}{space 3} .0632767
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2}-.0285762{col 26}{space 2} .0659803{col 37}{space 1}   -0.43{col 46}{space 3}0.665{col 54}{space 4}-.1578952{col 67}{space 3} .1007428
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2}-.1549456{col 26}{space 2} .0657892{col 37}{space 1}   -2.36{col 46}{space 3}0.019{col 54}{space 4}-.2838901{col 67}{space 3}-.0260011
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2}-.1193388{col 26}{space 2} .0589649{col 37}{space 1}   -2.02{col 46}{space 3}0.043{col 54}{space 4}-.2349079{col 67}{space 3}-.0037697
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0055603{col 26}{space 2} .0031127{col 37}{space 1}    1.79{col 46}{space 3}0.074{col 54}{space 4}-.0005405{col 67}{space 3} .0116611
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}D_houston    {txt}{c |}
+{space 6}austin {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2} .0532213{col 26}{space 2} .0822713{col 37}{space 1}    0.65{col 46}{space 3}0.518{col 54}{space 4}-.1080274{col 67}{space 3}   .21447
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2}-.0155209{col 26}{space 2} .0848128{col 37}{space 1}   -0.18{col 46}{space 3}0.855{col 54}{space 4}-.1817509{col 67}{space 3} .1507092
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2} .0085806{col 26}{space 2}  .085095{col 37}{space 1}    0.10{col 46}{space 3}0.920{col 54}{space 4}-.1582026{col 67}{space 3} .1753638
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2}-.0154891{col 26}{space 2} .0731173{col 37}{space 1}   -0.21{col 46}{space 3}0.832{col 54}{space 4}-.1587964{col 67}{space 3} .1278182
+{txt}{space 12} {c |}
+{space 6}dallas {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2} .2196116{col 26}{space 2} .0961688{col 37}{space 1}    2.28{col 46}{space 3}0.022{col 54}{space 4} .0311243{col 67}{space 3}  .408099
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2} .2368868{col 26}{space 2} .1068243{col 37}{space 1}    2.22{col 46}{space 3}0.027{col 54}{space 4}  .027515{col 67}{space 3} .4462586
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2} .4295135{col 26}{space 2} .1067139{col 37}{space 1}    4.02{col 46}{space 3}0.000{col 54}{space 4} .2203581{col 67}{space 3}  .638669
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2} .0481158{col 26}{space 2} .1025884{col 37}{space 1}    0.47{col 46}{space 3}0.639{col 54}{space 4}-.1529537{col 67}{space 3} .2491853
+{txt}{space 12} {c |}
+{space 5}houston {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2}-.6431921{col 26}{space 2} .0814803{col 37}{space 1}   -7.89{col 46}{space 3}0.000{col 54}{space 4}-.8028905{col 67}{space 3}-.4834937
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2}-.1973141{col 26}{space 2} .0929487{col 37}{space 1}   -2.12{col 46}{space 3}0.034{col 54}{space 4}-.3794903{col 67}{space 3} -.015138
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2} -.242443{col 26}{space 2} .0923923{col 37}{space 1}   -2.62{col 46}{space 3}0.009{col 54}{space 4}-.4235286{col 67}{space 3}-.0613574
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2}-.1542861{col 26}{space 2} .0765786{col 37}{space 1}   -2.01{col 46}{space 3}0.044{col 54}{space 4}-.3043774{col 67}{space 3}-.0041947
+{txt}{space 12} {c |}
+{space 10}sa {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2} .1348816{col 26}{space 2} .0688989{col 37}{space 1}    1.96{col 46}{space 3}0.050{col 54}{space 4}-.0001578{col 67}{space 3} .2699211
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2}-.0574214{col 26}{space 2} .0767097{col 37}{space 1}   -0.75{col 46}{space 3}0.454{col 54}{space 4}-.2077696{col 67}{space 3} .0929268
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2}-.1575978{col 26}{space 2} .0764875{col 37}{space 1}   -2.06{col 46}{space 3}0.039{col 54}{space 4}-.3075106{col 67}{space 3}-.0076851
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2}-.1049591{col 26}{space 2} .0685534{col 37}{space 1}   -1.53{col 46}{space 3}0.126{col 54}{space 4}-.2393214{col 67}{space 3} .0294032
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0067183{col 26}{space 2} .0036189{col 37}{space 1}    1.86{col 46}{space 3}0.063{col 54}{space 4}-.0003746{col 67}{space 3} .0138112
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}D_sa         {txt}{c |}
+{space 6}austin {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2} .1462885{col 26}{space 2} .0950648{col 37}{space 1}    1.54{col 46}{space 3}0.124{col 54}{space 4}-.0400352{col 67}{space 3} .3326122
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2} .2386098{col 26}{space 2} .0980016{col 37}{space 1}    2.43{col 46}{space 3}0.015{col 54}{space 4} .0465301{col 67}{space 3} .4306894
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2}-.0255367{col 26}{space 2} .0983277{col 37}{space 1}   -0.26{col 46}{space 3}0.795{col 54}{space 4}-.2182555{col 67}{space 3} .1671821
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2} .0667729{col 26}{space 2} .0844874{col 37}{space 1}    0.79{col 46}{space 3}0.429{col 54}{space 4}-.0988195{col 67}{space 3} .2323652
+{txt}{space 12} {c |}
+{space 6}dallas {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2}  .234894{col 26}{space 2} .1111235{col 37}{space 1}    2.11{col 46}{space 3}0.035{col 54}{space 4} .0170958{col 67}{space 3} .4526921
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2} .1565629{col 26}{space 2}  .123436{col 37}{space 1}    1.27{col 46}{space 3}0.205{col 54}{space 4}-.0853672{col 67}{space 3} .3984931
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2} .1773291{col 26}{space 2} .1233085{col 37}{space 1}    1.44{col 46}{space 3}0.150{col 54}{space 4}-.0643511{col 67}{space 3} .4190093
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2}  .083718{col 26}{space 2} .1185414{col 37}{space 1}    0.71{col 46}{space 3}0.480{col 54}{space 4}-.1486188{col 67}{space 3} .3160548
+{txt}{space 12} {c |}
+{space 5}houston {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2} .1292059{col 26}{space 2} .0941509{col 37}{space 1}    1.37{col 46}{space 3}0.170{col 54}{space 4}-.0553265{col 67}{space 3} .3137382
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2} .2016881{col 26}{space 2} .1074027{col 37}{space 1}    1.88{col 46}{space 3}0.060{col 54}{space 4}-.0088174{col 67}{space 3} .4121936
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2} .0604341{col 26}{space 2} .1067598{col 37}{space 1}    0.57{col 46}{space 3}0.571{col 54}{space 4}-.1488113{col 67}{space 3} .2696794
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2}-.0148633{col 26}{space 2}  .088487{col 37}{space 1}   -0.17{col 46}{space 3}0.867{col 54}{space 4}-.1882946{col 67}{space 3} .1585681
+{txt}{space 12} {c |}
+{space 10}sa {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2}-.5976022{col 26}{space 2} .0796131{col 37}{space 1}   -7.51{col 46}{space 3}0.000{col 54}{space 4} -.753641{col 67}{space 3}-.4415634
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2}-.5493778{col 26}{space 2} .0886384{col 37}{space 1}   -6.20{col 46}{space 3}0.000{col 54}{space 4}-.7231059{col 67}{space 3}-.3756497
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2}-.4050557{col 26}{space 2} .0883817{col 37}{space 1}   -4.58{col 46}{space 3}0.000{col 54}{space 4}-.5782807{col 67}{space 3}-.2318307
+{txt}{space 8}L4D. {c |}{col 14}{res}{space 2}-.2631087{col 26}{space 2} .0792139{col 37}{space 1}   -3.32{col 46}{space 3}0.001{col 54}{space 4} -.418365{col 67}{space 3}-.1078524
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0025645{col 26}{space 2} .0041817{col 37}{space 1}    0.61{col 46}{space 3}0.540{col 54}{space 4}-.0056313{col 67}{space 3} .0107604
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. fcast compute fc_, step(5)
+{err}variable {bf}fc_D_austin{sf} already defined
+{txt}{search r(110), local:r(110);}
+
+end of do-file
+
+{search r(110), local:r(110);}
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. fcast graph fc_D_austin
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. fcast graph fc_D_dallas
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. fcast graph fc_D_houston
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. fcast graph fc_D_sa
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. save "$output/Kamila Fazilatunisa_posttestlab8"
+{txt}{p 0 4 2}
+file {bf}
+C:\Kamila Fazilatunisa_120410230109_TS\Output/Kamila Fazilatunisa_posttestlab8.dta{rm}
+saved
+{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD20d8_000000.tmp"
+{txt}
+{com}. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}C:\Kamila Fazilatunisa_120410230109_TS\Logfile/PostTestLab8TS.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}11 Nov 2025, 22:12:02
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

@@ -1,0 +1,423 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Kamila Fazilatunisa_120410230109_TS\Logfile/LatihanLab1TS.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}11 Sep 2025, 17:04:30
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD2a78_000000.tmp"
+{txt}
+{com}. webuse hardware.dta
+{txt}(Hughes Hardware sales data)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD2a78_000000.tmp"
+{txt}
+{com}. des
+
+{txt}Contains data from {res}https://www.stata-press.com/data/r17/hardware.dta
+{txt} Observations:{res}            91                  Hughes Hardware sales data
+{txt}    Variables:{res}             7                  22 Jan 2020 16:10
+                                              (_dta has notes)
+{txt}{hline}
+Variable      Storage   Display    Value
+    name         type    format    label      Variable label
+{hline}
+{p 0 48}{res}{bind:qdate          }{txt}{bind: int     }{bind:{txt}%tq       }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:gdp            }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{stata "notes list gdp":*} {res}Real GDP{p_end}
+{p 0 48}{bind:starts         }{txt}{bind: int     }{bind:{txt}%10.0g    }{space 1}{bind:         }{stata "notes list starts":*} {res}Housing starts{p_end}
+{p 0 48}{bind:unrate         }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{stata "notes list unrate":*} {res}Unemployment rate{p_end}
+{p 0 48}{bind:dim            }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Sales of dimensional lumber{p_end}
+{p 0 48}{bind:sheet          }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Sales of sheet goods{p_end}
+{p 0 48}{bind:misc           }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Sales of misc. hardware{p_end}
+                                            {txt}* indicated variables have notes
+{hline}
+Sorted by: {res}qdate
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD2a78_000000.tmp"
+{txt}
+{com}. tset qdate, quarterly
+{res}
+{p 0 15 2}{txt:Time variable: }{res:qdate}{txt:, }{res:{bind:1990q1}}{txt: to }{res:{bind:2012q3}}{p_end}
+{txt}{col 9}Delta: {res}1 quarter
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD2a78_000000.tmp"
+{txt}
+{com}. br
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD2a78_000000.tmp"
+{txt}
+{com}. tsline gdp starts unrate misc
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD2a78_000000.tmp"
+{txt}
+{com}. gen lgdp=log(gdp)
+{txt}
+{com}. gen lstart=log(start)
+{txt}
+{com}. gen lunrate=log(rate)
+{err}rate not found
+{txt}{search r(111), local:r(111);}
+
+end of do-file
+
+{search r(111), local:r(111);}
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD2a78_000000.tmp"
+{txt}
+{com}. gen lunrate=log(unrate)
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD2a78_000000.tmp"
+{txt}
+{com}. gen lmisc=log(misc)
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD2a78_000000.tmp"
+{txt}
+{com}. tsline lgdp lstarts lunrate lmisc
+{err}variable {bf}lstarts{sf} not found
+{txt}{search r(111), local:r(111);}
+
+end of do-file
+
+{search r(111), local:r(111);}
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD2a78_000000.tmp"
+{txt}
+{com}. tsline lgdp lstart lunrate lmisc
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD2a78_000000.tmp"
+{txt}
+{com}. tsline d.lgdp d.lstart d.lunrate d.lmisc
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD2a78_000000.tmp"
+{txt}
+{com}. dfuller lgdp
+
+{txt}Dickey–Fuller test for unit root{col 44}Number of obs  = {res}{ralign 2:90}
+{txt}Variable: {res}lgdp{txt}{col 44}Number of lags = {res}{ralign 2:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}     -1.978       -3.524       -2.898       -2.584
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.2965{txt}.
+
+{com}. dfuller lstart
+
+{txt}Dickey–Fuller test for unit root{col 44}Number of obs  = {res}{ralign 2:90}
+{txt}Variable: {res}lstart{txt}{col 44}Number of lags = {res}{ralign 2:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}     -0.465       -3.524       -2.898       -2.584
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.8987{txt}.
+
+{com}. dfuller lunrate
+
+{txt}Dickey–Fuller test for unit root{col 44}Number of obs  = {res}{ralign 2:90}
+{txt}Variable: {res}lunrate{txt}{col 44}Number of lags = {res}{ralign 2:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}     -0.467       -3.524       -2.898       -2.584
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.8983{txt}.
+
+{com}. dfuller lmisc
+
+{txt}Dickey–Fuller test for unit root{col 44}Number of obs  = {res}{ralign 2:90}
+{txt}Variable: {res}lmisc{txt}{col 44}Number of lags = {res}{ralign 2:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}     -1.750       -3.524       -2.898       -2.584
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.4057{txt}.
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD2a78_000000.tmp"
+{txt}
+{com}. dfuller d.lgdp
+
+{txt}Dickey–Fuller test for unit root{col 44}Number of obs  = {res}{ralign 2:89}
+{txt}Variable: {res}D.lgdp{txt}{col 44}Number of lags = {res}{ralign 2:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}     -5.459       -3.525       -2.899       -2.584
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.0000{txt}.
+
+{com}. dfuller d.lstarts
+{err}variable {bf}lstarts{sf} not found
+{txt}{search r(111), local:r(111);}
+
+end of do-file
+
+{search r(111), local:r(111);}
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD2a78_000000.tmp"
+{txt}
+{com}. dfuller d.lgdp
+
+{txt}Dickey–Fuller test for unit root{col 44}Number of obs  = {res}{ralign 2:89}
+{txt}Variable: {res}D.lgdp{txt}{col 44}Number of lags = {res}{ralign 2:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}     -5.459       -3.525       -2.899       -2.584
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.0000{txt}.
+
+{com}. dfuller d.lstart
+
+{txt}Dickey–Fuller test for unit root{col 44}Number of obs  = {res}{ralign 2:89}
+{txt}Variable: {res}D.lstart{txt}{col 44}Number of lags = {res}{ralign 2:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}     -6.760       -3.525       -2.899       -2.584
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.0000{txt}.
+
+{com}. dfuller d.lunrate
+
+{txt}Dickey–Fuller test for unit root{col 44}Number of obs  = {res}{ralign 2:89}
+{txt}Variable: {res}D.lunrate{txt}{col 44}Number of lags = {res}{ralign 2:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}     -4.132       -3.525       -2.899       -2.584
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.0009{txt}.
+
+{com}. dfuller d.lmisc
+
+{txt}Dickey–Fuller test for unit root{col 44}Number of obs  = {res}{ralign 2:89}
+{txt}Variable: {res}D.lmisc{txt}{col 44}Number of lags = {res}{ralign 2:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}    -13.214       -3.525       -2.899       -2.584
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.0000{txt}.
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD2a78_000000.tmp"
+{txt}
+{com}. reg lgdp lstart lunrate lmisc qdate
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}        91
+{txt}{hline 13}{c +}{hline 34}   F(4, 86)        = {res}  5910.13
+{txt}       Model {c |} {res} 2.87139409         4  .717848522   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} .010445614        86  .000121461   {txt}R-squared       ={res}    0.9964
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.9962
+{txt}       Total {c |} {res}  2.8818397        90  .032020441   {txt}Root MSE        =   {res} .01102
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}        lgdp{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 6}lstart {c |}{col 14}{res}{space 2} .0319091{col 26}{space 2} .0067344{col 37}{space 1}    4.74{col 46}{space 3}0.000{col 54}{space 4} .0185216{col 67}{space 3} .0452966
+{txt}{space 5}lunrate {c |}{col 14}{res}{space 2}-.0745987{col 26}{space 2} .0085311{col 37}{space 1}   -8.74{col 46}{space 3}0.000{col 54}{space 4}-.0915579{col 67}{space 3}-.0576395
+{txt}{space 7}lmisc {c |}{col 14}{res}{space 2} .0485569{col 26}{space 2} .0110787{col 37}{space 1}    4.38{col 46}{space 3}0.000{col 54}{space 4}  .026533{col 67}{space 3} .0705807
+{txt}{space 7}qdate {c |}{col 14}{res}{space 2} .0064721{col 26}{space 2} .0001552{col 37}{space 1}   41.69{col 46}{space 3}0.000{col 54}{space 4} .0061635{col 67}{space 3} .0067806
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 7.857174{col 26}{space 2} .0578694{col 37}{space 1}  135.77{col 46}{space 3}0.000{col 54}{space 4} 7.742133{col 67}{space 3} 7.972215
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD2a78_000000.tmp"
+{txt}
+{com}. estat dwatson = 
+{err}=exp not allowed
+{txt}{search r(101), local:r(101);}
+
+end of do-file
+
+{search r(101), local:r(101);}
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD2a78_000000.tmp"
+{txt}
+{com}. estat dwatson 
+
+{txt}Durbin–Watson d-statistic({res}  5{txt},{res}    91{txt}) = {res} .4363384
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD2a78_000000.tmp"
+{txt}
+{com}. reg d.lgdp d.lstart d.lunrate d.lmisc
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}        90
+{txt}{hline 13}{c +}{hline 34}   F(3, 86)        = {res}    34.29
+{txt}       Model {c |} {res}  .00204659         3  .000682197   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} .001710861        86  .000019894   {txt}R-squared       ={res}    0.5447
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.5288
+{txt}       Total {c |} {res} .003757452        89  .000042219   {txt}Root MSE        =   {res} .00446
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      D.lgdp{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 6}lstart {c |}
+{space 9}D1. {c |}{col 14}{res}{space 2} .0295562{col 26}{space 2}  .007422{col 37}{space 1}    3.98{col 46}{space 3}0.000{col 54}{space 4} .0148017{col 67}{space 3} .0443108
+{txt}{space 12} {c |}
+{space 5}lunrate {c |}
+{space 9}D1. {c |}{col 14}{res}{space 2}-.0681472{col 26}{space 2} .0112426{col 37}{space 1}   -6.06{col 46}{space 3}0.000{col 54}{space 4}-.0904966{col 67}{space 3}-.0457977
+{txt}{space 12} {c |}
+{space 7}lmisc {c |}
+{space 9}D1. {c |}{col 14}{res}{space 2} .0050679{col 26}{space 2} .0038293{col 37}{space 1}    1.32{col 46}{space 3}0.189{col 54}{space 4}-.0025444{col 67}{space 3} .0126803
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0063882{col 26}{space 2} .0004742{col 37}{space 1}   13.47{col 46}{space 3}0.000{col 54}{space 4} .0054456{col 67}{space 3} .0073308
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD2a78_000000.tmp"
+{txt}
+{com}. reg d.lgdp d.lstart d.lunrate d.lmisc qdate
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}        90
+{txt}{hline 13}{c +}{hline 34}   F(4, 85)        = {res}    27.49
+{txt}       Model {c |} {res} .002119406         4  .000529852   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} .001638045        85  .000019271   {txt}R-squared       ={res}    0.5641
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.5435
+{txt}       Total {c |} {res} .003757452        89  .000042219   {txt}Root MSE        =   {res} .00439
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      D.lgdp{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 6}lstart {c |}
+{space 9}D1. {c |}{col 14}{res}{space 2} .0286012{col 26}{space 2} .0073215{col 37}{space 1}    3.91{col 46}{space 3}0.000{col 54}{space 4} .0140441{col 67}{space 3} .0431582
+{txt}{space 12} {c |}
+{space 5}lunrate {c |}
+{space 9}D1. {c |}{col 14}{res}{space 2}-.0670214{col 26}{space 2} .0110804{col 37}{space 1}   -6.05{col 46}{space 3}0.000{col 54}{space 4}-.0890522{col 67}{space 3}-.0449906
+{txt}{space 12} {c |}
+{space 7}lmisc {c |}
+{space 9}D1. {c |}{col 14}{res}{space 2} .0051757{col 26}{space 2} .0037693{col 37}{space 1}    1.37{col 46}{space 3}0.173{col 54}{space 4}-.0023186{col 67}{space 3} .0126701
+{txt}{space 12} {c |}
+{space 7}qdate {c |}{col 14}{res}{space 2}-.0000348{col 26}{space 2} .0000179{col 37}{space 1}   -1.94{col 46}{space 3}0.055{col 54}{space 4}-.0000705{col 67}{space 3} 7.96e-07
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  .012143{col 26}{space 2} .0029971{col 37}{space 1}    4.05{col 46}{space 3}0.000{col 54}{space 4}  .006184{col 67}{space 3}  .018102
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD2a78_000000.tmp"
+{txt}
+{com}. estat dwatson
+
+{txt}Durbin–Watson d-statistic({res}  5{txt},{res}    90{txt}) = {res} 1.909451
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD2a78_000000.tmp"
+{txt}
+{com}. estat bgodfrey
+
+{txt}Breusch–Godfrey LM test for autocorrelation
+{hline 13}{c TT}{hline 61}
+{col 5}lags({it:p}){col 14}{c |}{col 25}chi2{col 44}df{col 63}Prob > chi2
+{hline 13}{c +}{hline 61}
+{col 6}  1{col 14}{c |}{res}{col 20}     0.182{col 43}  1{col 63}  0.6695
+{txt}{hline 13}{c BT}{hline 61}
+{col 25}H0: no serial correlation
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD2a78_000000.tmp"
+{txt}
+{com}. save "$output/LatihanLab1TS"
+{txt}{p 0 4 2}
+file {bf}
+C:\Kamila Fazilatunisa_120410230109_TS\Output/LatihanLab1TS.dta{rm}
+saved
+{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD2a78_000000.tmp"
+{txt}
+{com}. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}C:\Kamila Fazilatunisa_120410230109_TS\Logfile/LatihanLab1TS.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}11 Sep 2025, 18:31:36
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

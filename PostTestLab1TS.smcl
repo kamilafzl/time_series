@@ -1,0 +1,326 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Kamila Fazilatunisa_120410230109_TS\Logfile/PostTestLab1TS.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}14 Sep 2025, 18:27:25
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD6020_000000.tmp"
+{txt}
+{com}. use macrovariables.dta
+{err}{p 0 4 2}
+file {bf:{err}macrovariables.dta}
+not found
+{p_end}
+{txt}{search r(601), local:r(601);}
+
+end of do-file
+
+{search r(601), local:r(601);}
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD6020_000000.tmp"
+{txt}
+{com}. use "$data/macrovariables.dta"
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD6020_000000.tmp"
+{txt}
+{com}. des
+
+{txt}Contains data from {res}C:\Kamila Fazilatunisa_120410230109_TS\Data/macrovariables.dta
+{txt} Observations:{res}           145                  
+{txt}    Variables:{res}             5                  3 Mar 2022 16:10
+{txt}{hline}
+Variable      Storage   Display    Value
+    name         type    format    label      Variable label
+{hline}
+{p 0 48}{res}{bind:birate         }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}BI 7 days RRR{p_end}
+{p 0 48}{bind:inf            }{txt}{bind: double  }{bind:{txt}%14.2f    }{space 1}{bind:         }{bind:  }{res}{res}inflation rate{p_end}
+{p 0 48}{bind:lnkurs         }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}log of exchange rate{p_end}
+{p 0 48}{bind:lnjub          }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}log of broad money{p_end}
+{p 0 48}{bind:t              }{txt}{bind: float   }{bind:{txt}%tm       }{space 1}{bind:         }{bind:  }{res}{res}monthly{p_end}
+{txt}{hline}
+Sorted by: {res}t
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD6020_000000.tmp"
+{txt}
+{com}. tsset month, monthly
+{err}variable {bf}month{sf} not found
+{txt}{search r(111), local:r(111);}
+
+end of do-file
+
+{search r(111), local:r(111);}
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD6020_000000.tmp"
+{txt}
+{com}. tsset t, monthly
+{res}
+{p 0 15 2}{txt:Time variable: }{res:t}{txt:, }{res:{bind:2009m1}}{txt: to }{res:{bind:2021m1}}{p_end}
+{txt}{col 9}Delta: {res}1 month
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD6020_000000.tmp"
+{txt}
+{com}. br
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD6020_000000.tmp"
+{txt}
+{com}. sum
+
+{txt}    Variable {c |}        Obs        Mean    Std. dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 6}birate {c |}{res}        145    6.074138    1.163733       3.75       8.75
+{txt}{space 9}inf {c |}{res}        145    .3549655    .4834527       -.45       3.29
+{txt}{space 6}lnkurs {c |}{res}        145    9.371897    .1881313   9.048762   9.703022
+{txt}{space 7}lnjub {c |}{res}        145    15.24132    .3865756   14.44366   15.74704
+{txt}{space 11}t {c |}{res}        145         660    42.00198        588        732
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD6020_000000.tmp"
+{txt}
+{com}. tsline inf birate Inkurs Injub
+{err}variable {bf}Inkurs{sf} not found
+{txt}{search r(111), local:r(111);}
+
+end of do-file
+
+{search r(111), local:r(111);}
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD6020_000000.tmp"
+{txt}
+{com}. tsline inf birate inkurs Injub
+{err}variable {bf}inkurs{sf} not found
+{txt}{search r(111), local:r(111);}
+
+end of do-file
+
+{search r(111), local:r(111);}
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD6020_000000.tmp"
+{txt}
+{com}. tsline inf birate Lnkurs Injub
+{err}variable {bf}Lnkurs{sf} not found
+{txt}{search r(111), local:r(111);}
+
+end of do-file
+
+{search r(111), local:r(111);}
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD6020_000000.tmp"
+{txt}
+{com}. tsline inf birate lnkurs lnjub
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD6020_000000.tmp"
+{txt}
+{com}. tsline d.inf d.birate d.lnkurs d.lnjub
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD6020_000000.tmp"
+{txt}
+{com}. dfuller inf
+
+{txt}Dickey–Fuller test for unit root{col 43}Number of obs  = {res}{ralign 3:144}
+{txt}Variable: {res}inf{txt}{col 43}Number of lags = {res}{ralign 3:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}     -7.995       -3.495       -2.887       -2.577
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.0000{txt}.
+
+{com}. dfuller birate
+
+{txt}Dickey–Fuller test for unit root{col 43}Number of obs  = {res}{ralign 3:144}
+{txt}Variable: {res}birate{txt}{col 43}Number of lags = {res}{ralign 3:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}     -1.331       -3.495       -2.887       -2.577
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.6148{txt}.
+
+{com}. dfuller lnkurs
+
+{txt}Dickey–Fuller test for unit root{col 43}Number of obs  = {res}{ralign 3:144}
+{txt}Variable: {res}lnkurs{txt}{col 43}Number of lags = {res}{ralign 3:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}     -0.531       -3.495       -2.887       -2.577
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.8857{txt}.
+
+{com}. dfuller lnjub
+
+{txt}Dickey–Fuller test for unit root{col 43}Number of obs  = {res}{ralign 3:144}
+{txt}Variable: {res}lnjub{txt}{col 43}Number of lags = {res}{ralign 3:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}     -2.369       -3.495       -2.887       -2.577
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.1508{txt}.
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD6020_000000.tmp"
+{txt}
+{com}. reg inf birate lnkurs lnjub
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       145
+{txt}{hline 13}{c +}{hline 34}   F(3, 141)       = {res}     2.61
+{txt}       Model {c |} {res} 1.76795129         3  .589317096   {txt}Prob > F        ={res}    0.0542
+{txt}    Residual {c |} {res} 31.8886735       141  .226160805   {txt}R-squared       ={res}    0.0525
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0324
+{txt}       Total {c |} {res} 33.6566248       144  .233726561   {txt}Root MSE        =   {res} .47556
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}         inf{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 6}birate {c |}{col 14}{res}{space 2} .0649989{col 26}{space 2} .0413264{col 37}{space 1}    1.57{col 46}{space 3}0.118{col 54}{space 4}-.0167006{col 67}{space 3} .1466984
+{txt}{space 6}lnkurs {c |}{col 14}{res}{space 2} -.860317{col 26}{space 2} .4072453{col 37}{space 1}   -2.11{col 46}{space 3}0.036{col 54}{space 4}-1.665413{col 67}{space 3}-.0552209
+{txt}{space 7}lnjub {c |}{col 14}{res}{space 2} .3133315{col 26}{space 2} .2192411{col 37}{space 1}    1.43{col 46}{space 3}0.155{col 54}{space 4}-.1200933{col 67}{space 3} .7467562
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 3.247372{col 26}{space 2} 2.221929{col 37}{space 1}    1.46{col 46}{space 3}0.146{col 54}{space 4}-1.145229{col 67}{space 3} 7.639973
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD6020_000000.tmp"
+{txt}
+{com}. estat dwatson
+
+{txt}Durbin–Watson d-statistic({res}  4{txt},{res}   145{txt}) = {res} 1.288464
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD6020_000000.tmp"
+{txt}
+{com}. reg d.inf d.birate d.lnkurs d.lnjub t
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       144
+{txt}{hline 13}{c +}{hline 34}   F(4, 139)       = {res}     0.56
+{txt}       Model {c |} {res} .652580896         4  .163145224   {txt}Prob > F        ={res}    0.6949
+{txt}    Residual {c |} {res} 40.7801629       139  .293382467   {txt}R-squared       ={res}    0.0158
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}   -0.0126
+{txt}       Total {c |} {res} 41.4327438       143  .289739467   {txt}Root MSE        =   {res} .54165
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}       D.inf{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 6}birate {c |}
+{space 9}D1. {c |}{col 14}{res}{space 2} .2476899{col 26}{space 2}  .238664{col 37}{space 1}    1.04{col 46}{space 3}0.301{col 54}{space 4}-.2241913{col 67}{space 3}  .719571
+{txt}{space 12} {c |}
+{space 6}lnkurs {c |}
+{space 9}D1. {c |}{col 14}{res}{space 2}-1.841221{col 26}{space 2} 1.775424{col 37}{space 1}   -1.04{col 46}{space 3}0.302{col 54}{space 4} -5.35155{col 67}{space 3} 1.669108
+{txt}{space 12} {c |}
+{space 7}lnjub {c |}
+{space 9}D1. {c |}{col 14}{res}{space 2}  1.60311{col 26}{space 2} 2.161297{col 37}{space 1}    0.74{col 46}{space 3}0.459{col 54}{space 4}-2.670159{col 67}{space 3} 5.876379
+{txt}{space 12} {c |}
+{space 11}t {c |}{col 14}{res}{space 2}  .000055{col 26}{space 2} .0011102{col 37}{space 1}    0.05{col 46}{space 3}0.961{col 54}{space 4}-.0021402{col 67}{space 3} .0022501
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-.0367586{col 26}{space 2} .7384529{col 37}{space 1}   -0.05{col 46}{space 3}0.960{col 54}{space 4}-1.496811{col 67}{space 3} 1.423294
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD6020_000000.tmp"
+{txt}
+{com}. estat bgodfrey
+
+{txt}Breusch–Godfrey LM test for autocorrelation
+{hline 13}{c TT}{hline 61}
+{col 5}lags({it:p}){col 14}{c |}{col 25}chi2{col 44}df{col 63}Prob > chi2
+{hline 13}{c +}{hline 61}
+{col 6}  1{col 14}{c |}{res}{col 20}     0.135{col 43}  1{col 63}  0.7133
+{txt}{hline 13}{c BT}{hline 61}
+{col 25}H0: no serial correlation
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD6020_000000.tmp"
+{txt}
+{com}. estat dwatson
+
+{txt}Durbin–Watson d-statistic({res}  5{txt},{res}   144{txt}) = {res} 2.054312
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD6020_000000.tmp"
+{txt}
+{com}. estat dwatson
+
+{txt}Durbin–Watson d-statistic({res}  5{txt},{res}   144{txt}) = {res} 2.054312
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD6020_000000.tmp"
+{txt}
+{com}. estat bgodfrey
+
+{txt}Breusch–Godfrey LM test for autocorrelation
+{hline 13}{c TT}{hline 61}
+{col 5}lags({it:p}){col 14}{c |}{col 25}chi2{col 44}df{col 63}Prob > chi2
+{hline 13}{c +}{hline 61}
+{col 6}  1{col 14}{c |}{res}{col 20}     0.135{col 43}  1{col 63}  0.7133
+{txt}{hline 13}{c BT}{hline 61}
+{col 25}H0: no serial correlation
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD6020_000000.tmp"
+{txt}
+{com}. save "$output/PosttestLab1TS"
+{txt}{p 0 4 2}
+file {bf}
+C:\Kamila Fazilatunisa_120410230109_TS\Output/PosttestLab1TS.dta{rm}
+saved
+{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. 

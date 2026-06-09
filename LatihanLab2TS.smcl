@@ -1,0 +1,527 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Kamila Fazilatunisa_120410230109_TS\Logfile/LatihanLab2TS.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}18 Sep 2025, 16:37:27
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD21ec_000000.tmp"
+{txt}
+{com}. ssc install getsymbols
+{txt}checking {hilite:getsymbols} consistency and verifying not already installed...
+installing into C:\Users\ayip\ado\plus\...
+installation complete.
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD21ec_000000.tmp"
+{txt}
+{com}. getsymbols ICBP.JK, fy(2020) fm(01) ly(2025) lm(08) yahoo frequency(d)
+{txt}The data is being pulled from Yahoo.com ; the variables of this dataset are:
+      open high low close adjclose volume
+{res}{com}Symbol ICBP.JK was downloaded
+{res}1364 periods of 1 symbol(s) from Yahoo were downloaded.
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD21ec_000000.tmp"
+{txt}
+{com}. br
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD21ec_000000.tmp"
+{txt}
+{com}. tsset period, daily
+{res}
+{p 0 15 2}{txt:Time variable: }{res:period}{txt:, }{res:{bind:02jan2020}}{txt: to }{res:{bind:29aug2025}}{txt:, but with gaps}{p_end}
+{txt}{col 9}Delta: {res}1 day
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD21ec_000000.tmp"
+{txt}
+{com}. br
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD21ec_000000.tmp"
+{txt}
+{com}. rename open_ICBP_JK price
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD21ec_000000.tmp"
+{txt}
+{com}. tsline price
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD21ec_000000.tmp"
+{txt}
+{com}. dfuller price
+
+{txt}Dickey–Fuller test for unit root{col 41}Number of obs  = {res}{ralign 5:1,044}
+{txt}Variable: {res}price{txt}{col 41}Number of lags = {res}{ralign 5:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}     -3.042       -3.430       -2.860       -2.570
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.0311{txt}.
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD21ec_000000.tmp"
+{txt}
+{com}. arima price, arima(1,0,0)
+{txt}(note:  insufficient memory or observations to estimate usual
+starting values [2])
+
+Number of gaps in sample = {res}318
+{txt}(note: filtering over missing observations)
+
+(setting optimization to BHHH)
+{res}{txt}Iteration 0:{col 16}log likelihood = {res}-9093.8162{txt}  
+{res}{txt}Iteration 1:{col 16}log likelihood = {res}-9003.3791{txt}  
+{res}{txt}Iteration 2:{col 16}log likelihood = {res}-8999.6056{txt}  
+{res}{txt}Iteration 3:{col 16}log likelihood = {res}-8999.4886{txt}  
+{res}{txt}Iteration 4:{col 16}log likelihood = {res}-8999.4673{txt}  
+{res}{txt}(switching optimization to BFGS)
+{res}{txt}BFGS stepping has contracted, resetting BFGS Hessian (0)
+Iteration 5:{col 16}log likelihood = {res}-8999.4611{txt}  
+{res}{txt}Iteration 6:{col 16}log likelihood = {res}-8999.4609{txt}  (backed up)
+{res}{txt}Iteration 7:{col 16}log likelihood = {res}-8999.4595{txt}  
+{res}{txt}Iteration 8:{col 16}log likelihood = {res}-8999.4584{txt}  
+{res}{txt}Iteration 9:{col 16}log likelihood = {res}-8999.4584{txt}  
+{res}{txt}Iteration 10:{col 16}log likelihood = {res}-8999.4584{txt}  
+{res}{txt}Iteration 11:{col 16}log likelihood = {res}-8999.4584{txt}  
+{res}{txt}Iteration 12:{col 16}log likelihood = {res}-8999.4584{txt}  
+{res}{txt}Iteration 13:{col 16}log likelihood = {res}-8999.4582{txt}  
+{res}{txt}BFGS stepping has contracted, resetting BFGS Hessian (1)
+Iteration 14:{col 16}log likelihood = {res}-8999.4582{txt}  
+{res}{txt}(switching optimization to BHHH)
+{res}{txt}Iteration 15:{col 16}log likelihood = {res}-8999.4582{txt}  
+{res}
+{txt}ARIMA regression
+
+Sample: {res}02jan2020 {txt}thru{res} 29aug2025{txt}, {txt}but with gaps
+{col 49}Number of obs{col 67}={res}{col 69}      1363
+                                                {txt}Wald chi2({res}1{txt})      =  {res} 88675.02
+{txt}Log likelihood = {res}-8999.458                      {txt}Prob > chi2       =     {res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}      OPG
+{col 1}       price{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}price        {txt}{c |}
+{space 7}_cons {c |}{col 14}{res}{space 2}  10006.3{col 26}{space 2} 414.1327{col 37}{space 1}   24.16{col 46}{space 3}0.000{col 54}{space 4}  9194.62{col 67}{space 3} 10817.99
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}ARMA         {txt}{c |}
+{space 10}ar {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2} .9912817{col 26}{space 2} .0033289{col 37}{space 1}  297.78{col 46}{space 3}0.000{col 54}{space 4} .9847572{col 67}{space 3} .9978061
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} 156.3549{col 26}{space 2} 1.670329{col 37}{space 1}   93.61{col 46}{space 3}0.000{col 54}{space 4} 153.0811{col 67}{space 3} 159.6287
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 6 0 79}Note: The test of the variance against zero is one sided, and the two-sided confidence interval is truncated at zero.{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD21ec_000000.tmp"
+{txt}
+{com}. arima price, arima (1,0,0) nolog
+{txt}(note:  insufficient memory or observations to estimate usual
+starting values [2])
+
+Number of gaps in sample = {res}318
+{txt}(note: filtering over missing observations)
+{res}
+{txt}ARIMA regression
+
+Sample: {res}02jan2020 {txt}thru{res} 29aug2025{txt}, {txt}but with gaps
+{col 49}Number of obs{col 67}={res}{col 69}      1363
+                                                {txt}Wald chi2({res}1{txt})      =  {res} 88675.02
+{txt}Log likelihood = {res}-8999.458                      {txt}Prob > chi2       =     {res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}      OPG
+{col 1}       price{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}price        {txt}{c |}
+{space 7}_cons {c |}{col 14}{res}{space 2}  10006.3{col 26}{space 2} 414.1327{col 37}{space 1}   24.16{col 46}{space 3}0.000{col 54}{space 4}  9194.62{col 67}{space 3} 10817.99
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}ARMA         {txt}{c |}
+{space 10}ar {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2} .9912817{col 26}{space 2} .0033289{col 37}{space 1}  297.78{col 46}{space 3}0.000{col 54}{space 4} .9847572{col 67}{space 3} .9978061
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} 156.3549{col 26}{space 2} 1.670329{col 37}{space 1}   93.61{col 46}{space 3}0.000{col 54}{space 4} 153.0811{col 67}{space 3} 159.6287
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 6 0 79}Note: The test of the variance against zero is one sided, and the two-sided confidence interval is truncated at zero.{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD21ec_000000.tmp"
+{txt}
+{com}. predict ar1, r
+{txt}(1 missing value generated)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD21ec_000000.tmp"
+{txt}
+{com}. tsline ar1 
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD21ec_000000.tmp"
+{txt}
+{com}. dfuller ar1, r
+{err}option {bf:r} not allowed
+{txt}{search r(198), local:r(198);}
+
+end of do-file
+
+{search r(198), local:r(198);}
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD21ec_000000.tmp"
+{txt}
+{com}. dfuller ar1, r
+{err}option {bf:r} not allowed
+{txt}{search r(198), local:r(198);}
+
+end of do-file
+
+{search r(198), local:r(198);}
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD21ec_000000.tmp"
+{txt}
+{com}. dfuller ar1
+
+{txt}Dickey–Fuller test for unit root{col 41}Number of obs  = {res}{ralign 5:1,044}
+{txt}Variable: {res}ar1{txt}{col 41}Number of lags = {res}{ralign 5:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}    -33.818       -3.430       -2.860       -2.570
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.0000{txt}.
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD21ec_000000.tmp"
+{txt}
+{com}. wntestq ar1
+{txt}(note: time series has 318 gaps)
+
+Portmanteau test for white noise
+{hline 39}
+ Portmanteau (Q) statistic = {res}   53.2716
+{txt} Prob > chi2({res}40{txt})           = {res}    0.0780
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD21ec_000000.tmp"
+{txt}
+{com}. estat ic
+
+{txt}Akaike's information criterion and Bayesian information criterion
+
+{hline 13}{c TT}{hline 63}
+       Model {c |}          N   ll(null)  ll(model)      df        AIC        BIC
+{hline 13}{c +}{hline 63}
+{ralign 12:.}{col 14}{c |}{res}{col 16}     1,363{col 28}        .{col 39}-8999.458{col 50}     3{col 58} 18004.92{col 69} 18020.57
+{txt}{hline 13}{c BT}{hline 63}
+{p 0 6 0 77}Note: BIC uses N = number of observations. See {helpb bic_note:{bind:[R] BIC note}}.{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD21ec_000000.tmp"
+{txt}
+{com}. arima price, arima (0,0,1) nolog
+{txt}(note:  insufficient memory or observations to estimate usual
+starting values [2])
+
+Number of gaps in sample = {res}318
+{txt}(note: filtering over missing observations)
+{res}
+{txt}ARIMA regression
+
+Sample: {res}02jan2020 {txt}thru{res} 29aug2025{txt}, {txt}but with gaps
+{col 49}Number of obs{col 67}={res}{col 69}      1363
+                                                {txt}Wald chi2({res}1{txt})      =  {res}   516.80
+{txt}Log likelihood = {res}-11054.19                      {txt}Prob > chi2       =     {res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}      OPG
+{col 1}       price{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}price        {txt}{c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} 9975.596{col 26}{space 2} 30.29291{col 37}{space 1}  329.30{col 46}{space 3}0.000{col 54}{space 4} 9916.223{col 67}{space 3} 10034.97
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}ARMA         {txt}{c |}
+{space 10}ma {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2} .9999997{col 26}{space 2} .0439884{col 37}{space 1}   22.73{col 46}{space 3}0.000{col 54}{space 4} .9137841{col 67}{space 3} 1.086215
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} 665.9777{col 26}{space 2}        .{col 37}{space 1}       .{col 46}{space 3}    .{col 54}{space 4}        .{col 67}{space 3}        .
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 6 0 79}Note: The test of the variance against zero is one sided, and the two-sided confidence interval is truncated at zero.{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD21ec_000000.tmp"
+{txt}
+{com}. predict ma1, r
+{txt}(1 missing value generated)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD21ec_000000.tmp"
+{txt}
+{com}. tsline ma1
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD21ec_000000.tmp"
+{txt}
+{com}. dfuller ma1
+
+{txt}Dickey–Fuller test for unit root{col 41}Number of obs  = {res}{ralign 5:1,044}
+{txt}Variable: {res}ma1{txt}{col 41}Number of lags = {res}{ralign 5:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}    -25.869       -3.430       -2.860       -2.570
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.0000{txt}.
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD21ec_000000.tmp"
+{txt}
+{com}. wntestq ma1
+{txt}(note: time series has 318 gaps)
+
+Portmanteau test for white noise
+{hline 39}
+ Portmanteau (Q) statistic = {res}16463.6417
+{txt} Prob > chi2({res}40{txt})           = {res}    0.0000
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD21ec_000000.tmp"
+{txt}
+{com}. estat ic
+
+{txt}Akaike's information criterion and Bayesian information criterion
+
+{hline 13}{c TT}{hline 63}
+       Model {c |}          N   ll(null)  ll(model)      df        AIC        BIC
+{hline 13}{c +}{hline 63}
+{ralign 12:.}{col 14}{c |}{res}{col 16}     1,363{col 28}        .{col 39}-11054.19{col 50}     2{col 58} 22112.38{col 69} 22122.81
+{txt}{hline 13}{c BT}{hline 63}
+{p 0 6 0 77}Note: BIC uses N = number of observations. See {helpb bic_note:{bind:[R] BIC note}}.{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD21ec_000000.tmp"
+{txt}
+{com}. arima price, arima(1,0,1)
+{txt}(note:  insufficient memory or observations to estimate usual
+starting values [2])
+
+Number of gaps in sample = {res}318
+{txt}(note: filtering over missing observations)
+
+(setting optimization to BHHH)
+{res}{txt}Iteration 0:{col 16}log likelihood = {res}-11588.387{txt}  (not concave)
+{res}{txt}Iteration 1:{col 16}log likelihood = {res}-10063.716{txt}  
+{res}{txt}Iteration 2:{col 16}log likelihood = {res}-9789.3769{txt}  
+{res}{txt}Iteration 3:{col 16}log likelihood = {res}-9111.1531{txt}  
+{res}{txt}Iteration 4:{col 16}log likelihood = {res}-8992.0395{txt}  
+{res}{txt}(switching optimization to BFGS)
+{res}{txt}BFGS stepping has contracted, resetting BFGS Hessian (0)
+Iteration 5:{col 16}log likelihood = {res}  -8990.24{txt}  
+{res}{txt}Iteration 6:{col 16}log likelihood = {res}-8989.1633{txt}  (backed up)
+{res}{txt}Iteration 7:{col 16}log likelihood = {res}-8988.8958{txt}  (backed up)
+{res}{txt}Iteration 8:{col 16}log likelihood = {res}-8986.9419{txt}  
+{res}{txt}Iteration 9:{col 16}log likelihood = {res}-8986.9057{txt}  
+{res}{txt}Iteration 10:{col 16}log likelihood = {res}-8986.9043{txt}  
+{res}{txt}Iteration 11:{col 16}log likelihood = {res}-8986.9041{txt}  
+{res}{txt}Iteration 12:{col 16}log likelihood = {res}-8986.9039{txt}  
+{res}{txt}Iteration 13:{col 16}log likelihood = {res}-8986.9039{txt}  
+{res}{txt}Iteration 14:{col 16}log likelihood = {res}-8986.9038{txt}  
+{res}{txt}(switching optimization to BHHH)
+{res}{txt}Iteration 15:{col 16}log likelihood = {res}-8986.9023{txt}  
+{res}{txt}Iteration 16:{col 16}log likelihood = {res}-8984.8849{txt}  
+{res}{txt}Iteration 17:{col 16}log likelihood = {res} -8984.765{txt}  
+{res}{txt}Iteration 18:{col 16}log likelihood = {res}-8984.7432{txt}  
+{res}{txt}Iteration 19:{col 16}log likelihood = {res}-8984.7393{txt}  
+{res}{txt}(switching optimization to BFGS)
+{res}{txt}BFGS stepping has contracted, resetting BFGS Hessian (1)
+Iteration 20:{col 16}log likelihood = {res}-8984.7381{txt}  
+{res}{txt}Iteration 21:{col 16}log likelihood = {res}-8984.7379{txt}  (backed up)
+{res}{txt}Iteration 22:{col 16}log likelihood = {res}-8984.7379{txt}  (backed up)
+{res}{txt}Iteration 23:{col 16}log likelihood = {res}-8984.7377{txt}  
+{res}{txt}Iteration 24:{col 16}log likelihood = {res}-8984.7376{txt}  
+{res}{txt}Iteration 25:{col 16}log likelihood = {res}-8984.7375{txt}  
+{res}{txt}Iteration 26:{col 16}log likelihood = {res}-8984.7375{txt}  
+{res}{txt}Iteration 27:{col 16}log likelihood = {res}-8984.7375{txt}  
+{res}{txt}Iteration 28:{col 16}log likelihood = {res}-8984.7375{txt}  
+{res}{txt}Iteration 29:{col 16}log likelihood = {res}-8984.7375{txt}  
+{res}{txt}(switching optimization to BHHH)
+{res}{txt}Iteration 30:{col 16}log likelihood = {res}-8984.7375{txt}  
+{res}{txt}Iteration 31:{col 16}log likelihood = {res}-8984.7375{txt}  
+{res}{txt}Iteration 32:{col 16}log likelihood = {res}-8984.7375{txt}  
+{res}{txt}Iteration 33:{col 16}log likelihood = {res}-8984.7375{txt}  
+{res}{txt}Iteration 34:{col 16}log likelihood = {res}-8984.7375{txt}  
+{res}{txt}(switching optimization to BFGS)
+{res}{txt}BFGS stepping has contracted, resetting BFGS Hessian (2)
+Iteration 35:{col 16}log likelihood = {res}-8984.7375{txt}  
+{res}{txt}Iteration 36:{col 16}log likelihood = {res}-8984.7375{txt}  (backed up)
+{res}{txt}Iteration 37:{col 16}log likelihood = {res}-8984.7375{txt}  
+{res}
+{txt}ARIMA regression
+
+Sample: {res}02jan2020 {txt}thru{res} 29aug2025{txt}, {txt}but with gaps
+{col 49}Number of obs{col 67}={res}{col 69}      1363
+                                                {txt}Wald chi2({res}2{txt})      =  {res}130906.82
+{txt}Log likelihood = {res}-8984.738                      {txt}Prob > chi2       =     {res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}      OPG
+{col 1}       price{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}price        {txt}{c |}
+{space 7}_cons {c |}{col 14}{res}{space 2}  10016.6{col 26}{space 2} 474.7707{col 37}{space 1}   21.10{col 46}{space 3}0.000{col 54}{space 4} 9086.064{col 67}{space 3} 10947.13
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}ARMA         {txt}{c |}
+{space 10}ar {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2} .9939496{col 26}{space 2} .0027585{col 37}{space 1}  360.32{col 46}{space 3}0.000{col 54}{space 4} .9885431{col 67}{space 3} .9993561
+{txt}{space 12} {c |}
+{space 10}ma {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2}-.1838853{col 26}{space 2} .0176368{col 37}{space 1}  -10.43{col 46}{space 3}0.000{col 54}{space 4}-.2184528{col 67}{space 3}-.1493178
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2}  158.857{col 26}{space 2}  1.78641{col 37}{space 1}   88.93{col 46}{space 3}0.000{col 54}{space 4} 155.3557{col 67}{space 3} 162.3583
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 6 0 79}Note: The test of the variance against zero is one sided, and the two-sided confidence interval is truncated at zero.{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD21ec_000000.tmp"
+{txt}
+{com}. predict arima, r
+{txt}(1 missing value generated)
+
+{com}. tsline arima
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD21ec_000000.tmp"
+{txt}
+{com}. dfuller arima
+
+{txt}Dickey–Fuller test for unit root{col 41}Number of obs  = {res}{ralign 5:1,044}
+{txt}Variable: {res}arima{txt}{col 41}Number of lags = {res}{ralign 5:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}    -29.423       -3.430       -2.860       -2.570
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.0000{txt}.
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD21ec_000000.tmp"
+{txt}
+{com}. wntestq arima
+{txt}(note: time series has 318 gaps)
+
+Portmanteau test for white noise
+{hline 39}
+ Portmanteau (Q) statistic = {res}   61.6918
+{txt} Prob > chi2({res}40{txt})           = {res}    0.0154
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD21ec_000000.tmp"
+{txt}
+{com}. estat ic
+
+{txt}Akaike's information criterion and Bayesian information criterion
+
+{hline 13}{c TT}{hline 63}
+       Model {c |}          N   ll(null)  ll(model)      df        AIC        BIC
+{hline 13}{c +}{hline 63}
+{ralign 12:.}{col 14}{c |}{res}{col 16}     1,363{col 28}        .{col 39}-8984.738{col 50}     4{col 58} 17977.48{col 69} 17998.34
+{txt}{hline 13}{c BT}{hline 63}
+{p 0 6 0 77}Note: BIC uses N = number of observations. See {helpb bic_note:{bind:[R] BIC note}}.{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD21ec_000000.tmp"
+{txt}
+{com}. save "$output/Kamila_latihanlab2TS"
+{txt}{p 0 4 2}
+file {bf}
+C:\Kamila Fazilatunisa_120410230109_TS\Output/Kamila_latihanlab2TS.dta{rm}
+saved
+{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD21ec_000000.tmp"
+{txt}
+{com}. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}C:\Kamila Fazilatunisa_120410230109_TS\Logfile/LatihanLab2TS.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}18 Sep 2025, 17:47:18
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

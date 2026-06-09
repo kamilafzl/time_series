@@ -1,0 +1,274 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Kamila Fazilatunisa_120410230109_TS\Logfile/PostTestLab2TS.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}21 Sep 2025, 21:50:30
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD4b0c_000000.tmp"
+{txt}
+{com}. use "$data\pdb.dta"
+{txt}(PDB Indonesia Atas Dasar Harga Berlaku menurut Pengeluaran)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD4b0c_000000.tmp"
+{txt}
+{com}. br
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD4b0c_000000.tmp"
+{txt}
+{com}. tsset time, quarterly
+{res}
+{p 0 15 2}{txt:Time variable: }{res:time}{txt:, }{res:{bind:2008q3}}{txt: to }{res:{bind:2024q4}}{p_end}
+{txt}{col 9}Delta: {res}1 quarter
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD4b0c_000000.tmp"
+{txt}
+{com}. gen lpdb=log(pdb)
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD4b0c_000000.tmp"
+{txt}
+{com}. tsline lpdb
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD4b0c_000000.tmp"
+{txt}
+{com}. dfuller lpdb
+
+{txt}Dickey–Fuller test for unit root{col 44}Number of obs  = {res}{ralign 2:65}
+{txt}Variable: {res}lpdb{txt}{col 44}Number of lags = {res}{ralign 2:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}     -1.430       -3.559       -2.918       -2.594
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.5679{txt}.
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD4b0c_000000.tmp"
+{txt}
+{com}. dfuller d.lpdb
+
+{txt}Dickey–Fuller test for unit root{col 44}Number of obs  = {res}{ralign 2:64}
+{txt}Variable: {res}D.lpdb{txt}{col 44}Number of lags = {res}{ralign 2:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}     -7.853       -3.560       -2.919       -2.594
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.0000{txt}.
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD4b0c_000000.tmp"
+{txt}
+{com}. arima lpdb, arima(4,1,0) nolog
+{res}
+{txt}ARIMA regression
+
+Sample: {res}2008q4 {txt}thru{res} 2024q4 {col 49}{txt}Number of obs{col 67}={res}{col 69}        65
+                                                {txt}Wald chi2({res}4{txt})      =  {res}    24.37
+{txt}Log likelihood = {res}153.3941                       {txt}Prob > chi2       =     {res}0.0001
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}      OPG
+{col 1}      D.lpdb{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}lpdb         {txt}{c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0224236{col 26}{space 2}  .005005{col 37}{space 1}    4.48{col 46}{space 3}0.000{col 54}{space 4}  .012614{col 67}{space 3} .0322332
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}ARMA         {txt}{c |}
+{space 10}ar {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2} .0330007{col 26}{space 2} .1504511{col 37}{space 1}    0.22{col 46}{space 3}0.826{col 54}{space 4} -.261878{col 67}{space 3} .3278794
+{txt}{space 9}L2. {c |}{col 14}{res}{space 2}-.1709866{col 26}{space 2} .1372811{col 37}{space 1}   -1.25{col 46}{space 3}0.213{col 54}{space 4}-.4400527{col 67}{space 3} .0980795
+{txt}{space 9}L3. {c |}{col 14}{res}{space 2}-.0475885{col 26}{space 2} .1559492{col 37}{space 1}   -0.31{col 46}{space 3}0.760{col 54}{space 4}-.3532432{col 67}{space 3} .2580663
+{txt}{space 9}L4. {c |}{col 14}{res}{space 2}  .462662{col 26}{space 2} .1039212{col 37}{space 1}    4.45{col 46}{space 3}0.000{col 54}{space 4} .2589801{col 67}{space 3} .6663439
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .0226422{col 26}{space 2} .0017561{col 37}{space 1}   12.89{col 46}{space 3}0.000{col 54}{space 4} .0192003{col 67}{space 3} .0260841
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 6 0 79}Note: The test of the variance against zero is one sided, and the two-sided confidence interval is truncated at zero.{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD4b0c_000000.tmp"
+{txt}
+{com}. predict ar4, resid
+{txt}(1 missing value generated)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD4b0c_000000.tmp"
+{txt}
+{com}. tsline ar4
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD4b0c_000000.tmp"
+{txt}
+{com}. dfuller ar4
+
+{txt}Dickey–Fuller test for unit root{col 44}Number of obs  = {res}{ralign 2:64}
+{txt}Variable: {res}ar4{txt}{col 44}Number of lags = {res}{ralign 2:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}     -7.732       -3.560       -2.919       -2.594
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.0000{txt}.
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD4b0c_000000.tmp"
+{txt}
+{com}. wntestq ar4
+
+{txt}Portmanteau test for white noise
+{hline 39}
+ Portmanteau (Q) statistic = {res}   29.9314
+{txt} Prob > chi2({res}30{txt})           = {res}    0.4692
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD4b0c_000000.tmp"
+{txt}
+{com}. estat ic
+
+{txt}Akaike's information criterion and Bayesian information criterion
+
+{hline 13}{c TT}{hline 63}
+       Model {c |}          N   ll(null)  ll(model)      df        AIC        BIC
+{hline 13}{c +}{hline 63}
+{ralign 12:.}{col 14}{c |}{res}{col 16}        65{col 28}        .{col 39} 153.3941{col 50}     6{col 58}-294.7881{col 69}-281.7418
+{txt}{hline 13}{c BT}{hline 63}
+{p 0 6 0 77}Note: BIC uses N = number of observations. See {helpb bic_note:{bind:[R] BIC note}}.{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD4b0c_000000.tmp"
+{txt}
+{com}. arima lpdb, arima(0,1,4) nolog
+{res}
+{txt}ARIMA regression
+
+Sample: {res}2008q4 {txt}thru{res} 2024q4 {col 49}{txt}Number of obs{col 67}={res}{col 69}        65
+                                                {txt}Wald chi2({res}4{txt})      =  {res}    22.40
+{txt}Log likelihood = {res}149.8077                       {txt}Prob > chi2       =     {res}0.0002
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}      OPG
+{col 1}      D.lpdb{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}lpdb         {txt}{c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0223863{col 26}{space 2} .0046142{col 37}{space 1}    4.85{col 46}{space 3}0.000{col 54}{space 4} .0133426{col 67}{space 3}   .03143
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}ARMA         {txt}{c |}
+{space 10}ma {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2} .0056305{col 26}{space 2}  .147242{col 37}{space 1}    0.04{col 46}{space 3}0.969{col 54}{space 4}-.2829586{col 67}{space 3} .2942196
+{txt}{space 9}L2. {c |}{col 14}{res}{space 2}-.0761416{col 26}{space 2} .1463598{col 37}{space 1}   -0.52{col 46}{space 3}0.603{col 54}{space 4}-.3630014{col 67}{space 3} .2107183
+{txt}{space 9}L3. {c |}{col 14}{res}{space 2}  .003326{col 26}{space 2} .1557412{col 37}{space 1}    0.02{col 46}{space 3}0.983{col 54}{space 4}-.3019213{col 67}{space 3} .3085732
+{txt}{space 9}L4. {c |}{col 14}{res}{space 2} .4177632{col 26}{space 2} .0992884{col 37}{space 1}    4.21{col 46}{space 3}0.000{col 54}{space 4} .2231615{col 67}{space 3} .6123649
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} .0240032{col 26}{space 2} .0019678{col 37}{space 1}   12.20{col 46}{space 3}0.000{col 54}{space 4} .0201464{col 67}{space 3}   .02786
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 6 0 79}Note: The test of the variance against zero is one sided, and the two-sided confidence interval is truncated at zero.{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD4b0c_000000.tmp"
+{txt}
+{com}. predict ma4, resid
+{txt}(1 missing value generated)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD4b0c_000000.tmp"
+{txt}
+{com}. tsline ma4
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD4b0c_000000.tmp"
+{txt}
+{com}. estat ic
+
+{txt}Akaike's information criterion and Bayesian information criterion
+
+{hline 13}{c TT}{hline 63}
+       Model {c |}          N   ll(null)  ll(model)      df        AIC        BIC
+{hline 13}{c +}{hline 63}
+{ralign 12:.}{col 14}{c |}{res}{col 16}        65{col 28}        .{col 39} 149.8077{col 50}     6{col 58}-287.6154{col 69}-274.5691
+{txt}{hline 13}{c BT}{hline 63}
+{p 0 6 0 77}Note: BIC uses N = number of observations. See {helpb bic_note:{bind:[R] BIC note}}.{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD4b0c_000000.tmp"
+{txt}
+{com}. estat ic
+
+{txt}Akaike's information criterion and Bayesian information criterion
+
+{hline 13}{c TT}{hline 63}
+       Model {c |}          N   ll(null)  ll(model)      df        AIC        BIC
+{hline 13}{c +}{hline 63}
+{ralign 12:.}{col 14}{c |}{res}{col 16}        65{col 28}        .{col 39} 149.8077{col 50}     6{col 58}-287.6154{col 69}-274.5691
+{txt}{hline 13}{c BT}{hline 63}
+{p 0 6 0 77}Note: BIC uses N = number of observations. See {helpb bic_note:{bind:[R] BIC note}}.{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD4b0c_000000.tmp"
+{txt}
+{com}. save "$output/PostTestLab2TS"
+{txt}{p 0 4 2}
+file {bf}
+C:\Kamila Fazilatunisa_120410230109_TS\Output/PostTestLab2TS.dta{rm}
+saved
+{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. 

@@ -1,0 +1,854 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Kamila Fazilatunisa_120410230109_TS\Logfile/LatihanLab8TS.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res} 6 Nov 2025, 16:53:37
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. use "$data\lutkepohl2.dta"
+{txt}(Quarterly SA West German macro data, Bil DM, from Lutkepohl 1993 Table E.1)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. des
+
+{txt}Contains data from {res}C:\Kamila Fazilatunisa_120410230109_TS\Data\lutkepohl2.dta
+{txt} Observations:{res}            92                  Quarterly SA West German macro data, Bil DM, from Lutkepohl 1993 Table E.1
+{txt}    Variables:{res}            10                  26 Oct 2025 16:44
+{txt}{hline}
+Variable      Storage   Display    Value
+    name         type    format    label      Variable label
+{hline}
+{p 0 48}{res}{bind:inv            }{txt}{bind: int     }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Investment{p_end}
+{p 0 48}{bind:inc            }{txt}{bind: int     }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Income{p_end}
+{p 0 48}{bind:consump        }{txt}{bind: int     }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Consumption{p_end}
+{p 0 48}{bind:qtr            }{txt}{bind: byte    }{bind:{txt}%tq       }{space 1}{bind:         }{bind:  }{res}{res}Quarter{p_end}
+{p 0 48}{bind:ln_inv         }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Log investment{p_end}
+{p 0 48}{bind:dln_inv        }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}First-difference of ln_inv{p_end}
+{p 0 48}{bind:ln_inc         }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Log income{p_end}
+{p 0 48}{bind:dln_inc        }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}First-difference of ln_inc{p_end}
+{p 0 48}{bind:ln_consump     }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Log consumption{p_end}
+{p 0 48}{bind:dln_consump    }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}First-difference of ln_consump{p_end}
+{txt}{hline}
+Sorted by: {res}qtr
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. tsset qtr, q
+{res}
+{p 0 15 2}{txt:Time variable: }{res:qtr}{txt:, }{res:{bind:1960q1}}{txt: to }{res:{bind:1982q4}}{p_end}
+{txt}{col 9}Delta: {res}1 quarter
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. tsline inv inc consump
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. tsline ln_inv ln_inc ln_consump
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. dfuller ln_inv
+
+{txt}Dickey–Fuller test for unit root{col 44}Number of obs  = {res}{ralign 2:91}
+{txt}Variable: {res}ln_inv{txt}{col 44}Number of lags = {res}{ralign 2:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}     -1.201       -3.523       -2.897       -2.584
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.6732{txt}.
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. dfuller ln_inc
+
+{txt}Dickey–Fuller test for unit root{col 44}Number of obs  = {res}{ralign 2:91}
+{txt}Variable: {res}ln_inc{txt}{col 44}Number of lags = {res}{ralign 2:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}     -2.291       -3.523       -2.897       -2.584
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.1750{txt}.
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. dfuller ln_consump
+
+{txt}Dickey–Fuller test for unit root{col 44}Number of obs  = {res}{ralign 2:91}
+{txt}Variable: {res}ln_consump{txt}{col 44}Number of lags = {res}{ralign 2:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}     -1.688       -3.523       -2.897       -2.584
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.4371{txt}.
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. dfuller dln_inv
+
+{txt}Dickey–Fuller test for unit root{col 44}Number of obs  = {res}{ralign 2:90}
+{txt}Variable: {res}dln_inv{txt}{col 44}Number of lags = {res}{ralign 2:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}    -11.136       -3.524       -2.898       -2.584
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.0000{txt}.
+
+{com}. dfuller dln_inc
+
+{txt}Dickey–Fuller test for unit root{col 44}Number of obs  = {res}{ralign 2:90}
+{txt}Variable: {res}dln_inc{txt}{col 44}Number of lags = {res}{ralign 2:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}     -8.389       -3.524       -2.898       -2.584
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.0000{txt}.
+
+{com}. dfuller dln_consump
+
+{txt}Dickey–Fuller test for unit root{col 44}Number of obs  = {res}{ralign 2:90}
+{txt}Variable: {res}dln_consump{txt}{col 44}Number of lags = {res}{ralign 2:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}     -9.750       -3.524       -2.898       -2.584
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.0000{txt}.
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. varsic dln_inc dln_inc dln_consump
+{err}command {bf}varsic{sf} is unrecognized
+{txt}{search r(199), local:r(199);}
+
+end of do-file
+
+{search r(199), local:r(199);}
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. varsoc dln_inc dln_inc dln_consump
+
+{txt}Lag-order selection criteria
+
+{col 4}Sample: {res}1961q2 {txt}thru{res} 1982q4 {txt}{col 61}Number of obs = {res}87
+{col 3}{text}{c TLC}{hline 5}{c TT}{hline 9}{hline 8}{hline 1}{hline 5}{hline 6}{hline 8}{hline 1}{hline 9}{hline 1}{hline 9}{hline 1}{hline 9}{hline 1}{hline 1}{c TRC}
+{col 3}{text}{c |} Lag{col 9}{c |}    LL  {col 19}   LR  {col 28}  df{col 33}   p {col 39}   FPE {col 48}    AIC {col 58}   HQIC {col 68}   SBIC {col 79}{c |}
+{res}{col 3}{text}{c LT}{hline 5}{c +}{hline 9}{hline 8}{hline 1}{hline 5}{hline 6}{hline 8}{hline 1}{hline 9}{hline 1}{hline 9}{hline 1}{hline 9}{hline 1}{hline 1}{c RT}
+{col 3}{text}{c |}   0{col 9}{c |}{result}{space 1}  545.23{col 19}{col 28}{col 33}{col 39} 1.3e-08{col 48}{space 1} -12.488{col 58}{space 1}-12.4652{col 68}{space 1}-12.4314{col 79}{text}{c |}
+{res}{col 3}{text}{c |}   1{col 9}{c |}{result}{space 1} 556.045{col 19}{space 1} 21.631{col 28}   4{col 33} 0.000{col 39} 1.1e-08{col 48}{space 1}-12.6447{col 58}{space 1}-12.5762{col 68}{space 1}-12.4747{col 77}{txt}*{res}{col 79}{text}{c |}
+{res}{col 3}{text}{c |}   2{col 9}{c |}{result}{space 1} 563.966{col 19}{space 1} 15.842{col 27}{txt}*{res}{col 28}   4{col 33} 0.003{col 39} 1.0e-08{col 48}{space 1}-12.7349{col 58}{space 1}-12.6207{col 67}{txt}*{res}{col 68}{space 1}-12.4514{col 79}{text}{c |}
+{res}{col 3}{text}{c |}   3{col 9}{c |}{result}{space 1} 568.512{col 19}{space 1} 9.0912{col 28}   4{col 33} 0.059{col 39} 1.0e-08{col 47}{txt}*{res}{col 48}{space 1}-12.7474{col 57}{txt}*{res}{col 58}{space 1}-12.5876{col 68}{space 1}-12.3506{col 79}{text}{c |}
+{res}{col 3}{text}{c |}   4{col 9}{c |}{result}{space 1} 569.727{col 19}{space 1} 2.4307{col 28}   4{col 33} 0.657{col 39} 1.1e-08{col 48}{space 1}-12.6834{col 58}{space 1}-12.4779{col 68}{space 1}-12.1732{col 79}{text}{c |}
+{res}{col 3}{text}{c BLC}{hline 5}{c BT}{hline 9}{hline 8}{hline 1}{hline 5}{hline 6}{hline 8}{hline 1}{hline 9}{hline 1}{hline 9}{hline 1}{hline 9}{hline 1}{hline 1}{c BRC}
+{res}{txt}{space 3}* optimal lag
+{space 3}Endogenous: {res}dln_inc dln_inc dln_consump
+{txt}{space 3} Exogenous: {res}_cons
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. var ln_inv dln_inc dln_consump
+{res}
+{txt}Vector autoregression
+
+{col 1}Sample: {res}1960q4 {txt}thru{res} 1982q4 {txt}{col 49}Number of obs{col 67}= {res}        89
+{txt}Log likelihood =  {res} 738.8177{txt}{col 38}{col 49}AIC{col 67}=  {res}-16.13073
+{txt}FPE{col 16}=  {res} 1.98e-11{txt}{col 49}HQIC{col 67}=  {res}-15.89405
+{txt}Det(Sigma_ml){col 16}=  {res} 1.24e-11{txt}{col 49}SBIC{col 67}=  {res}-15.54353
+
+{col 1}{text}Equation        {col 18}  Parms{col 26}     RMSE {col 37}   R-sq  {col 47}   chi2   {col 58} P>chi2
+{res}{col 1}{text}{hline 17}{hline 8}{hline 11}{hline 10}{hline 11}{hline 7}
+{col 1}{text}ln_inv          {col 18}{result}     7{col 26}{space 2} .044442{col 37}{space 1} 0.9909{col 47} 9664.027{col 58} 0.0000
+{col 1}{text}dln_inc         {col 18}{result}     7{col 26}{space 2} .011443{col 37}{space 1} 0.1180{col 47} 11.90505{col 58} 0.0641
+{col 1}{text}dln_consump     {col 18}{result}     7{col 26}{space 2} .010128{col 37}{space 1} 0.2106{col 47} 23.74517{col 58} 0.0006
+{col 1}{text}{hline 17}{hline 8}{hline 11}{hline 10}{hline 11}{hline 7}
+{res}
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}ln_inv       {txt}{c |}
+{space 6}ln_inv {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2}  .746304{col 26}{space 2} .1077155{col 37}{space 1}    6.93{col 46}{space 3}0.000{col 54}{space 4} .5351854{col 67}{space 3} .9574226
+{txt}{space 9}L2. {c |}{col 14}{res}{space 2} .2438579{col 26}{space 2} .1072852{col 37}{space 1}    2.27{col 46}{space 3}0.023{col 54}{space 4} .0335828{col 67}{space 3} .4541331
+{txt}{space 12} {c |}
+{space 5}dln_inc {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2}  .202834{col 26}{space 2} .4809083{col 37}{space 1}    0.42{col 46}{space 3}0.673{col 54}{space 4} -.739729{col 67}{space 3} 1.145397
+{txt}{space 9}L2. {c |}{col 14}{res}{space 2}  .146509{col 26}{space 2} .4707822{col 37}{space 1}    0.31{col 46}{space 3}0.756{col 54}{space 4}-.7762072{col 67}{space 3} 1.069225
+{txt}{space 12} {c |}
+{space 1}dln_consump {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2} .6597065{col 26}{space 2} .5468216{col 37}{space 1}    1.21{col 46}{space 3}0.228{col 54}{space 4}-.4120442{col 67}{space 3} 1.731457
+{txt}{space 9}L2. {c |}{col 14}{res}{space 2} .4369754{col 26}{space 2} .5281957{col 37}{space 1}    0.83{col 46}{space 3}0.408{col 54}{space 4}-.5982693{col 67}{space 3}  1.47222
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2}  .053195{col 26}{space 2} .0658588{col 37}{space 1}    0.81{col 46}{space 3}0.419{col 54}{space 4}-.0758858{col 67}{space 3} .1822758
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}dln_inc      {txt}{c |}
+{space 6}ln_inv {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2} .0274701{col 26}{space 2} .0277344{col 37}{space 1}    0.99{col 46}{space 3}0.322{col 54}{space 4}-.0268884{col 67}{space 3} .0818286
+{txt}{space 9}L2. {c |}{col 14}{res}{space 2}-.0306303{col 26}{space 2} .0276236{col 37}{space 1}   -1.11{col 46}{space 3}0.267{col 54}{space 4}-.0847716{col 67}{space 3} .0235111
+{txt}{space 12} {c |}
+{space 5}dln_inc {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2}-.1034188{col 26}{space 2} .1238235{col 37}{space 1}   -0.84{col 46}{space 3}0.404{col 54}{space 4}-.3461085{col 67}{space 3} .1392709
+{txt}{space 9}L2. {c |}{col 14}{res}{space 2}-.0027179{col 26}{space 2} .1212163{col 37}{space 1}   -0.02{col 46}{space 3}0.982{col 54}{space 4}-.2402975{col 67}{space 3} .2348617
+{txt}{space 12} {c |}
+{space 1}dln_consump {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2} .2933155{col 26}{space 2} .1407948{col 37}{space 1}    2.08{col 46}{space 3}0.037{col 54}{space 4} .0173627{col 67}{space 3} .5692682
+{txt}{space 9}L2. {c |}{col 14}{res}{space 2}  .127032{col 26}{space 2}  .135999{col 37}{space 1}    0.93{col 46}{space 3}0.350{col 54}{space 4}-.1395212{col 67}{space 3} .3935852
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2}  .031858{col 26}{space 2} .0169572{col 37}{space 1}    1.88{col 46}{space 3}0.060{col 54}{space 4}-.0013775{col 67}{space 3} .0650936
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}dln_consump  {txt}{c |}
+{space 6}ln_inv {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2}-.0094945{col 26}{space 2} .0245468{col 37}{space 1}   -0.39{col 46}{space 3}0.699{col 54}{space 4}-.0576053{col 67}{space 3} .0386163
+{txt}{space 9}L2. {c |}{col 14}{res}{space 2} .0075641{col 26}{space 2} .0244487{col 37}{space 1}    0.31{col 46}{space 3}0.757{col 54}{space 4}-.0403545{col 67}{space 3} .0554827
+{txt}{space 12} {c |}
+{space 5}dln_inc {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2} .3087236{col 26}{space 2} .1095919{col 37}{space 1}    2.82{col 46}{space 3}0.005{col 54}{space 4} .0939275{col 67}{space 3} .5235197
+{txt}{space 9}L2. {c |}{col 14}{res}{space 2}  .350567{col 26}{space 2} .1072843{col 37}{space 1}    3.27{col 46}{space 3}0.001{col 54}{space 4} .1402937{col 67}{space 3} .5608404
+{txt}{space 12} {c |}
+{space 1}dln_consump {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2}-.2933299{col 26}{space 2} .1246125{col 37}{space 1}   -2.35{col 46}{space 3}0.019{col 54}{space 4} -.537566{col 67}{space 3}-.0490939
+{txt}{space 9}L2. {c |}{col 14}{res}{space 2}-.0533368{col 26}{space 2}  .120368{col 37}{space 1}   -0.44{col 46}{space 3}0.658{col 54}{space 4}-.2892537{col 67}{space 3} .1825801
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0240298{col 26}{space 2} .0150082{col 37}{space 1}    1.60{col 46}{space 3}0.109{col 54}{space 4}-.0053858{col 67}{space 3} .0534454
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. varsoc
+
+{txt}Lag-order selection criteria
+
+{col 4}Sample: {res}1960q4 {txt}thru{res} 1982q4 {txt}{col 61}Number of obs = {res}89
+{col 3}{text}{c TLC}{hline 5}{c TT}{hline 9}{hline 8}{hline 1}{hline 5}{hline 6}{hline 8}{hline 1}{hline 9}{hline 1}{hline 9}{hline 1}{hline 9}{hline 1}{hline 1}{c TRC}
+{col 3}{text}{c |} Lag{col 9}{c |}    LL  {col 19}   LR  {col 28}  df{col 33}   p {col 39}   FPE {col 48}    AIC {col 58}   HQIC {col 68}   SBIC {col 79}{c |}
+{res}{col 3}{text}{c LT}{hline 5}{c +}{hline 9}{hline 8}{hline 1}{hline 5}{hline 6}{hline 8}{hline 1}{hline 9}{hline 1}{hline 9}{hline 1}{hline 9}{hline 1}{hline 1}{c RT}
+{col 3}{text}{c |}   0{col 9}{c |}{result}{space 1}  504.51{col 19}{col 28}{col 33}{col 39} 2.6e-09{col 48}{space 1}-11.2699{col 58}{space 1}-11.2361{col 68}{space 1} -11.186{col 79}{text}{c |}
+{res}{col 3}{text}{c |}   1{col 9}{c |}{result}{space 1} 726.226{col 19}{space 1} 443.43{col 28}   9{col 33} 0.000{col 39} 2.1e-11{col 48}{space 1}  -16.05{col 58}{space 1}-15.9148{col 67}{txt}*{res}{col 68}{space 1}-15.7145{col 77}{txt}*{res}{col 79}{text}{c |}
+{res}{col 3}{text}{c |}   2{col 9}{c |}{result}{space 1} 738.818{col 19}{space 1} 25.184{col 27}{txt}*{res}{col 28}   9{col 33} 0.003{col 39} 2.0e-11{col 47}{txt}*{res}{col 48}{space 1}-16.1307{col 57}{txt}*{res}{col 58}{space 1} -15.894{col 68}{space 1}-15.5435{col 79}{text}{c |}
+{res}{col 3}{text}{c BLC}{hline 5}{c BT}{hline 9}{hline 8}{hline 1}{hline 5}{hline 6}{hline 8}{hline 1}{hline 9}{hline 1}{hline 9}{hline 1}{hline 9}{hline 1}{hline 1}{c BRC}
+{res}{txt}{space 3}* optimal lag
+{space 3}Endogenous: {res}ln_inv dln_inc dln_consump
+{txt}{space 3} Exogenous: {res}_cons
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. var ln_inv dln_inc dln_consump, lags(1/2)
+{res}
+{txt}Vector autoregression
+
+{col 1}Sample: {res}1960q4 {txt}thru{res} 1982q4 {txt}{col 49}Number of obs{col 67}= {res}        89
+{txt}Log likelihood =  {res} 738.8177{txt}{col 38}{col 49}AIC{col 67}=  {res}-16.13073
+{txt}FPE{col 16}=  {res} 1.98e-11{txt}{col 49}HQIC{col 67}=  {res}-15.89405
+{txt}Det(Sigma_ml){col 16}=  {res} 1.24e-11{txt}{col 49}SBIC{col 67}=  {res}-15.54353
+
+{col 1}{text}Equation        {col 18}  Parms{col 26}     RMSE {col 37}   R-sq  {col 47}   chi2   {col 58} P>chi2
+{res}{col 1}{text}{hline 17}{hline 8}{hline 11}{hline 10}{hline 11}{hline 7}
+{col 1}{text}ln_inv          {col 18}{result}     7{col 26}{space 2} .044442{col 37}{space 1} 0.9909{col 47} 9664.027{col 58} 0.0000
+{col 1}{text}dln_inc         {col 18}{result}     7{col 26}{space 2} .011443{col 37}{space 1} 0.1180{col 47} 11.90505{col 58} 0.0641
+{col 1}{text}dln_consump     {col 18}{result}     7{col 26}{space 2} .010128{col 37}{space 1} 0.2106{col 47} 23.74517{col 58} 0.0006
+{col 1}{text}{hline 17}{hline 8}{hline 11}{hline 10}{hline 11}{hline 7}
+{res}
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}ln_inv       {txt}{c |}
+{space 6}ln_inv {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2}  .746304{col 26}{space 2} .1077155{col 37}{space 1}    6.93{col 46}{space 3}0.000{col 54}{space 4} .5351854{col 67}{space 3} .9574226
+{txt}{space 9}L2. {c |}{col 14}{res}{space 2} .2438579{col 26}{space 2} .1072852{col 37}{space 1}    2.27{col 46}{space 3}0.023{col 54}{space 4} .0335828{col 67}{space 3} .4541331
+{txt}{space 12} {c |}
+{space 5}dln_inc {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2}  .202834{col 26}{space 2} .4809083{col 37}{space 1}    0.42{col 46}{space 3}0.673{col 54}{space 4} -.739729{col 67}{space 3} 1.145397
+{txt}{space 9}L2. {c |}{col 14}{res}{space 2}  .146509{col 26}{space 2} .4707822{col 37}{space 1}    0.31{col 46}{space 3}0.756{col 54}{space 4}-.7762072{col 67}{space 3} 1.069225
+{txt}{space 12} {c |}
+{space 1}dln_consump {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2} .6597065{col 26}{space 2} .5468216{col 37}{space 1}    1.21{col 46}{space 3}0.228{col 54}{space 4}-.4120442{col 67}{space 3} 1.731457
+{txt}{space 9}L2. {c |}{col 14}{res}{space 2} .4369754{col 26}{space 2} .5281957{col 37}{space 1}    0.83{col 46}{space 3}0.408{col 54}{space 4}-.5982693{col 67}{space 3}  1.47222
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2}  .053195{col 26}{space 2} .0658588{col 37}{space 1}    0.81{col 46}{space 3}0.419{col 54}{space 4}-.0758858{col 67}{space 3} .1822758
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}dln_inc      {txt}{c |}
+{space 6}ln_inv {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2} .0274701{col 26}{space 2} .0277344{col 37}{space 1}    0.99{col 46}{space 3}0.322{col 54}{space 4}-.0268884{col 67}{space 3} .0818286
+{txt}{space 9}L2. {c |}{col 14}{res}{space 2}-.0306303{col 26}{space 2} .0276236{col 37}{space 1}   -1.11{col 46}{space 3}0.267{col 54}{space 4}-.0847716{col 67}{space 3} .0235111
+{txt}{space 12} {c |}
+{space 5}dln_inc {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2}-.1034188{col 26}{space 2} .1238235{col 37}{space 1}   -0.84{col 46}{space 3}0.404{col 54}{space 4}-.3461085{col 67}{space 3} .1392709
+{txt}{space 9}L2. {c |}{col 14}{res}{space 2}-.0027179{col 26}{space 2} .1212163{col 37}{space 1}   -0.02{col 46}{space 3}0.982{col 54}{space 4}-.2402975{col 67}{space 3} .2348617
+{txt}{space 12} {c |}
+{space 1}dln_consump {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2} .2933155{col 26}{space 2} .1407948{col 37}{space 1}    2.08{col 46}{space 3}0.037{col 54}{space 4} .0173627{col 67}{space 3} .5692682
+{txt}{space 9}L2. {c |}{col 14}{res}{space 2}  .127032{col 26}{space 2}  .135999{col 37}{space 1}    0.93{col 46}{space 3}0.350{col 54}{space 4}-.1395212{col 67}{space 3} .3935852
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2}  .031858{col 26}{space 2} .0169572{col 37}{space 1}    1.88{col 46}{space 3}0.060{col 54}{space 4}-.0013775{col 67}{space 3} .0650936
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}dln_consump  {txt}{c |}
+{space 6}ln_inv {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2}-.0094945{col 26}{space 2} .0245468{col 37}{space 1}   -0.39{col 46}{space 3}0.699{col 54}{space 4}-.0576053{col 67}{space 3} .0386163
+{txt}{space 9}L2. {c |}{col 14}{res}{space 2} .0075641{col 26}{space 2} .0244487{col 37}{space 1}    0.31{col 46}{space 3}0.757{col 54}{space 4}-.0403545{col 67}{space 3} .0554827
+{txt}{space 12} {c |}
+{space 5}dln_inc {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2} .3087236{col 26}{space 2} .1095919{col 37}{space 1}    2.82{col 46}{space 3}0.005{col 54}{space 4} .0939275{col 67}{space 3} .5235197
+{txt}{space 9}L2. {c |}{col 14}{res}{space 2}  .350567{col 26}{space 2} .1072843{col 37}{space 1}    3.27{col 46}{space 3}0.001{col 54}{space 4} .1402937{col 67}{space 3} .5608404
+{txt}{space 12} {c |}
+{space 1}dln_consump {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2}-.2933299{col 26}{space 2} .1246125{col 37}{space 1}   -2.35{col 46}{space 3}0.019{col 54}{space 4} -.537566{col 67}{space 3}-.0490939
+{txt}{space 9}L2. {c |}{col 14}{res}{space 2}-.0533368{col 26}{space 2}  .120368{col 37}{space 1}   -0.44{col 46}{space 3}0.658{col 54}{space 4}-.2892537{col 67}{space 3} .1825801
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0240298{col 26}{space 2} .0150082{col 37}{space 1}    1.60{col 46}{space 3}0.109{col 54}{space 4}-.0053858{col 67}{space 3} .0534454
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. vargranger
+
+{txt}{col 4}Granger causality Wald tests
+{res}{col 3}{text}{c TLC}{hline 19}{hline 19}{c TT}{hline 9}{hline 6}{hline 12}{c TRC}
+{col 3}{text}{c |}          Equation{col 23}          Excluded{col 42}{c |}   chi2 {col 52}   df{col 58}Prob > chi2{col 70}{c |}
+{res}{col 3}{text}{c LT}{hline 19}{hline 19}{c +}{hline 9}{hline 6}{hline 12}{c RT}
+{col 3}{text}{c |}            ln_inv{col 23}           dln_inc{col 42}{c |}{result}{space 1} .22743{col 52}    2{col 58}{space 2} 0.893{col 70}{text}{c |}
+{res}{col 3}{text}{c |}            ln_inv{col 23}       dln_consump{col 42}{c |}{result}{space 1} 1.6145{col 52}    2{col 58}{space 2} 0.446{col 70}{text}{c |}
+{res}{col 3}{text}{c |}            ln_inv{col 23}               ALL{col 42}{c |}{result}{space 1} 5.0602{col 52}    4{col 58}{space 2} 0.281{col 70}{text}{c |}
+{res}{col 3}{text}{c LT}{hline 19}{hline 19}{c +}{hline 9}{hline 6}{hline 12}{c RT}
+{col 3}{text}{c |}           dln_inc{col 23}            ln_inv{col 42}{c |}{result}{space 1} 2.6377{col 52}    2{col 58}{space 2} 0.267{col 70}{text}{c |}
+{res}{col 3}{text}{c |}           dln_inc{col 23}       dln_consump{col 42}{c |}{result}{space 1} 4.3638{col 52}    2{col 58}{space 2} 0.113{col 70}{text}{c |}
+{res}{col 3}{text}{c |}           dln_inc{col 23}               ALL{col 42}{c |}{result}{space 1} 9.2191{col 52}    4{col 58}{space 2} 0.056{col 70}{text}{c |}
+{res}{col 3}{text}{c LT}{hline 19}{hline 19}{c +}{hline 9}{hline 6}{hline 12}{c RT}
+{col 3}{text}{c |}       dln_consump{col 23}            ln_inv{col 42}{c |}{result}{space 1} .77715{col 52}    2{col 58}{space 2} 0.678{col 70}{text}{c |}
+{res}{col 3}{text}{c |}       dln_consump{col 23}           dln_inc{col 42}{c |}{result}{space 1} 15.261{col 52}    2{col 58}{space 2} 0.000{col 70}{text}{c |}
+{res}{col 3}{text}{c |}       dln_consump{col 23}               ALL{col 42}{c |}{result}{space 1} 17.599{col 52}    4{col 58}{space 2} 0.001{col 70}{text}{c |}
+{res}{col 3}{text}{c BLC}{hline 19}{hline 19}{c BT}{hline 9}{hline 6}{hline 12}{c BRC}
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. varstable, graph
+{res}
+{txt}{col 4}Eigenvalue stability condition
+{col 3}{text}{c TLC}{hline 26}{c TT}{hline 13}{c TRC}
+{col 3}{text}{c |}        Eigenvalue       {col 30}{c |}   Modulus  {col 44}{c |}
+{res}{col 3}{text}{c LT}{hline 26}{c +}{hline 13}{c RT}
+{col 3}{text}{c |}{result}{space 1}  .9875281{col 30}{text}{c |}{result}{space 2} .987528{col 44}{text}{c |}
+{res}{col 3}{text}{c |}{result}{space 1}  .5310999{col 30}{text}{c |}{result}{space 2}   .5311{col 44}{text}{c |}
+{res}{col 3}{text}{c |}{result}{space 1} -.2552011{col 16}+  .4349149{it:i}{col 30}{text}{c |}{result}{space 2}  .50426{col 44}{text}{c |}
+{res}{col 3}{text}{c |}{result}{space 1} -.2552011{col 16}-  .4349149{it:i}{col 30}{text}{c |}{result}{space 2}  .50426{col 44}{text}{c |}
+{res}{col 3}{text}{c |}{result}{space 1} -.3293353{col 16}+ .09251531{it:i}{col 30}{text}{c |}{result}{space 2} .342083{col 44}{text}{c |}
+{res}{col 3}{text}{c |}{result}{space 1} -.3293353{col 16}- .09251531{it:i}{col 30}{text}{c |}{result}{space 2} .342083{col 44}{text}{c |}
+{res}{col 3}{text}{c BLC}{hline 26}{c BT}{hline 13}{c BRC}
+{res}{txt}{col 4}All the eigenvalues lie inside the unit circle.
+{col 4}VAR satisfies stability condition.
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. 
+. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. tsline ln_consump ln_inc ln_inv
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. vecrank ln_consump ln_inc ln_inv
+{res}
+{txt}Johansen tests for cointegration
+Trend: Constant{col 44}Number of obs  = {res}{ralign 2:90}
+{txt}Sample: {res}1960q3 {txt}thru{res} 1982q4{txt}{col 44}Number of lags = {res}{ralign 2:2}
+{txt}{hline 62}
+{col 55}Critical
+Maximum{col 44}    Trace{col 58}value
+   rank{col 10}Params{col 27}LL{col 31}Eigenvalue{col 44}statistic{col 55}      5%
+{col 5}{res}  0{col 14}12  {col 19} 735.12264{col 33}       .{col 44}  32.6777{col 56}  29.68
+{col 5}  1{col 14}17  {col 19} 746.03476{col 33} 0.21533{col 44}  10.8534{help vecrankstar##|_new:*}{col 56}  15.41
+{col 5}  2{col 14}20  {col 19} 749.73178{col 33} 0.07887{col 44}   3.4594{col 56}   3.76
+{col 5}  3{col 14}21  {col 19} 751.46148{col 33} 0.03771
+{txt}{hline 62}
+* selected rank
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. var dln_inv dln_inc dln_consump, lags(1/2)
+{res}
+{txt}Vector autoregression
+
+{col 1}Sample: {res}1960q4 {txt}thru{res} 1982q4 {txt}{col 49}Number of obs{col 67}= {res}        89
+{txt}Log likelihood =  {res} 742.2131{txt}{col 38}{col 49}AIC{col 67}=  {res}-16.20704
+{txt}FPE{col 16}=  {res} 1.84e-11{txt}{col 49}HQIC{col 67}=  {res}-15.97035
+{txt}Det(Sigma_ml){col 16}=  {res} 1.15e-11{txt}{col 49}SBIC{col 67}=  {res}-15.61983
+
+{col 1}{text}Equation        {col 18}  Parms{col 26}     RMSE {col 37}   R-sq  {col 47}   chi2   {col 58} P>chi2
+{res}{col 1}{text}{hline 17}{hline 8}{hline 11}{hline 10}{hline 11}{hline 7}
+{col 1}{text}dln_inv         {col 18}{result}     7{col 26}{space 2} .044295{col 37}{space 1} 0.1051{col 47} 10.45617{col 58} 0.1067
+{col 1}{text}dln_inc         {col 18}{result}     7{col 26}{space 2} .011224{col 37}{space 1} 0.1514{col 47} 15.87886{col 58} 0.0144
+{col 1}{text}dln_consump     {col 18}{result}     7{col 26}{space 2} .009938{col 37}{space 1} 0.2400{col 47} 28.09971{col 58} 0.0001
+{col 1}{text}{hline 17}{hline 8}{hline 11}{hline 10}{hline 11}{hline 7}
+{res}
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}dln_inv      {txt}{c |}
+{space 5}dln_inv {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2}-.2725654{col 26}{space 2} .1093372{col 37}{space 1}   -2.49{col 46}{space 3}0.013{col 54}{space 4}-.4868623{col 67}{space 3}-.0582684
+{txt}{space 9}L2. {c |}{col 14}{res}{space 2}-.1340503{col 26}{space 2} .1089367{col 37}{space 1}   -1.23{col 46}{space 3}0.218{col 54}{space 4}-.3475624{col 67}{space 3} .0794617
+{txt}{space 12} {c |}
+{space 5}dln_inc {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2} .3374819{col 26}{space 2} .4805209{col 37}{space 1}    0.70{col 46}{space 3}0.482{col 54}{space 4}-.6043217{col 67}{space 3} 1.279286
+{txt}{space 9}L2. {c |}{col 14}{res}{space 2} .1827302{col 26}{space 2}  .466292{col 37}{space 1}    0.39{col 46}{space 3}0.695{col 54}{space 4}-.7311852{col 67}{space 3} 1.096646
+{txt}{space 12} {c |}
+{space 1}dln_consump {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2} .6520473{col 26}{space 2} .5450985{col 37}{space 1}    1.20{col 46}{space 3}0.232{col 54}{space 4}-.4163261{col 67}{space 3} 1.720421
+{txt}{space 9}L2. {c |}{col 14}{res}{space 2} .5980687{col 26}{space 2} .5434576{col 37}{space 1}    1.10{col 46}{space 3}0.271{col 54}{space 4}-.4670886{col 67}{space 3} 1.663226
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2}-.0099191{col 26}{space 2} .0126649{col 37}{space 1}   -0.78{col 46}{space 3}0.434{col 54}{space 4}-.0347419{col 67}{space 3} .0149037
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}dln_inc      {txt}{c |}
+{space 5}dln_inv {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2} .0433473{col 26}{space 2} .0277054{col 37}{space 1}    1.56{col 46}{space 3}0.118{col 54}{space 4}-.0109542{col 67}{space 3} .0976488
+{txt}{space 9}L2. {c |}{col 14}{res}{space 2} .0616319{col 26}{space 2} .0276039{col 37}{space 1}    2.23{col 46}{space 3}0.026{col 54}{space 4} .0075293{col 67}{space 3} .1157345
+{txt}{space 12} {c |}
+{space 5}dln_inc {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2}-.1232543{col 26}{space 2}  .121761{col 37}{space 1}   -1.01{col 46}{space 3}0.311{col 54}{space 4}-.3619015{col 67}{space 3} .1153928
+{txt}{space 9}L2. {c |}{col 14}{res}{space 2} .0209769{col 26}{space 2} .1181555{col 37}{space 1}    0.18{col 46}{space 3}0.859{col 54}{space 4}-.2106036{col 67}{space 3} .2525573
+{txt}{space 12} {c |}
+{space 1}dln_consump {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2} .3050571{col 26}{space 2} .1381245{col 37}{space 1}    2.21{col 46}{space 3}0.027{col 54}{space 4}  .034338{col 67}{space 3} .5757762
+{txt}{space 9}L2. {c |}{col 14}{res}{space 2} .0490208{col 26}{space 2} .1377087{col 37}{space 1}    0.36{col 46}{space 3}0.722{col 54}{space 4}-.2208833{col 67}{space 3}  .318925
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0125949{col 26}{space 2} .0032092{col 37}{space 1}    3.92{col 46}{space 3}0.000{col 54}{space 4} .0063049{col 67}{space 3} .0188848
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}dln_consump  {txt}{c |}
+{space 5}dln_inv {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2} .0027381{col 26}{space 2}   .02453{col 37}{space 1}    0.11{col 46}{space 3}0.911{col 54}{space 4}-.0453398{col 67}{space 3}  .050816
+{txt}{space 9}L2. {c |}{col 14}{res}{space 2} .0497402{col 26}{space 2} .0244401{col 37}{space 1}    2.04{col 46}{space 3}0.042{col 54}{space 4} .0018384{col 67}{space 3}  .097642
+{txt}{space 12} {c |}
+{space 5}dln_inc {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2} .2893204{col 26}{space 2} .1078057{col 37}{space 1}    2.68{col 46}{space 3}0.007{col 54}{space 4} .0780251{col 67}{space 3} .5006157
+{txt}{space 9}L2. {c |}{col 14}{res}{space 2} .3664341{col 26}{space 2} .1046134{col 37}{space 1}    3.50{col 46}{space 3}0.000{col 54}{space 4} .1613955{col 67}{space 3} .5714726
+{txt}{space 12} {c |}
+{space 1}dln_consump {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2}-.2845172{col 26}{space 2} .1222938{col 37}{space 1}   -2.33{col 46}{space 3}0.020{col 54}{space 4}-.5242086{col 67}{space 3}-.0448257
+{txt}{space 9}L2. {c |}{col 14}{res}{space 2}-.1159776{col 26}{space 2} .1219257{col 37}{space 1}   -0.95{col 46}{space 3}0.341{col 54}{space 4}-.3549475{col 67}{space 3} .1229924
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0123795{col 26}{space 2} .0028414{col 37}{space 1}    4.36{col 46}{space 3}0.000{col 54}{space 4} .0068104{col 67}{space 3} .0179485
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. irf create irflatihan8, step(5)set(irflatihanlab8ts)
+{txt}(file {bf:irflatihanlab8ts.irf} created)
+(file {bf:irflatihanlab8ts.irf} now active)
+(file {bf:irflatihanlab8ts.irf} updated)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. irf graph irf
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. irf ograph (irflatihanlab8 dln_inc dln_consump irf)
+{err}irfname irflatihanlab8 not found
+{txt}{search r(198), local:r(198);}
+
+end of do-file
+
+{search r(198), local:r(198);}
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. irf ograph (irflatihan8 dln_inc dln_consump irf)
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. irf table irf
+
+{txt}Results from {res:irflatihan8}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}{hline 11}{c -}{hline 11}{c -}{hline 11}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(1){col 29}(1){col 41}(1){col 46}{col 53}(2){col 65}(2){col 77}(2){col 82}{col 89}(3){col 101}(3){col 113}(3){col 118}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}{col 53}irf{col 63}Lower{col 75}Upper{col 82}{col 89}irf{col 99}Lower{col 111}Upper{col 118}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}{hline 11}{c -}{hline 11}{c -}{hline 11}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       1{col 24}       1{col 36}       1{col 48}       0{col 60}       0{col 72}       0{col 84}       0{col 96}       0{col 108}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12}-.272565{col 24}-.486862{col 36}-.058268{col 48} .043347{col 60}-.010954{col 72} .097649{col 84} .002738{col 96} -.04534{col 108} .050816
+{txt} {col 2}      2{col 10}{c |}{res}{col 12}-.043344{col 24} -.26177{col 36} .175082{col 48} .045309{col 60}-.009744{col 72} .100363{col 84} .060756{col 96} .012199{col 108} .109313
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .112817{col 24}-.016516{col 36}  .24215{col 48}-.004685{col 60}-.031203{col 72} .021834{col 84}-.002287{col 96}-.031987{col 108} .027413
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .016604{col 24}-.055879{col 36} .089087{col 48} .006027{col 60}-.012469{col 72} .024524{col 84} .007005{col 96}-.015709{col 108} .029718
+{txt} {col 2}      5{col 10}{c |}{res}{col 12}-.015271{col 24}-.073287{col 36} .042745{col 48} .008856{col 60}-.004583{col 72} .022296{col 84} .003957{col 96}-.009358{col 108} .017271
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}{hline 11}{c -}{hline 11}{c -}{hline 11}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}{hline 11}{c -}{hline 11}{c -}{hline 11}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(4){col 29}(4){col 41}(4){col 46}{col 53}(5){col 65}(5){col 77}(5){col 82}{col 89}(6){col 101}(6){col 113}(6){col 118}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}{col 53}irf{col 63}Lower{col 75}Upper{col 82}{col 89}irf{col 99}Lower{col 111}Upper{col 118}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}{hline 11}{c -}{hline 11}{c -}{hline 11}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0{col 48}       1{col 60}       1{col 72}       1{col 84}       0{col 96}       0{col 108}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .337482{col 24}-.604322{col 36} 1.27929{col 48}-.123254{col 60}-.361901{col 72} .115393{col 84}  .28932{col 96} .078025{col 108} .500616
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .237799{col 24}-.689475{col 36} 1.16507{col 48} .139057{col 60} -.09138{col 72} .369494{col 84} .249382{col 96} .044664{col 108} .454099
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .249994{col 24}-.366563{col 36}  .86655{col 48} .101641{col 60}-.031422{col 72} .234705{col 84}-.092003{col 96}-.234817{col 108} .050811
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .048852{col 24}-.274856{col 36} .372561{col 48}  .00004{col 60}-.091662{col 72} .091743{col 84} .090128{col 96}-.020143{col 108}   .2004
+{txt} {col 2}      5{col 10}{c |}{res}{col 12}-.024497{col 24}-.310887{col 36} .261893{col 48} .042637{col 60}-.027485{col 72} .112759{col 84} .034852{col 96}-.032338{col 108} .102042
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}{hline 11}{c -}{hline 11}{c -}{hline 11}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}{hline 11}{c -}{hline 11}{c -}{hline 11}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(7){col 29}(7){col 41}(7){col 46}{col 53}(8){col 65}(8){col 77}(8){col 82}{col 89}(9){col 101}(9){col 113}(9){col 118}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}{col 53}irf{col 63}Lower{col 75}Upper{col 82}{col 89}irf{col 99}Lower{col 111}Upper{col 118}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}{hline 11}{c -}{hline 11}{c -}{hline 11}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0{col 48}       0{col 60}       0{col 72}       0{col 84}       1{col 96}       1{col 108}       1
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .652047{col 24}-.416326{col 36} 1.72042{col 48} .305057{col 60} .034338{col 72} .575776{col 84}-.284517{col 96}-.524209{col 108}-.044826
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .337776{col 24}-.719372{col 36} 1.39492{col 48}-.047108{col 60}-.308961{col 72} .214744{col 84} .055017{col 96}-.178046{col 108} .288081
+{txt} {col 2}      3{col 10}{c |}{res}{col 12}-.273915{col 24}-1.02371{col 36} .475876{col 48}  .06987{col 60}-.080039{col 72} .219779{col 84} .148856{col 96}-.021743{col 108} .319455
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .174318{col 24}-.202912{col 36} .551547{col 48} .047451{col 60}-.052129{col 72}  .14703{col 84}-.029729{col 96}-.156774{col 108} .097316
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .087628{col 24}-.181413{col 36} .356669{col 48}-.015481{col 60}-.083724{col 72} .052763{col 84} .017378{col 96}-.050037{col 108} .084794
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}{hline 11}{c -}{hline 11}{c -}{hline 11}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{p 0 4 4}95%  lower and upper bounds reported.{p_end}
+{p 0 4 4}(1) irfname = {res:irflatihan8}, impulse = {res:dln_inv}, and response = {res:dln_inv}.{p_end}
+{p 0 4 4}(2) irfname = {res:irflatihan8}, impulse = {res:dln_inv}, and response = {res:dln_inc}.{p_end}
+{p 0 4 4}(3) irfname = {res:irflatihan8}, impulse = {res:dln_inv}, and response = {res:dln_consump}.{p_end}
+{p 0 4 4}(4) irfname = {res:irflatihan8}, impulse = {res:dln_inc}, and response = {res:dln_inv}.{p_end}
+{p 0 4 4}(5) irfname = {res:irflatihan8}, impulse = {res:dln_inc}, and response = {res:dln_inc}.{p_end}
+{p 0 4 4}(6) irfname = {res:irflatihan8}, impulse = {res:dln_inc}, and response = {res:dln_consump}.{p_end}
+{p 0 4 4}(7) irfname = {res:irflatihan8}, impulse = {res:dln_consump}, and response = {res:dln_inv}.{p_end}
+{p 0 4 4}(8) irfname = {res:irflatihan8}, impulse = {res:dln_consump}, and response = {res:dln_inc}.{p_end}
+{p 0 4 4}(9) irfname = {res:irflatihan8}, impulse = {res:dln_consump}, and response = {res:dln_consump}.{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. irf, irf(irflatihan8)impulse(dln_inc)response(dln_consump)
+{err}, unknown subcommand
+{txt}{search r(198), local:r(198);}
+
+end of do-file
+
+{search r(198), local:r(198);}
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. irf table irf, irf(irflatihan8)impulse(dln_inc)response(dln_consump)
+
+{txt}Results from {res:irflatihan8}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(1){col 29}(1){col 41}(1){col 46}
+{col 4} Step{col 10}{c |}{col 17}irf{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12}  .28932{col 24} .078025{col 36} .500616
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .249382{col 24} .044664{col 36} .454099
+{txt} {col 2}      3{col 10}{c |}{res}{col 12}-.092003{col 24}-.234817{col 36} .050811
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .090128{col 24}-.020143{col 36}   .2004
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .034852{col 24}-.032338{col 36} .102042
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{p 0 4 4}95%  lower and upper bounds reported.{p_end}
+{p 0 4 4}(1) irfname = {res:irflatihan8}, impulse = {res:dln_inc}, and response = {res:dln_consump}.{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. irf graph fevd
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. irf graph (irflatihan8 dln_inc dln_inv fevd)
+{err}only two statistics may be included with CIs in one graph
+{txt}{search r(198), local:r(198);}
+
+end of do-file
+
+{search r(198), local:r(198);}
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. irf ograph (irflatihan8 dln_inc dln_inv fevd)
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. irf table fevd
+
+{txt}Results from {res:irflatihan8}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(1){col 29}(1){col 41}(1){col 46}
+{col 4} Step{col 10}{c |}{col 16}fevd{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12}       1{col 24}       1{col 36}       1
+{txt} {col 2}      2{col 10}{c |}{res}{col 12}   .9634{col 24}  .89445{col 36} 1.03235
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .951492{col 24} .881441{col 36} 1.02154
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .949208{col 24} .876111{col 36} 1.02231
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .947516{col 24} .870932{col 36}  1.0241
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(2){col 29}(2){col 41}(2){col 46}
+{col 4} Step{col 10}{c |}{col 16}fevd{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .015318{col 24} -.03532{col 36} .065955
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .067008{col 24}-.033042{col 36} .167058
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .093213{col 24}  -.0231{col 36} .209527
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .091746{col 24}-.022155{col 36} .205647
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .092693{col 24}-.022885{col 36} .208272
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(3){col 29}(3){col 41}(3){col 46}
+{col 4} Step{col 10}{c |}{col 16}fevd{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12}  .10216{col 24} -.01708{col 36} .221401
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .095934{col 24}-.017319{col 36} .209187
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .162335{col 24} .015086{col 36} .309584
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .160966{col 24} .016154{col 36} .305777
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .160765{col 24} .015476{col 36} .306053
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(4){col 29}(4){col 41}(4){col 46}
+{col 4} Step{col 10}{c |}{col 16}fevd{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .024593{col 24}-.034103{col 36} .083289
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .033469{col 24}-.026258{col 36} .093196
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .033867{col 24}-.024336{col 36}  .09207
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .034769{col 24}-.025471{col 36}  .09501
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(5){col 29}(5){col 41}(5){col 46}
+{col 4} Step{col 10}{c |}{col 16}fevd{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .984682{col 24} .934045{col 36} 1.03532
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .892713{col 24} .775506{col 36} 1.00992
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .867259{col 24} .738819{col 36} .995699
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .867427{col 24} .740176{col 36} .994679
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .865668{col 24} .736035{col 36} .995302
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(6){col 29}(6){col 41}(6){col 46}
+{col 4} Step{col 10}{c |}{col 16}fevd{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .288494{col 24}  .13663{col 36} .440357
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .294288{col 24} .149797{col 36}  .43878
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .322454{col 24} .174356{col 36} .470552
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .319227{col 24} .174066{col 36} .464389
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .322579{col 24} .175544{col 36} .469613
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(7){col 29}(7){col 41}(7){col 46}
+{col 4} Step{col 10}{c |}{col 16}fevd{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .012007{col 24}-.027199{col 36} .051212
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .015038{col 24}-.022212{col 36} .052289
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .016925{col 24} -.02689{col 36}  .06074
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .017714{col 24}-.029041{col 36} .064469
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(8){col 29}(8){col 41}(8){col 46}
+{col 4} Step{col 10}{c |}{col 16}fevd{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .040279{col 24}-.030234{col 36} .110792
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .039528{col 24}-.029623{col 36} .108679
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .040826{col 24}-.027685{col 36} .109337
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .041638{col 24}-.029036{col 36} .112312
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(9){col 29}(9){col 41}(9){col 46}
+{col 4} Step{col 10}{c |}{col 16}fevd{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12} .609346{col 24} .451096{col 36} .767596
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .609778{col 24} .456598{col 36} .762957
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .515211{col 24} .361543{col 36} .668879
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .519807{col 24} .368809{col 36} .670805
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .516656{col 24} .363607{col 36} .669706
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{p 0 4 4}95%  lower and upper bounds reported.{p_end}
+{p 0 4 4}(1) irfname = {res:irflatihan8}, impulse = {res:dln_inv}, and response = {res:dln_inv}.{p_end}
+{p 0 4 4}(2) irfname = {res:irflatihan8}, impulse = {res:dln_inv}, and response = {res:dln_inc}.{p_end}
+{p 0 4 4}(3) irfname = {res:irflatihan8}, impulse = {res:dln_inv}, and response = {res:dln_consump}.{p_end}
+{p 0 4 4}(4) irfname = {res:irflatihan8}, impulse = {res:dln_inc}, and response = {res:dln_inv}.{p_end}
+{p 0 4 4}(5) irfname = {res:irflatihan8}, impulse = {res:dln_inc}, and response = {res:dln_inc}.{p_end}
+{p 0 4 4}(6) irfname = {res:irflatihan8}, impulse = {res:dln_inc}, and response = {res:dln_consump}.{p_end}
+{p 0 4 4}(7) irfname = {res:irflatihan8}, impulse = {res:dln_consump}, and response = {res:dln_inv}.{p_end}
+{p 0 4 4}(8) irfname = {res:irflatihan8}, impulse = {res:dln_consump}, and response = {res:dln_inc}.{p_end}
+{p 0 4 4}(9) irfname = {res:irflatihan8}, impulse = {res:dln_consump}, and response = {res:dln_consump}.{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. irf table fevd, irf(irflatihan8)impulse(dln_inc)response(dln_inv)
+
+{txt}Results from {res:irflatihan8}
+
+{hline 9}{c TT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{col 10}{c |}{col 17}(1){col 29}(1){col 41}(1){col 46}
+{col 4} Step{col 10}{c |}{col 16}fevd{col 27}Lower{col 39}Upper{col 46}
+{hline 9}{c +}{hline 11}{c -}{hline 11}{c -}{hline 11}
+ {col 2}      0{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      1{col 10}{c |}{res}{col 12}       0{col 24}       0{col 36}       0
+{txt} {col 2}      2{col 10}{c |}{res}{col 12} .024593{col 24}-.034103{col 36} .083289
+{txt} {col 2}      3{col 10}{c |}{res}{col 12} .033469{col 24}-.026258{col 36} .093196
+{txt} {col 2}      4{col 10}{c |}{res}{col 12} .033867{col 24}-.024336{col 36}  .09207
+{txt} {col 2}      5{col 10}{c |}{res}{col 12} .034769{col 24}-.025471{col 36}  .09501
+{txt}{hline 9}{c BT}{hline 11}{c -}{hline 11}{c -}{hline 11}
+{p 0 4 4}95%  lower and upper bounds reported.{p_end}
+{p 0 4 4}(1) irfname = {res:irflatihan8}, impulse = {res:dln_inc}, and response = {res:dln_inv}.{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. fcast compute fc_,step(5)
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. br
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. fcast graph fc_dln_inv
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. fcast graph fc_dln_inv fc_dln_inc fc_dln_consump
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD3818_000000.tmp"
+{txt}
+{com}. save "$output/latihanlab8"
+{txt}{p 0 4 2}
+file {bf}
+C:\Kamila Fazilatunisa_120410230109_TS\Output/latihanlab8.dta{rm}
+saved
+{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. 

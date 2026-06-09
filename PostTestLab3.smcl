@@ -1,0 +1,719 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Kamila Fazilatunisa_120410230109_TS\Logfile/PostTestLab3.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res} 1 Oct 2025, 16:16:11
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. use "$data\m2.dta"      
+{err}{p 0 4 2}
+file {bf:{err}C:\Kamila Fazilatunisa_120410230109_TS\Data\m2.dta}
+not found
+{p_end}
+{txt}{search r(601), local:r(601);}
+
+end of do-file
+
+{search r(601), local:r(601);}
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. use "$data\m2.dta"      
+{txt}
+{com}. desc
+
+{txt}Contains data from {res}C:\Kamila Fazilatunisa_120410230109_TS\Data\m2.dta
+{txt} Observations:{res}           159                  
+{txt}    Variables:{res}             1                  26 Sep 2025 23:28
+{txt}{hline}
+Variable      Storage   Display    Value
+    name         type    format    label      Variable label
+{hline}
+{p 0 48}{res}{bind:m2             }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}m2{p_end}
+{txt}{hline}
+Sorted by: 
+
+{com}. br
+{txt}
+{com}. gen time=tq(1959q1)+_n-1
+{txt}
+{com}. format time %tq
+{txt}
+{com}. tsset time
+{res}
+{p 0 15 2}{txt:Time variable: }{res:time}{txt:, }{res:{bind:1959q1}}{txt: to }{res:{bind:1998q3}}{p_end}
+{txt}{col 9}Delta: {res}1 quarter
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. tsline m2
+{res}{txt}
+{com}. dfuller m2
+
+{txt}Dickey–Fuller test for unit root{col 43}Number of obs  = {res}{ralign 3:158}
+{txt}Variable: {res}m2{txt}{col 43}Number of lags = {res}{ralign 3:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}      7.913       -3.491       -2.886       -2.576
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}1.0000{txt}.
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. dfuller d.m2
+
+{txt}Dickey–Fuller test for unit root{col 43}Number of obs  = {res}{ralign 3:157}
+{txt}Variable: {res}D.m2{txt}{col 43}Number of lags = {res}{ralign 3:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}     -4.690       -3.491       -2.886       -2.576
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.0001{txt}.
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. corrgram d.m2
+
+{txt}{col 43}-1       0       1 -1       0       1
+ LAG       AC       PAC      Q     Prob>Q  [Autocorrelation]  [Partial autocor]
+{hline 79}
+1     {res}{col 9} 0.6584{col 18} 0.7161{col 27} 69.805{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}   {col 63}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}   
+{txt}2     {res}{col 9} 0.5676{col 18} 0.2642{col 27} 122.02{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}    {col 63}        {c LT}{hline 1}{hline 1}      
+{txt}3     {res}{col 9} 0.5329{col 18} 0.2594{col 27} 168.34{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}    {col 63}        {c LT}{hline 1}{hline 1}      
+{txt}4     {res}{col 9} 0.4415{col 18} 0.0177{col 27} 200.33{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}     {col 63}        {c |}        
+{txt}5     {res}{col 9} 0.4714{col 18} 0.2676{col 27} 237.04{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}     {col 63}        {c LT}{hline 1}{hline 1}      
+{txt}6     {res}{col 9} 0.5003{col 18} 0.1852{col 27} 278.67{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}    {col 63}        {c LT}{hline 1}       
+{txt}7     {res}{col 9} 0.4383{col 18} 0.0229{col 27} 310.82{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}     {col 63}        {c |}        
+{txt}8     {res}{col 9} 0.3821{col 18}-0.0696{col 27} 335.42{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}     {col 63}        {c |}        
+{txt}9     {res}{col 9} 0.3364{col 18}-0.0799{col 27} 354.63{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}      {col 63}        {c |}        
+{txt}10    {res}{col 9} 0.3241{col 18} 0.0169{col 27} 372.57{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}      {col 63}        {c |}        
+{txt}11    {res}{col 9} 0.2807{col 18}-0.0862{col 27} 386.12{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}      {col 63}        {c |}        
+{txt}12    {res}{col 9} 0.2576{col 18}-0.0758{col 27} 397.61{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}      {col 63}        {c |}        
+{txt}13    {res}{col 9} 0.2808{col 18} 0.1380{col 27} 411.35{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}      {col 63}        {c LT}{hline 1}       
+{txt}14    {res}{col 9} 0.1996{col 18}-0.0793{col 27} 418.35{col 36}0.0000{col 44}        {c LT}{hline 1}       {col 63}        {c |}        
+{txt}15    {res}{col 9} 0.1804{col 18}-0.0363{col 27}  424.1{col 36}0.0000{col 44}        {c LT}{hline 1}       {col 63}        {c |}        
+{txt}16    {res}{col 9} 0.1526{col 18}-0.1488{col 27} 428.24{col 36}0.0000{col 44}        {c LT}{hline 1}       {col 63}       {hline 1}{c RT}        
+{txt}17    {res}{col 9} 0.1715{col 18} 0.0914{col 27} 433.52{col 36}0.0000{col 44}        {c LT}{hline 1}       {col 63}        {c |}        
+{txt}18    {res}{col 9} 0.1687{col 18}-0.0902{col 27} 438.66{col 36}0.0000{col 44}        {c LT}{hline 1}       {col 63}        {c |}        
+{txt}19    {res}{col 9} 0.1788{col 18}-0.0066{col 27} 444.47{col 36}0.0000{col 44}        {c LT}{hline 1}       {col 63}        {c |}        
+{txt}20    {res}{col 9} 0.1663{col 18}-0.0532{col 27} 449.54{col 36}0.0000{col 44}        {c LT}{hline 1}       {col 63}        {c |}        
+{txt}21    {res}{col 9} 0.1478{col 18} 0.0238{col 27} 453.57{col 36}0.0000{col 44}        {c LT}{hline 1}       {col 63}        {c |}        
+{txt}22    {res}{col 9} 0.1287{col 18} 0.0516{col 27} 456.65{col 36}0.0000{col 44}        {c LT}{hline 1}       {col 63}        {c |}        
+{txt}23    {res}{col 9} 0.1936{col 18} 0.1760{col 27} 463.67{col 36}0.0000{col 44}        {c LT}{hline 1}       {col 63}        {c LT}{hline 1}       
+{txt}24    {res}{col 9} 0.1087{col 18}-0.2437{col 27}  465.9{col 36}0.0000{col 44}        {c |}        {col 63}       {hline 1}{c RT}        
+{txt}25    {res}{col 9} 0.1061{col 18} 0.0282{col 27} 468.04{col 36}0.0000{col 44}        {c |}        {col 63}        {c |}        
+{txt}26    {res}{col 9} 0.1716{col 18} 0.1056{col 27} 473.68{col 36}0.0000{col 44}        {c LT}{hline 1}       {col 63}        {c |}        
+{txt}27    {res}{col 9} 0.1180{col 18}-0.0427{col 27} 476.36{col 36}0.0000{col 44}        {c |}        {col 63}        {c |}        
+{txt}28    {res}{col 9} 0.1499{col 18} 0.0408{col 27} 480.73{col 36}0.0000{col 44}        {c LT}{hline 1}       {col 63}        {c |}        
+{txt}29    {res}{col 9} 0.1604{col 18} 0.0761{col 27} 485.78{col 36}0.0000{col 44}        {c LT}{hline 1}       {col 63}        {c |}        
+{txt}30    {res}{col 9} 0.1464{col 18} 0.1918{col 27} 490.01{col 36}0.0000{col 44}        {c LT}{hline 1}       {col 63}        {c LT}{hline 1}       
+{txt}31    {res}{col 9} 0.1113{col 18} 0.0352{col 27} 492.47{col 36}0.0000{col 44}        {c |}        {col 63}        {c |}        
+{txt}32    {res}{col 9} 0.1531{col 18} 0.2827{col 27} 497.18{col 36}0.0000{col 44}        {c LT}{hline 1}       {col 63}        {c LT}{hline 1}{hline 1}      
+{txt}33    {res}{col 9} 0.0774{col 18}-0.3360{col 27} 498.39{col 36}0.0000{col 44}        {c |}        {col 63}      {hline 1}{hline 1}{c RT}        
+{txt}34    {res}{col 9} 0.0775{col 18} 0.1395{col 27} 499.61{col 36}0.0000{col 44}        {c |}        {col 63}        {c LT}{hline 1}       
+{txt}35    {res}{col 9} 0.1144{col 18} 0.0802{col 27}  502.3{col 36}0.0000{col 44}        {c |}        {col 63}        {c |}        
+{txt}36    {res}{col 9} 0.1099{col 18} 0.1122{col 27} 504.81{col 36}0.0000{col 44}        {c |}        {col 63}        {c |}        
+{txt}37    {res}{col 9} 0.0478{col 18}-0.0161{col 27} 505.28{col 36}0.0000{col 44}        {c |}        {col 63}        {c |}        
+{txt}38    {res}{col 9} 0.0503{col 18} 0.2173{col 27} 505.82{col 36}0.0000{col 44}        {c |}        {col 63}        {c LT}{hline 1}       
+{txt}39    {res}{col 9} 0.0709{col 18} 0.2984{col 27} 506.89{col 36}0.0000{col 44}        {c |}        {col 63}        {c LT}{hline 1}{hline 1}      
+{txt}40    {res}{col 9} 0.0289{col 18}-0.1619{col 27} 507.06{col 36}0.0000{col 44}        {c |}        {col 63}       {hline 1}{c RT}        
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. ac d.m2 // lag 1
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. pac d.m2 // lag 1
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. arima m2, arima (1,1,0)
+
+{txt}(setting optimization to BHHH)
+{res}{txt}Iteration 0:{col 16}log likelihood = {res}-653.74034{txt}  
+{res}{txt}Iteration 1:{col 16}log likelihood = {res}-653.73825{txt}  
+{res}{txt}Iteration 2:{col 16}log likelihood = {res}-653.73308{txt}  
+{res}{txt}Iteration 3:{col 16}log likelihood = {res}-653.73275{txt}  
+{res}{txt}Iteration 4:{col 16}log likelihood = {res}-653.72977{txt}  
+{res}{txt}(switching optimization to BFGS)
+{res}{txt}Iteration 5:{col 16}log likelihood = {res}-653.72961{txt}  
+{res}{txt}Iteration 6:{col 16}log likelihood = {res}-653.72057{txt}  
+{res}{txt}Iteration 7:{col 16}log likelihood = {res}-653.72055{txt}  
+{res}{txt}Iteration 8:{col 16}log likelihood = {res}-653.72055{txt}  
+{res}
+{txt}ARIMA regression
+
+Sample: {res}1959q2 {txt}thru{res} 1998q3 {col 49}{txt}Number of obs{col 67}={res}{col 69}       158
+                                                {txt}Wald chi2({res}1{txt})      =  {res}   238.30
+{txt}Log likelihood = {res}-653.7205                      {txt}Prob > chi2       =     {res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}      OPG
+{col 1}        D.m2{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}m2           {txt}{c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} 26.18274{col 26}{space 2} 5.206659{col 37}{space 1}    5.03{col 46}{space 3}0.000{col 54}{space 4} 15.97788{col 67}{space 3} 36.38761
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}ARMA         {txt}{c |}
+{space 10}ar {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2} .7151998{col 26}{space 2} .0463307{col 37}{space 1}   15.44{col 46}{space 3}0.000{col 54}{space 4} .6243933{col 67}{space 3} .8060063
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} 15.12423{col 26}{space 2} .5800443{col 37}{space 1}   26.07{col 46}{space 3}0.000{col 54}{space 4} 13.98736{col 67}{space 3} 16.26109
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 6 0 79}Note: The test of the variance against zero is one sided, and the two-sided confidence interval is truncated at zero.{p_end}
+
+{com}. predict ar1, resid
+{txt}(1 missing value generated)
+
+{com}. dfuller ar1 
+
+{txt}Dickey–Fuller test for unit root{col 43}Number of obs  = {res}{ralign 3:157}
+{txt}Variable: {res}ar1{txt}{col 43}Number of lags = {res}{ralign 3:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}    -14.538       -3.491       -2.886       -2.576
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.0000{txt}.
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. wntestq ar1 
+
+{txt}Portmanteau test for white noise
+{hline 39}
+ Portmanteau (Q) statistic = {res}   61.2600
+{txt} Prob > chi2({res}40{txt})           = {res}    0.0169
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. 
+. estat ic
+
+{txt}Akaike's information criterion and Bayesian information criterion
+
+{hline 13}{c TT}{hline 63}
+       Model {c |}          N   ll(null)  ll(model)      df        AIC        BIC
+{hline 13}{c +}{hline 63}
+{ralign 12:.}{col 14}{c |}{res}{col 16}       158{col 28}        .{col 39}-653.7205{col 50}     3{col 58} 1313.441{col 69} 1322.629
+{txt}{hline 13}{c BT}{hline 63}
+{p 0 6 0 77}Note: BIC uses N = number of observations. See {helpb bic_note:{bind:[R] BIC note}}.{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. arima m2, arima (0,1,1)
+
+{txt}(setting optimization to BHHH)
+{res}{txt}Iteration 0:{col 16}log likelihood = {res}-680.31612{txt}  
+{res}{txt}Iteration 1:{col 16}log likelihood = {res}-675.02166{txt}  
+{res}{txt}Iteration 2:{col 16}log likelihood = {res}-673.74214{txt}  
+{res}{txt}Iteration 3:{col 16}log likelihood = {res}-673.58785{txt}  
+{res}{txt}Iteration 4:{col 16}log likelihood = {res}-673.54678{txt}  
+{res}{txt}(switching optimization to BFGS)
+{res}{txt}Iteration 5:{col 16}log likelihood = {res}-673.53584{txt}  
+{res}{txt}Iteration 6:{col 16}log likelihood = {res}-673.49851{txt}  
+{res}{txt}Iteration 7:{col 16}log likelihood = {res}-673.49312{txt}  
+{res}{txt}Iteration 8:{col 16}log likelihood = {res}-673.49297{txt}  
+{res}{txt}Iteration 9:{col 16}log likelihood = {res}-673.49297{txt}  
+{res}
+{txt}ARIMA regression
+
+Sample: {res}1959q2 {txt}thru{res} 1998q3 {col 49}{txt}Number of obs{col 67}={res}{col 69}       158
+                                                {txt}Wald chi2({res}1{txt})      =  {res}    79.35
+{txt}Log likelihood = {res}-673.493                       {txt}Prob > chi2       =     {res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}      OPG
+{col 1}        D.m2{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}m2           {txt}{c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} 25.55938{col 26}{space 2}  2.69715{col 37}{space 1}    9.48{col 46}{space 3}0.000{col 54}{space 4} 20.27306{col 67}{space 3}  30.8457
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}ARMA         {txt}{c |}
+{space 10}ma {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2} .5670157{col 26}{space 2} .0636521{col 37}{space 1}    8.91{col 46}{space 3}0.000{col 54}{space 4} .4422599{col 67}{space 3} .6917715
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} 17.15771{col 26}{space 2} .7714497{col 37}{space 1}   22.24{col 46}{space 3}0.000{col 54}{space 4}  15.6457{col 67}{space 3} 18.66973
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 6 0 79}Note: The test of the variance against zero is one sided, and the two-sided confidence interval is truncated at zero.{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. predict ma1, resid
+{txt}(1 missing value generated)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. dfuller ma1 
+
+{txt}Dickey–Fuller test for unit root{col 43}Number of obs  = {res}{ralign 3:157}
+{txt}Variable: {res}ma1{txt}{col 43}Number of lags = {res}{ralign 3:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}     -9.786       -3.491       -2.886       -2.576
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.0000{txt}.
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. wntestq ma1
+
+{txt}Portmanteau test for white noise
+{hline 39}
+ Portmanteau (Q) statistic = {res}  198.1630
+{txt} Prob > chi2({res}40{txt})           = {res}    0.0000
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. estat ic
+
+{txt}Akaike's information criterion and Bayesian information criterion
+
+{hline 13}{c TT}{hline 63}
+       Model {c |}          N   ll(null)  ll(model)      df        AIC        BIC
+{hline 13}{c +}{hline 63}
+{ralign 12:.}{col 14}{c |}{res}{col 16}       158{col 28}        .{col 39} -673.493{col 50}     3{col 58} 1352.986{col 69} 1362.174
+{txt}{hline 13}{c BT}{hline 63}
+{p 0 6 0 77}Note: BIC uses N = number of observations. See {helpb bic_note:{bind:[R] BIC note}}.{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. arima m2, arima (1,1,1)
+
+{txt}(setting optimization to BHHH)
+{res}{txt}Iteration 0:{col 16}log likelihood = {res}-649.28652{txt}  
+{res}{txt}Iteration 1:{col 16}log likelihood = {res}-644.75395{txt}  
+{res}{txt}Iteration 2:{col 16}log likelihood = {res}-643.40271{txt}  
+{res}{txt}Iteration 3:{col 16}log likelihood = {res}-643.13662{txt}  
+{res}{txt}Iteration 4:{col 16}log likelihood = {res}-642.90832{txt}  
+{res}{txt}(switching optimization to BFGS)
+{res}{txt}Iteration 5:{col 16}log likelihood = {res}-642.83233{txt}  
+{res}{txt}Iteration 6:{col 16}log likelihood = {res}-642.74681{txt}  
+{res}{txt}Iteration 7:{col 16}log likelihood = {res}-642.73317{txt}  
+{res}{txt}Iteration 8:{col 16}log likelihood = {res}-642.73053{txt}  
+{res}{txt}Iteration 9:{col 16}log likelihood = {res}-642.72979{txt}  
+{res}{txt}Iteration 10:{col 16}log likelihood = {res}-642.72977{txt}  
+{res}
+{txt}ARIMA regression
+
+Sample: {res}1959q2 {txt}thru{res} 1998q3 {col 49}{txt}Number of obs{col 67}={res}{col 69}       158
+                                                {txt}Wald chi2({res}2{txt})      =  {res}  1018.10
+{txt}Log likelihood = {res}-642.7298                      {txt}Prob > chi2       =     {res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}      OPG
+{col 1}        D.m2{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}m2           {txt}{c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} 30.13293{col 26}{space 2} 15.10454{col 37}{space 1}    1.99{col 46}{space 3}0.046{col 54}{space 4}  .528588{col 67}{space 3} 59.73728
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}ARMA         {txt}{c |}
+{space 10}ar {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2} .9723174{col 26}{space 2} .0341483{col 37}{space 1}   28.47{col 46}{space 3}0.000{col 54}{space 4} .9053879{col 67}{space 3} 1.039247
+{txt}{space 12} {c |}
+{space 10}ma {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2}-.6142945{col 26}{space 2} .0708813{col 37}{space 1}   -8.67{col 46}{space 3}0.000{col 54}{space 4}-.7532193{col 67}{space 3}-.4753698
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2}  14.0698{col 26}{space 2}  .482938{col 37}{space 1}   29.13{col 46}{space 3}0.000{col 54}{space 4} 13.12326{col 67}{space 3} 15.01634
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 6 0 79}Note: The test of the variance against zero is one sided, and the two-sided confidence interval is truncated at zero.{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. predict arma1, resid
+{txt}(1 missing value generated)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. dfuller arma1
+
+{txt}Dickey–Fuller test for unit root{col 43}Number of obs  = {res}{ralign 3:157}
+{txt}Variable: {res}arma1{txt}{col 43}Number of lags = {res}{ralign 3:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}    -11.570       -3.491       -2.886       -2.576
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.0000{txt}.
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. wntestq arma1 
+
+{txt}Portmanteau test for white noise
+{hline 39}
+ Portmanteau (Q) statistic = {res}   41.8635
+{txt} Prob > chi2({res}40{txt})           = {res}    0.3899
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. estat ic
+
+{txt}Akaike's information criterion and Bayesian information criterion
+
+{hline 13}{c TT}{hline 63}
+       Model {c |}          N   ll(null)  ll(model)      df        AIC        BIC
+{hline 13}{c +}{hline 63}
+{ralign 12:.}{col 14}{c |}{res}{col 16}       158{col 28}        .{col 39}-642.7298{col 50}     4{col 58}  1293.46{col 69}  1305.71
+{txt}{hline 13}{c BT}{hline 63}
+{p 0 6 0 77}Note: BIC uses N = number of observations. See {helpb bic_note:{bind:[R] BIC note}}.{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. arima m2, arima (1,1,0) nocons
+
+{txt}(setting optimization to BHHH)
+{res}{txt}Iteration 0:{col 16}log likelihood = {res}-661.33315{txt}  
+{res}{txt}Iteration 1:{col 16}log likelihood = {res}-661.31544{txt}  
+{res}{txt}Iteration 2:{col 16}log likelihood = {res}-661.31502{txt}  
+{res}{txt}Iteration 3:{col 16}log likelihood = {res}  -661.315{txt}  
+{res}
+{txt}ARIMA regression
+
+Sample: {res}1959q2 {txt}thru{res} 1998q3 {col 49}{txt}Number of obs{col 67}={res}{col 69}       158
+                                                {txt}Wald chi2({res}1{txt})      =  {res}  1178.35
+{txt}Log likelihood = {res}-661.315                       {txt}Prob > chi2       =     {res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}      OPG
+{col 1}        D.m2{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}ARMA         {txt}{c |}
+{space 10}ar {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2} .8958156{col 26}{space 2} .0260964{col 37}{space 1}   34.33{col 46}{space 3}0.000{col 54}{space 4} .8446676{col 67}{space 3} .9469636
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2} 15.82341{col 26}{space 2} .5091178{col 37}{space 1}   31.08{col 46}{space 3}0.000{col 54}{space 4} 14.82556{col 67}{space 3} 16.82126
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 6 0 79}Note: The test of the variance against zero is one sided, and the two-sided confidence interval is truncated at zero.{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. predict arc1, resid
+{txt}(1 missing value generated)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. dfuller arc1 // sudah stasioner
+
+{txt}Dickey–Fuller test for unit root{col 43}Number of obs  = {res}{ralign 3:157}
+{txt}Variable: {res}arc1{txt}{col 43}Number of lags = {res}{ralign 3:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}    -17.306       -3.491       -2.886       -2.576
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.0000{txt}.
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. wntestq arc1 // belum white noise
+
+{txt}Portmanteau test for white noise
+{hline 39}
+ Portmanteau (Q) statistic = {res}   77.4148
+{txt} Prob > chi2({res}40{txt})           = {res}    0.0004
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. estat ic
+
+{txt}Akaike's information criterion and Bayesian information criterion
+
+{hline 13}{c TT}{hline 63}
+       Model {c |}          N   ll(null)  ll(model)      df        AIC        BIC
+{hline 13}{c +}{hline 63}
+{ralign 12:.}{col 14}{c |}{res}{col 16}       158{col 28}        .{col 39} -661.315{col 50}     2{col 58}  1326.63{col 69} 1332.755
+{txt}{hline 13}{c BT}{hline 63}
+{p 0 6 0 77}Note: BIC uses N = number of observations. See {helpb bic_note:{bind:[R] BIC note}}.{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. arima m2, arima (1,1,1)
+
+{txt}(setting optimization to BHHH)
+{res}{txt}Iteration 0:{col 16}log likelihood = {res}-649.28652{txt}  
+{res}{txt}Iteration 1:{col 16}log likelihood = {res}-644.75395{txt}  
+{res}{txt}Iteration 2:{col 16}log likelihood = {res}-643.40271{txt}  
+{res}{txt}Iteration 3:{col 16}log likelihood = {res}-643.13662{txt}  
+{res}{txt}Iteration 4:{col 16}log likelihood = {res}-642.90832{txt}  
+{res}{txt}(switching optimization to BFGS)
+{res}{txt}Iteration 5:{col 16}log likelihood = {res}-642.83233{txt}  
+{res}{txt}Iteration 6:{col 16}log likelihood = {res}-642.74681{txt}  
+{res}{txt}Iteration 7:{col 16}log likelihood = {res}-642.73317{txt}  
+{res}{txt}Iteration 8:{col 16}log likelihood = {res}-642.73053{txt}  
+{res}{txt}Iteration 9:{col 16}log likelihood = {res}-642.72979{txt}  
+{res}{txt}Iteration 10:{col 16}log likelihood = {res}-642.72977{txt}  
+{res}
+{txt}ARIMA regression
+
+Sample: {res}1959q2 {txt}thru{res} 1998q3 {col 49}{txt}Number of obs{col 67}={res}{col 69}       158
+                                                {txt}Wald chi2({res}2{txt})      =  {res}  1018.10
+{txt}Log likelihood = {res}-642.7298                      {txt}Prob > chi2       =     {res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}      OPG
+{col 1}        D.m2{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}m2           {txt}{c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} 30.13293{col 26}{space 2} 15.10454{col 37}{space 1}    1.99{col 46}{space 3}0.046{col 54}{space 4}  .528588{col 67}{space 3} 59.73728
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}ARMA         {txt}{c |}
+{space 10}ar {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2} .9723174{col 26}{space 2} .0341483{col 37}{space 1}   28.47{col 46}{space 3}0.000{col 54}{space 4} .9053879{col 67}{space 3} 1.039247
+{txt}{space 12} {c |}
+{space 10}ma {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2}-.6142945{col 26}{space 2} .0708813{col 37}{space 1}   -8.67{col 46}{space 3}0.000{col 54}{space 4}-.7532193{col 67}{space 3}-.4753698
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2}  14.0698{col 26}{space 2}  .482938{col 37}{space 1}   29.13{col 46}{space 3}0.000{col 54}{space 4} 13.12326{col 67}{space 3} 15.01634
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 6 0 79}Note: The test of the variance against zero is one sided, and the two-sided confidence interval is truncated at zero.{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. tsappend,last(2000q1) tsfmt(q)
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. arima m2, arima (1,1,1)
+
+{txt}(setting optimization to BHHH)
+{res}{txt}Iteration 0:{col 16}log likelihood = {res}-649.28652{txt}  
+{res}{txt}Iteration 1:{col 16}log likelihood = {res}-644.75395{txt}  
+{res}{txt}Iteration 2:{col 16}log likelihood = {res}-643.40271{txt}  
+{res}{txt}Iteration 3:{col 16}log likelihood = {res}-643.13662{txt}  
+{res}{txt}Iteration 4:{col 16}log likelihood = {res}-642.90832{txt}  
+{res}{txt}(switching optimization to BFGS)
+{res}{txt}Iteration 5:{col 16}log likelihood = {res}-642.83233{txt}  
+{res}{txt}Iteration 6:{col 16}log likelihood = {res}-642.74681{txt}  
+{res}{txt}Iteration 7:{col 16}log likelihood = {res}-642.73317{txt}  
+{res}{txt}Iteration 8:{col 16}log likelihood = {res}-642.73053{txt}  
+{res}{txt}Iteration 9:{col 16}log likelihood = {res}-642.72979{txt}  
+{res}{txt}Iteration 10:{col 16}log likelihood = {res}-642.72977{txt}  
+{res}
+{txt}ARIMA regression
+
+Sample: {res}1959q2 {txt}thru{res} 1998q3 {col 49}{txt}Number of obs{col 67}={res}{col 69}       158
+                                                {txt}Wald chi2({res}2{txt})      =  {res}  1018.10
+{txt}Log likelihood = {res}-642.7298                      {txt}Prob > chi2       =     {res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}      OPG
+{col 1}        D.m2{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}m2           {txt}{c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} 30.13293{col 26}{space 2} 15.10454{col 37}{space 1}    1.99{col 46}{space 3}0.046{col 54}{space 4}  .528588{col 67}{space 3} 59.73728
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}ARMA         {txt}{c |}
+{space 10}ar {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2} .9723174{col 26}{space 2} .0341483{col 37}{space 1}   28.47{col 46}{space 3}0.000{col 54}{space 4} .9053879{col 67}{space 3} 1.039247
+{txt}{space 12} {c |}
+{space 10}ma {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2}-.6142945{col 26}{space 2} .0708813{col 37}{space 1}   -8.67{col 46}{space 3}0.000{col 54}{space 4}-.7532193{col 67}{space 3}-.4753698
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+      /sigma {c |}{col 14}{res}{space 2}  14.0698{col 26}{space 2}  .482938{col 37}{space 1}   29.13{col 46}{space 3}0.000{col 54}{space 4} 13.12326{col 67}{space 3} 15.01634
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 6 0 79}Note: The test of the variance against zero is one sided, and the two-sided confidence interval is truncated at zero.{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. predict x,xb
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. predict statis, y
+{txt}(6 missing values generated)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. tsline statis m2
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. predict dinamis, dyn(tq(1998q3))y
+{txt}(1 missing value generated)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. tsline dinamis m2
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. ssc install fcstats
+{txt}checking {hilite:fcstats} consistency and verifying not already installed...
+all files already exist and are up to date.
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. fcstats m2 statis
+
+{res}Forecast accuracy statistics for m2, N = 158
+
+{col 15}statis
+RMSE  {col 15}14.173178
+MAE   {col 15}9.1058257
+MAPE  {col 15}.00603878
+Theil's U {col 15}.52761135
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. fcstats m2 dinamis
+
+{res}Forecast accuracy statistics for m2, N = 158
+
+{col 15}dinamis
+RMSE  {col 15}14.173178
+MAE   {col 15}9.1058257
+MAPE  {col 15}.00603878
+Theil's U {col 15}.52761135
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ayip\AppData\Local\Temp\STD5a10_000000.tmp"
+{txt}
+{com}. save "$output/Kamila Fazilatunisa_120410230109_PostTestLab3TS"
+{txt}{p 0 4 2}
+file {bf}
+C:\Kamila Fazilatunisa_120410230109_TS\Output/Kamila Fazilatunisa_120410230109_PostTestLab3TS.dta{rm}
+saved
+{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. 
