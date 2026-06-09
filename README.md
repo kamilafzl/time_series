@@ -13,5 +13,5 @@ Most of the work here focuses on macroeconomic and financial time series data, c
 * **Stationarity Tests:** Running ADF, Phillips-Perron, and KPSS tests to check for unit roots.
 * **Univariate Models:** Building and forecasting with AR, MA, and ARIMA models (plus lag selection).
 * **Volatility (Finance):** Dealing with ARCH and GARCH models for high-frequency financial data.
-* **Multivariate Models:** Estimating VAR/SVAR models and testing for Granger Causality.
+* **Multivariate Models:** Estimating VAR models and testing for Granger Causality.
 * **Long-run Relationships:** Johansen Cointegration test and VECM (Vector Error Correction Model).
